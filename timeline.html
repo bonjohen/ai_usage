@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline — AI Coding Tool Adoption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="timeline">
+    <div class="grain"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <nav id="nav"></nav>
+
+    <section class="section">
+        <div class="container">
+            <span class="section-num reveal">06 / TIMELINE</span>
+            <h1 class="section-title reveal reveal-d1">A decade of acceleration</h1>
+            <p class="section-lead reveal reveal-d2">From ML-enhanced autocomplete in 2018 to autonomous agents writing PRs in 2025 — three overlapping waves reshaped how software gets built. Click any event to expand.</p>
+
+            <!-- Era Bands -->
+            <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:32px;max-width:900px">
+                <div class="tl-era-band tl-era-band--ml">
+                    <div class="tl-era-band__label">Wave 1: ML Completion (2018–2021)</div>
+                    <div class="tl-era-band__desc">IDE-integrated autocomplete, bundled into existing tools</div>
+                </div>
+                <div class="tl-era-band tl-era-band--llm">
+                    <div class="tl-era-band__label">Wave 2: LLM Coding (2021–2024)</div>
+                    <div class="tl-era-band__desc">Copilot, ChatGPT, and chat-based code generation</div>
+                </div>
+                <div class="tl-era-band tl-era-band--agent">
+                    <div class="tl-era-band__label">Wave 3: Agentic Systems (2024–)</div>
+                    <div class="tl-era-band__desc">Autonomous agents that plan, execute, and submit PRs</div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="tl-controls reveal">
+                <button class="tl-filter active" data-cat="all">All Events</button>
+                <button class="tl-filter" data-cat="product">Product Launches</button>
+                <button class="tl-filter" data-cat="survey">Surveys &amp; Data</button>
+                <button class="tl-filter" data-cat="funding">Funding &amp; M&amp;A</button>
+                <button class="tl-filter" data-cat="policy">Policy &amp; Regulation</button>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline-track reveal" style="max-width:900px" id="timelineTrack">
+
+                <!-- 2018 -->
+                <div class="tl-year-group">
+                    <div class="tl-year-header">
+                        <div class="tl-year-dot"></div>
+                        <span class="tl-year">2018</span>
+                        <span class="tl-year-count">2 events</span>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Visual Studio IntelliCode announced</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Microsoft brings AI-assisted IntelliSense to Visual Studio — the first mainstream IDE to ship ML-powered code completion.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">IntelliCode used machine learning models trained on thousands of open-source projects to provide contextual code suggestions. It was bundled into Visual Studio, making "AI-assisted development" accessible without extra installation — but most developers didn't think of it as "AI."</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Tabnine launches first AI code assistant</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">The first dedicated AI code completion tool ships as a standalone IDE extension.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Originally called "TabNine," it was one of the first products to apply deep learning specifically to code completion. Vendor later claims "more than one million users and thousands of organizations" — though not independently audited.</div></div>
+                    </div>
+                </div>
+
+                <!-- 2021 -->
+                <div class="tl-year-group">
+                    <div class="tl-year-header">
+                        <div class="tl-year-dot"></div>
+                        <span class="tl-year">2021</span>
+                        <span class="tl-year-count">2 events</span>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Jun 2021</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">GitHub Copilot technical preview</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">The catalyst — LLM-powered code generation enters the IDE for the first time at scale, powered by OpenAI Codex.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Built on OpenAI's Codex model (a fine-tuned GPT-3), Copilot could generate entire functions from comments and context. The technical preview was invitation-only but generated enormous developer interest and debate about AI-generated code quality and copyright.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Jul 2021</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">OpenAI Codex research paper published</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">The model behind Copilot is described in academic literature (arXiv:2107.03374).</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Codex demonstrated that LLMs could solve programming problems at a meaningful rate, establishing code generation as a legitimate capability of large language models and setting the stage for the next wave of products.</div></div>
+                    </div>
+                </div>
+
+                <!-- 2022 -->
+                <div class="tl-year-group">
+                    <div class="tl-year-header">
+                        <div class="tl-year-dot"></div>
+                        <span class="tl-year">2022</span>
+                        <span class="tl-year-count">2 events</span>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Jun 2022</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">GitHub Copilot generally available</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Copilot goes paid ($10/mo) — free for verified students and popular OSS maintainers, deliberately seeding the open-source community.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">The free tier for OSS maintainers was a key go-to-market strategy, ensuring that influential open-source contributors would adopt and advocate for the tool. GitHub also published a controlled study: 95 developers using Copilot completed a task 55% faster on average (1h11m vs 2h41m).</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Nov 2022</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">ChatGPT introduced</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">OpenAI's chat interface goes viral, broadening AI-assisted coding from IDEs into general-purpose conversation — a second adoption vector.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">While not a coding tool per se, ChatGPT became the most widely used AI tool among developers (89% per HackerRank 2025). Its conversational interface made code generation, debugging, and explanation accessible to developers who hadn't adopted IDE extensions.</div></div>
+                    </div>
+                </div>
+
+                <!-- 2023 -->
+                <div class="tl-year-group">
+                    <div class="tl-year-header">
+                        <div class="tl-year-dot"></div>
+                        <span class="tl-year">2023</span>
+                        <span class="tl-year-count">5 events</span>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Mar 2023</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">ChatGPT plugins + Code Interpreter announced</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">ChatGPT gains the ability to execute code in a sandbox — the first hint of agentic capability in a consumer product.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Code Interpreter could write and run Python, analyze data, create visualizations, and work with uploaded files. It rolled out broadly in July 2023 to Plus users, and demonstrated that LLMs could move beyond suggestion into execution.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Mar 2023</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Codex models deprecated in OpenAI API</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">OpenAI retires the original Codex models — GPT-3.5/4 prove capable enough for code without a specialized model.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">The deprecation signaled that general-purpose LLMs had subsumed code-specialized models. This complicated longitudinal analysis: "Codex" would later be reused as a brand name for OpenAI's 2025 agentic product, referring to a materially different system.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="survey">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">May 2023</span>
+                            <span class="tl-entry__tag">Survey</span>
+                            <span class="tl-entry__title">Stack Overflow: 43.8% AI tool adoption</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">First major benchmark — 89,184 respondents; 25.5% plan to use soon. The baseline for all future comparisons.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">This was the first large-scale survey to ask specifically about AI in the development process (narrower than "ever used"), establishing a measurable adoption rate. Combined use-or-plan rate was ~69%.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="survey">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Oct 2023</span>
+                            <span class="tl-entry__tag">Survey</span>
+                            <span class="tl-entry__title">SWE-bench published (Princeton)</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">The benchmark that would define the agentic coding era — 2,294 real GitHub issues from 12 Python repos.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">SWE-bench (arXiv:2310.06770, Jimenez et al.) evaluates whether AI can resolve real-world software issues end-to-end. Accepted as an oral at ICLR 2024, it became the de facto standard for measuring agentic coding capability. By mid-2024, top agents scored ~20% on the full benchmark.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Dec 2023</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Sourcegraph Cody GA</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">AI coding assistant leveraging Sourcegraph's deep code search for codebase-aware context launches generally.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Cody differentiated itself by using Sourcegraph's code intelligence graph for context. Cody Pro launched at $9/month. The product would later be pivoted — Cody Free/Pro sunset in July 2025 as Sourcegraph spun out "Amp" as a separate agentic coding company.</div></div>
+                    </div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="tl-year-group">
+                    <div class="tl-year-header">
+                        <div class="tl-year-dot"></div>
+                        <span class="tl-year">2024</span>
+                        <span class="tl-year-count">10 events</span>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Mar 2024</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Devin announced — "first AI software engineer"</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Cognition Labs demos an autonomous coding agent that can plan, execute, and debug multi-step tasks. Goes viral — and polarizes the industry.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Devin claimed SOTA on SWE-Bench at launch. Backed by Founders Fund. Industry reaction was split: enormous viral excitement at the demo, followed by skepticism when independent reviews showed underwhelming real-world performance. The Register later ran "'First AI software engineer' is bad at its job." GA came in December 2024 at $500/month; Devin 2.0 launched April 2025 at $20/month.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Apr 2024</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Google Gemini Code Assist launches</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Google rebrands Duet AI for Developers → Gemini Code Assist at Cloud Next 2024. Powered by Gemini 1.5 Pro.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Part of a broader February 2024 consolidation retiring all "Duet AI" branding in favor of "Gemini." Supports VS Code, JetBrains IDEs, and Cloud Shell Editor. An enterprise version with codebase-aware customization followed. Gemini later shows 47.4% usage among SO 2025 agent users.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="funding">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Apr 2024</span>
+                            <span class="tl-entry__tag">Funding</span>
+                            <span class="tl-entry__title">Augment Code emerges from stealth — $252M raised</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Enterprise-focused AI coding startup reveals itself with a $977M valuation after two years of stealth development.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Founded in 2022, Augment focused specifically on AI coding for large enterprise codebases. Investors: Sutter Hill Ventures, Index Ventures, Lightspeed, Meritech Capital. Reached ~$20M revenue by October 2025.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Apr 2024</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Amazon Q Developer GA</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">AWS rebrands CodeWhisperer → Amazon Q Developer, expanding from code completion to a full-lifecycle AI assistant.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">All CodeWhisperer features were folded into Q Developer, which added broader capabilities: debugging, optimization, migration assistance, and infrastructure management. AWS claimed it could make employees "more than 80% more productive."</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Apr 2024</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">GitHub Copilot Workspace technical preview</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">GitHub unveils an issue-to-PR workflow: AI that brainstorms, plans, implements, and validates code changes from a GitHub issue.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">First teased at GitHub Universe 2023, Workspace entered technical preview on April 29, 2024. A "Copilot-native developer environment" where the AI proposes a full implementation plan and code diff from an issue description. Expanded to all paying Copilot customers in December 2024.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="survey">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Jun 2024</span>
+                            <span class="tl-entry__tag">Survey</span>
+                            <span class="tl-entry__title">Stack Overflow 2024: adoption jumps to 61.8%</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">65,437 respondents — AI tool use rose 18 points year-over-year. "No plans" drops from 29.4% to 24.4%.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Same survey framing as 2023, making this year-over-year comparison reliable. The combined "use or plan" rate reached ~76%. The holdout population shrank from ~30% to ~24% in just one year.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="policy">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Aug 2024</span>
+                            <span class="tl-entry__tag">Policy</span>
+                            <span class="tl-entry__title">EU AI Act enters into force</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">The world's most comprehensive AI regulation takes effect, beginning a phased enforcement timeline that reaches coding tools via GPAI model obligations.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">The Act doesn't single out coding tools, but GPAI model obligations (August 2025) require providers to supply technical documentation and comply with EU copyright rules. Models posing "systemic risks" (&gt;10²⁵ FLOPS) face additional adversarial testing requirements. Full applicability for most operators arrives August 2026.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="funding">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Aug–Dec 2024</span>
+                            <span class="tl-entry__tag">Funding</span>
+                            <span class="tl-entry__title">Cursor raises $165M across Series A &amp; B</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Anysphere (Cursor) raises $60M at $400M valuation (August), then $105M at $2.5B valuation (December) — a 6x jump in four months.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Led by a16z and Thrive Capital. Cursor reached ~$100M ARR in 2024. The back-to-back raises signaled explosive growth and positioned Cursor as the leading AI-native IDE challenger to VS Code + Copilot.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Sep 2024</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Replit Agent launches</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">An autonomous agent that builds complete applications from natural language — not just suggestions, but full-stack app generation.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Replit Agent drove explosive growth: Replit went from $10M ARR (end of 2024) to $100M ARR (June 2025), with subscriber base growing 45% monthly post-Agent launch. Targeted a different user segment than Copilot/Cursor — non-professional developers and rapid prototyping.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Nov 2024</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Windsurf launches agentic IDE</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Codeium launches Windsurf Editor, branded as the "first agentic IDE" — combining copilot and agent paradigms in a single editor.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Windsurf combined inline completions with agent-style multi-file editing in one interface. By July 2025, Reuters reported $82M ARR and 350+ enterprise clients. The company fully rebranded from Codeium to Windsurf in April 2025.</div></div>
+                    </div>
+                </div>
+
+                <!-- 2025 -->
+                <div class="tl-year-group">
+                    <div class="tl-year-header">
+                        <div class="tl-year-dot"></div>
+                        <span class="tl-year">2025</span>
+                        <span class="tl-year-count">14 events</span>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Jan 2025</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">JetBrains Junie announced</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">JetBrains enters the agent race with a coding agent built into their IDE ecosystem — routine task delegation from familiar tools.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Junie could handle routine coding tasks, tests, and refactoring within JetBrains IDEs. Market-wide penetration not publicly quantified, but adoption was likely concentrated within the JetBrains user base.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Feb 2025</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Claude Code research preview</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Anthropic introduces an agentic CLI tool that reads codebases, edits files, and runs commands — launched alongside Claude 3.7 Sonnet.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Claude Code took a fundamentally different approach: terminal-first rather than IDE-embedded. It could autonomously navigate repos, edit multiple files, run tests, and iterate. The launch was notably low-key — no launch event, no viral demo. It reached GA on May 22, 2025.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Feb 2025</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">GitHub Copilot agent mode preview</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Copilot gains autonomous multi-step capability in VS Code Insiders — planning tasks, editing multiple files, running terminal commands, and self-correcting errors.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Agent mode was distinct from standard Copilot (inline completions) and Copilot Chat (Q&amp;A). It could break down tasks, identify sub-problems, execute solutions across files, and iterate on errors autonomously. GA rolled out to all VS Code users ~April 2025. Extended to JetBrains, Eclipse, and Xcode by May 2025.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="policy">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Feb 2025</span>
+                            <span class="tl-entry__tag">Policy</span>
+                            <span class="tl-entry__title">EU AI Act: prohibited practices + AI literacy enforceable</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">First enforcement phase — organizations must comply with banned AI practices and demonstrate AI literacy among staff.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">While coding tools themselves weren't in the "prohibited" category, the AI literacy requirement meant organizations using AI coding tools needed training and governance programs in place. This accelerated enterprise AI policy formalization.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Apr 2025</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Devin 2.0 — price drops from $500 to $20/month</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Cognition slashes pricing and shifts to usage-based model, signaling that autonomous coding agents are moving toward mass-market accessibility.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Devin 2.0 introduced ACUs (Agent Compute Units) for usage-based pricing. The 96% price drop in four months reflected both competitive pressure and the reality that early pricing had limited adoption to enterprises willing to experiment.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Apr 2025</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Tabnine sunsets free tier</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Tabnine discontinues its free "Basic" plan to focus entirely on enterprise — named a Visionary in 2025 Gartner Magic Quadrant for AI Code Assistants.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">The free-to-enterprise pivot reflected a market where free-tier competition from Copilot, Gemini Code Assist, and others made individual freemium unsustainable. Tabnine doubled down on enterprise features: private deployment, IP protection, and compliance.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">May 2025</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">OpenAI Codex agent research preview</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">OpenAI launches a cloud-based software engineering agent — a sandboxed system that can write features, fix bugs, and propose PRs autonomously.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Not to be confused with the deprecated 2021 Codex model. The 2025 "Codex" is a fully agentic platform that runs in sandboxed cloud environments, operates on entire codebases, and submits pull requests. The name reuse complicated longitudinal tracking.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">May 2025</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">GitHub Copilot coding agent public preview</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Announced at Microsoft Build — an autonomous agent that takes a GitHub issue, spins up a dev environment, writes code, and opens a draft PR.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Distinct from "agent mode" (interactive, in-IDE). The coding agent is asynchronous: assign it an issue and it works in the background via GitHub Actions. Excels at low-to-medium complexity tasks in well-tested codebases. Reached GA on September 25, 2025 for all paid Copilot subscribers.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">May 2025</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Claude Code reaches general availability</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Three months after research preview, Claude Code goes GA. Becomes one of the fastest-growing software products ever: ~$1B ARR by November 2025.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Claude Code on the web launched October 20, 2025. Pragmatic Engineer's 2026 survey found 71% usage among regular agent users and 75% at the smallest companies — the dominant tool in the agentic-first segment. Estimated near $2B ARR by January 2026.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="funding">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">May–Jul 2025</span>
+                            <span class="tl-entry__tag">Funding</span>
+                            <span class="tl-entry__title">OpenAI–Windsurf acquisition collapses</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">OpenAI agrees to buy Windsurf for $3B (May) — deal falls apart (July). Google signs $2.4B licensing deal and hires Windsurf's CEO.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">The deal collapsed partly because Microsoft (via its OpenAI relationship) would have gained access to Windsurf's IP — problematic given Microsoft's competing Copilot product. Google DeepMind hired Windsurf CEO Varun Mohan and co-founder Douglas Chen. Windsurf continues independently with a non-exclusive Google license.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="survey">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Jun 2025</span>
+                            <span class="tl-entry__tag">Survey</span>
+                            <span class="tl-entry__title">Stack Overflow 2025: 78.5% using, 46% distrust</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">49,009 respondents — 47.1% daily use, but more developers distrust AI accuracy (46%) than trust it (33%). The paradox crystallizes.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">2025 shifted to frequency reporting. Agent-specific data showed 30.9% using agents at any frequency, with 37.9% saying they don't plan to use agents. Only ~3% reported "highly trusting" AI output. Top frustration: "almost right but not quite" outputs (66%).</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="funding">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Jun 2025</span>
+                            <span class="tl-entry__tag">Funding</span>
+                            <span class="tl-entry__title">Cursor raises $900M at $9.9B — fastest-growing SaaS ever</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Series C co-led by Thrive and a16z. Cursor hit $500M ARR (May) → $1B ARR (October) — a pace unprecedented in SaaS history.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">By November 2025, Cursor raised $2.3B Series D at $29.3B valuation. Total funding: ~$3.3B from Google, NVIDIA, a16z, Thrive, Accel, and Coatue. The valuation trajectory — $400M → $2.5B → $9.9B → $29.3B in 15 months — reflected the market's conviction that AI-native IDEs would replace traditional editors.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="policy">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Aug 2025</span>
+                            <span class="tl-entry__tag">Policy</span>
+                            <span class="tl-entry__title">EU AI Act: GPAI model obligations take effect</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Providers of general-purpose AI models must supply technical documentation, publish training data summaries, and comply with EU copyright rules.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">This milestone directly affected the foundation models powering all major coding tools (GPT-4, Claude, Gemini). Models posing "systemic risks" (&gt;10²⁵ FLOPS) faced additional adversarial testing and risk mitigation obligations. The full compliance framework for most operators arrives August 2026.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Oct 2025</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Cursor 2.0 + multi-agent interface</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Cursor ships a multi-agent interface where multiple AI agents collaborate on different parts of a codebase simultaneously.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Cursor 2.0 represented the frontier of agentic IDE design — moving from single-agent to multi-agent workflows. This pushed the boundary on what "AI-assisted development" could look like: multiple agents working in parallel, each handling a different file or subsystem.</div></div>
+                    </div>
+                </div>
+
+                <!-- 2026 -->
+                <div class="tl-year-group">
+                    <div class="tl-year-header">
+                        <div class="tl-year-dot"></div>
+                        <span class="tl-year">2026</span>
+                        <span class="tl-year-count">3 events</span>
+                    </div>
+                    <div class="tl-entry" data-cat="survey">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Jan 2026</span>
+                            <span class="tl-entry__tag">Survey</span>
+                            <span class="tl-entry__title">Microsoft: 4.7M paid Copilot subscribers</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">FY26 Q2 earnings call — the hardest number in AI coding. "20M users" and "90% of the Fortune 100" also cited.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Paid subscriber count is the most auditable metric in the space. The gap between "4.7M paid" and "20M users" suggests significant free/trial usage. Fortune 100 penetration (90%) reflects enterprise presence but not intensity of use within those organizations.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="product">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Mar 2026</span>
+                            <span class="tl-entry__tag">Product</span>
+                            <span class="tl-entry__title">Codex Security research preview</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">OpenAI extends its Codex agent platform into security — automated vulnerability detection and remediation.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">Security was a natural extension of the agentic paradigm: if agents can write code, they can also analyze it for vulnerabilities, propose fixes, and verify patches. This addressed one of the key concerns around AI coding: that increased code volume without proportional security review creates risk.</div></div>
+                    </div>
+                    <div class="tl-entry" data-cat="survey">
+                        <div class="tl-entry__head">
+                            <span class="tl-entry__date">Forecast</span>
+                            <span class="tl-entry__tag">Survey</span>
+                            <span class="tl-entry__title">Gartner: 75% of enterprise engineers to use AI by 2028</span>
+                            <span class="tl-expand-hint">+</span>
+                        </div>
+                        <p class="tl-entry__summary">Gartner's forward-looking forecast — up from &lt;10% in early 2023 and 63% of organizations piloting/deploying in Q3 2023.</p>
+                        <div class="tl-entry__detail"><div class="tl-entry__detail-inner">This trajectory — &lt;10% → 63% piloting → 75% forecast — illustrates the enterprise adoption curve lagging but following the individual developer curve. The constraint is procurement, policy, and compliance, not developer willingness.</div></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Navigation -->
+    <div class="page-nav">
+        <a href="trust.html" class="page-nav__link">&larr; Trust</a>
+        <a href="sources.html" class="page-nav__link">Sources &rarr;</a>
+    </div>
+
+    <footer id="footer"></footer>
+    <script src="js/shared.js"></script>
+    <script>
+    /* Timeline Filters */
+    const filterBtns = document.querySelectorAll('.tl-filter');
+    const tlEntries = document.querySelectorAll('.tl-entry');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cat = btn.dataset.cat;
+            tlEntries.forEach(entry => {
+                if (cat === 'all' || entry.dataset.cat === cat) {
+                    entry.classList.remove('filtered-out');
+                } else {
+                    entry.classList.add('filtered-out');
+                    entry.classList.remove('expanded');
+                }
+            });
+            document.querySelectorAll('.tl-year-group').forEach(group => {
+                const visible = group.querySelectorAll('.tl-entry:not(.filtered-out)').length;
+                const countEl = group.querySelector('.tl-year-count');
+                if (countEl) countEl.textContent = visible + ' event' + (visible !== 1 ? 's' : '');
+            });
+        });
+    });
+
+    /* Expand/Collapse */
+    tlEntries.forEach(entry => {
+        entry.addEventListener('click', () => {
+            entry.classList.toggle('expanded');
+        });
+    });
+    </script>
+</body>
+</html>

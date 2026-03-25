@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoption Trends — AI Coding Tool Adoption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="adoption">
+    <div class="grain"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <nav id="nav"></nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <span class="section-num reveal">01 / ADOPTION</span>
+            <h1 class="section-title reveal reveal-d1">The surge nobody predicted</h1>
+            <p class="section-lead reveal reveal-d2">In just two years, AI tool usage among developers nearly doubled. But the numbers depend heavily on who you ask and how you ask.</p>
+        </div>
+    </div>
+
+    <!-- Adoption Content -->
+    <section class="section" style="padding-top:0">
+        <div class="container">
+            <div class="stat-row reveal">
+                <div class="stat-card stat-card--amber">
+                    <span class="stat-card__source">Stack Overflow 2023</span>
+                    <span class="stat-card__value">43.8%</span>
+                    <span class="stat-card__label">using AI in their dev process</span>
+                </div>
+                <div class="stat-card stat-card--amber">
+                    <span class="stat-card__source">Stack Overflow 2025</span>
+                    <span class="stat-card__value">78.5%</span>
+                    <span class="stat-card__label">currently using AI tools</span>
+                </div>
+                <div class="stat-card stat-card--cyan">
+                    <span class="stat-card__source">DORA 2025</span>
+                    <span class="stat-card__value">90%</span>
+                    <span class="stat-card__label">of tech professionals use AI</span>
+                </div>
+                <div class="stat-card stat-card--violet">
+                    <span class="stat-card__source">HackerRank 2025</span>
+                    <span class="stat-card__value">97%</span>
+                    <span class="stat-card__label">use at least one AI assistant</span>
+                </div>
+            </div>
+
+            <div class="chart-grid reveal">
+                <div class="chart-wrap" data-chart="adoption">
+                    <div class="chart-header">
+                        <h3>Adoption Over Time</h3>
+                        <p class="chart-subtitle">Stack Overflow Developer Survey, 2023–2025</p>
+                    </div>
+                    <div class="chart-body" style="height:320px">
+                        <canvas id="adoptionChart"></canvas>
+                    </div>
+                    <p class="chart-note">2025 "currently using" = daily 47.1% + weekly 17.7% + monthly/infrequent 13.7%</p>
+                </div>
+                <div class="chart-wrap" data-chart="frequency">
+                    <div class="chart-header">
+                        <h3>How Often? (2025)</h3>
+                        <p class="chart-subtitle">Stack Overflow 2025 usage frequency breakdown</p>
+                    </div>
+                    <div class="chart-body" style="height:320px">
+                        <canvas id="frequencyChart"></canvas>
+                    </div>
+                    <p class="chart-note">Nearly half of respondents use AI daily — not just trying it, but relying on it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Navigation -->
+    <div class="page-nav">
+        <a href="index.html" class="page-nav__link">&larr; Home</a>
+        <a href="tools.html" class="page-nav__link">Tools &rarr;</a>
+    </div>
+
+    <footer id="footer"></footer>
+    <script src="js/shared.js"></script>
+    <script src="js/charts.js"></script>
+    <script>
+    const charts = {};
+
+    /* -- Adoption Over Time -- */
+    charts.adoption = new Chart(document.getElementById('adoptionChart'), {
+        type: 'bar',
+        data: {
+            labels: ['2023', '2024', '2025'],
+            datasets: [
+                { label: 'Currently Using', data: [43.78, 61.8, 78.5], backgroundColor: C.amberA, borderColor: C.amber, borderWidth: 1, borderRadius: 6 },
+                { label: 'Plan to Use', data: [25.46, 13.8, 5.3], backgroundColor: C.violetA, borderColor: C.violet, borderWidth: 1, borderRadius: 6 },
+                { label: 'No Plans', data: [30.76, 24.4, 16.2], backgroundColor: 'rgba(90,93,106,0.5)', borderColor: C.dim, borderWidth: 1, borderRadius: 6 }
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom' } },
+            scales: {
+                x: { stacked: true, grid: { display: false } },
+                y: { stacked: true, max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
+            },
+            animation: { duration: 1200, easing: 'easeOutQuart' }
+        }
+    });
+
+    /* -- Frequency Donut -- */
+    charts.frequency = new Chart(document.getElementById('frequencyChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Daily (47.1%)', 'Weekly (17.7%)', 'Monthly (13.7%)', 'Plan Soon (5.3%)', 'No Plans (16.2%)'],
+            datasets: [{
+                data: [47.1, 17.7, 13.7, 5.3, 16.2],
+                backgroundColor: [C.amber, C.violet, C.cyan, C.greenBg, 'rgba(90,93,106,0.35)'],
+                borderColor: ['transparent','transparent','transparent','transparent','transparent'],
+                borderWidth: 0, spacing: 2, borderRadius: 4
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false, cutout: '62%',
+            plugins: {
+                legend: { position: 'right', labels: { font: { size: 11 }, padding: 12 } }
+            },
+            animation: { animateRotate: true, duration: 1400, easing: 'easeOutQuart' }
+        }
+    });
+    </script>
+</body>
+</html>

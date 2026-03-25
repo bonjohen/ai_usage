@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Trust Paradox — AI Coding Tool Adoption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="trust">
+    <div class="grain"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <nav id="nav"></nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <span class="section-num reveal">05 / THE PARADOX</span>
+            <h1 class="section-title reveal reveal-d1">Everybody uses it.<br>Almost nobody trusts it.</h1>
+            <p class="section-lead reveal reveal-d2">The central tension of AI-assisted coding: developers report strong productivity gains while simultaneously distrusting the very tools they rely on daily. The data tells two contradictory stories.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <!-- Dual Panel: Do vs Think -->
+            <div class="dual-panel reveal">
+                <div class="dual-panel__col dual-panel__col--do">
+                    <div class="dual-panel__heading">What Developers Do</div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Use AI tools</span>
+                        <span class="dual-row__value">78.5%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Use daily</span>
+                        <span class="dual-row__value">47.1%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Say AI saves time</span>
+                        <span class="dual-row__value">~90%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Report enhanced productivity</span>
+                        <span class="dual-row__value">>80%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Completed task faster (controlled)</span>
+                        <span class="dual-row__value">55%</span>
+                    </div>
+                </div>
+                <div class="dual-panel__col dual-panel__col--think">
+                    <div class="dual-panel__heading">What Developers Think</div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Distrust AI accuracy</span>
+                        <span class="dual-row__value">46%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">"Highly trust" AI</span>
+                        <span class="dual-row__value">~3%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Frustrated by "almost right" output</span>
+                        <span class="dual-row__value">66%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Report longer debugging</span>
+                        <span class="dual-row__value">45%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Trust "a lot" or "great deal" (DORA)</span>
+                        <span class="dual-row__value">24%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Survey Framing Funnel -->
+            <div class="chart-wrap reveal" style="margin-top:8px">
+                <div class="chart-header">
+                    <h3>The Question Shapes the Answer</h3>
+                    <p class="chart-subtitle">The same population yields wildly different numbers depending on how you ask</p>
+                </div>
+                <div class="chart-body" style="height:260px">
+                    <canvas id="framingChart"></canvas>
+                </div>
+                <p class="chart-note">These are not directly comparable surveys — different samples, timing, and audiences. But they illustrate why "adoption rate" claims range from 47% to 97%: question framing is everything. The stricter the definition, the smaller the number.</p>
+            </div>
+
+            <!-- Trust + Productivity Charts -->
+            <div class="chart-grid reveal" style="margin-top:8px">
+                <div class="chart-wrap" data-chart="trust">
+                    <div class="chart-header">
+                        <h3>Trust Levels</h3>
+                        <p class="chart-subtitle">Stack Overflow 2025 — trust in AI output accuracy</p>
+                    </div>
+                    <div class="chart-body" style="height:200px">
+                        <canvas id="trustChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-wrap" data-chart="productivity">
+                    <div class="chart-header">
+                        <h3>Productivity Claims by Source</h3>
+                        <p class="chart-subtitle">Self-reported gains vs. one controlled experiment</p>
+                    </div>
+                    <div class="chart-body" style="height:200px">
+                        <canvas id="productivityChart"></canvas>
+                    </div>
+                    <p class="chart-note">Only the GitHub experiment (55% faster, n=95) is a controlled study. All others are self-reported survey data.</p>
+                </div>
+            </div>
+
+            <!-- Controlled Experiment Detail -->
+            <div class="chart-wrap reveal" style="margin-top:8px">
+                <div class="chart-header">
+                    <h3>The One Controlled Experiment</h3>
+                    <p class="chart-subtitle">GitHub 2022 — 95 professional developers, randomized controlled trial</p>
+                </div>
+                <div class="dual-panel" style="margin-bottom:0;border:none">
+                    <div class="dual-panel__col dual-panel__col--do" style="border:none;background:transparent;padding:16px 0">
+                        <div class="dual-panel__heading" style="font-size:0.65rem">With Copilot</div>
+                        <div class="dual-row">
+                            <span class="dual-row__label">Median completion time</span>
+                            <span class="dual-row__value">1h 11m</span>
+                        </div>
+                        <div class="dual-row">
+                            <span class="dual-row__label">Task completion rate</span>
+                            <span class="dual-row__value">78%</span>
+                        </div>
+                        <div class="dual-row">
+                            <span class="dual-row__label">Speed improvement</span>
+                            <span class="dual-row__value">55%</span>
+                        </div>
+                    </div>
+                    <div class="dual-panel__col dual-panel__col--think" style="border:none;background:transparent;padding:16px 0">
+                        <div class="dual-panel__heading" style="font-size:0.65rem">Without Copilot</div>
+                        <div class="dual-row">
+                            <span class="dual-row__label">Median completion time</span>
+                            <span class="dual-row__value">2h 41m</span>
+                        </div>
+                        <div class="dual-row">
+                            <span class="dual-row__label">Task completion rate</span>
+                            <span class="dual-row__value">70%</span>
+                        </div>
+                        <div class="dual-row">
+                            <span class="dual-row__label">Speed improvement</span>
+                            <span class="dual-row__value">—</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="chart-note">This is the <strong>only published controlled experiment</strong> with professional developers. The 55% speed gain is real but narrow: one task type, one tool, one sample. Self-reported surveys (80–90% "productivity improvement") are not comparable — they measure perception, not performance.</p>
+            </div>
+
+            <!-- Pain Points + Stability -->
+            <div class="chart-grid reveal" style="margin-top:8px">
+                <div class="chart-wrap" data-chart="painPoints">
+                    <div class="chart-header">
+                        <h3>Top Frustrations</h3>
+                        <p class="chart-subtitle">Stack Overflow 2025 — what goes wrong with AI output</p>
+                    </div>
+                    <div class="chart-body" style="height:220px">
+                        <canvas id="painPointsChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-wrap" data-chart="stability">
+                    <div class="chart-header">
+                        <h3>The Stability Problem</h3>
+                        <p class="chart-subtitle">DORA 2025 — AI's contradictory impact on software delivery</p>
+                    </div>
+                    <div class="chart-body" style="height:220px">
+                        <canvas id="stabilityChart"></canvas>
+                    </div>
+                    <p class="chart-note">AI increases throughput and product performance but has a <strong>negative relationship with delivery stability</strong>. More code, shipped faster, with more failures — the verification debt problem in one chart.</p>
+                </div>
+            </div>
+
+            <!-- Verification Debt Callout -->
+            <div class="reveal" style="margin-top:8px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:32px;position:relative;overflow:hidden">
+                <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--amber),var(--red))"></div>
+                <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.15rem;margin-bottom:12px">Verification Debt</h3>
+                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;max-width:700px">AI doesn't eliminate work — it shifts it. Developers spend less time <em>writing</em> code and more time <em>reviewing, debugging, and verifying</em> AI output. When "almost right" is the norm (66% of developers report this), the bottleneck moves from generation to verification. DORA's finding that AI <em>hurts</em> delivery stability while boosting throughput is the organizational version of this: more code ships faster, but without proportional safety nets, failure rates climb.</p>
+                <div class="stat-row" style="margin-top:20px;margin-bottom:0">
+                    <div class="stat-card stat-card--red" style="padding:20px">
+                        <span class="stat-card__source">SO 2025</span>
+                        <span class="stat-card__value" style="font-size:1.75rem">66%</span>
+                        <span class="stat-card__label">"almost right but not quite" is top frustration</span>
+                    </div>
+                    <div class="stat-card stat-card--red" style="padding:20px">
+                        <span class="stat-card__source">SO 2025</span>
+                        <span class="stat-card__value" style="font-size:1.75rem">45%</span>
+                        <span class="stat-card__label">report longer debugging time with AI</span>
+                    </div>
+                    <div class="stat-card stat-card--red" style="padding:20px">
+                        <span class="stat-card__source">DORA 2025</span>
+                        <span class="stat-card__value" style="font-size:1.75rem">Negative</span>
+                        <span class="stat-card__label">AI's relationship with delivery stability</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Nav -->
+            <div class="page-nav reveal">
+                <a href="segments.html" class="page-nav__link page-nav__link--prev">
+                    <span class="page-nav__arrow">&larr;</span>
+                    <span class="page-nav__label">Segments</span>
+                </a>
+                <a href="timeline.html" class="page-nav__link page-nav__link--next">
+                    <span class="page-nav__label">Timeline</span>
+                    <span class="page-nav__arrow">&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer"></footer>
+
+    <script src="js/shared.js"></script>
+    <script src="js/charts.js"></script>
+    <script>
+    /* ======== Trust Page Charts ======== */
+    const charts = {};
+
+    /* -- Survey Framing Funnel -- */
+    charts.framing = new Chart(document.getElementById('framingChart'), {
+        type: 'bar',
+        data: {
+            labels: [
+                '"Ever used"\n(GitHub 2024)',
+                '"Use \u22651 assistant"\n(HackerRank 2025)',
+                '"Regularly use"\n(JetBrains 2025)',
+                '"Currently using"\n(SO 2025)',
+                '"Use daily"\n(SO 2025)'
+            ],
+            datasets: [{
+                data: [97, 97, 85, 78.5, 47.1],
+                backgroundColor: [
+                    'rgba(232,168,56,0.3)', 'rgba(232,168,56,0.4)',
+                    'rgba(167,139,250,0.5)', 'rgba(56,189,248,0.6)',
+                    'rgba(56,189,248,0.8)'
+                ],
+                borderColor: [C.amber, C.amber, C.violet, C.cyan, C.cyan],
+                borderWidth: 1, borderRadius: 6
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { grid: { display: false }, ticks: { font: { size: 10 }, maxRotation: 0 } },
+                y: { min: 30, max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
+            },
+            animation: { duration: 1200, easing: 'easeOutQuart' }
+        }
+    });
+
+    /* -- Trust Chart -- */
+    charts.trust = new Chart(document.getElementById('trustChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Distrust AI Accuracy', 'Neutral', 'Trust AI Accuracy'],
+            datasets: [{
+                data: [46, 21, 33],
+                backgroundColor: [C.redA, 'rgba(90,93,106,0.4)', C.greenA],
+                borderColor: [C.red, C.dim, C.green],
+                borderWidth: 1, borderRadius: 6
+            }]
+        },
+        options: {
+            indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { max: 55, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
+                y: { grid: { display: false } }
+            },
+            animation: { duration: 1000, easing: 'easeOutQuart' }
+        }
+    });
+
+    /* -- Productivity Claims -- */
+    charts.productivity = new Chart(document.getElementById('productivityChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Save Time (JetBrains)', 'Say AI Helps (HackerRank)', 'Enhanced Prod. (DORA)', 'Faster \u2014 Controlled (GitHub)'],
+            datasets: [{
+                data: [90, 85, 80, 55],
+                backgroundColor: [C.amberA, C.amberA, C.amberA, C.cyanA],
+                borderColor: [C.amber, C.amber, C.amber, C.cyan],
+                borderWidth: 1, borderRadius: 6
+            }]
+        },
+        options: {
+            indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
+                y: { grid: { display: false } }
+            },
+            animation: { duration: 1000, easing: 'easeOutQuart' }
+        }
+    });
+
+    /* -- Pain Points -- */
+    charts.painPoints = new Chart(document.getElementById('painPointsChart'), {
+        type: 'bar',
+        data: {
+            labels: ['"Almost right but\nnot quite"', 'Longer debugging\ntime', 'Privacy/security\nconcerns', 'Lack of trust in\noutput accuracy'],
+            datasets: [{
+                data: [66, 45, 38, 46],
+                backgroundColor: [C.redA, C.redA, C.amberA, C.redA],
+                borderColor: [C.red, C.red, C.amber, C.red],
+                borderWidth: 1, borderRadius: 6
+            }]
+        },
+        options: {
+            indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { max: 75, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
+                y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+            },
+            animation: { duration: 1000, easing: 'easeOutQuart' }
+        }
+    });
+
+    /* -- DORA Stability Impact -- */
+    charts.stability = new Chart(document.getElementById('stabilityChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Throughput', 'Product\nPerformance', 'Delivery\nStability'],
+            datasets: [{
+                label: 'AI Impact Direction',
+                data: [80, 59, -35],
+                backgroundColor: (ctx) => ctx.raw >= 0 ? C.greenA : C.redA,
+                borderColor: (ctx) => ctx.raw >= 0 ? C.green : C.red,
+                borderWidth: 1, borderRadius: 6
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: { callbacks: { label: (ctx) => ctx.raw >= 0 ? ctx.raw + '% positive' : Math.abs(ctx.raw) + '% negative' } }
+            },
+            scales: {
+                x: { grid: { display: false } },
+                y: { min: -50, max: 100, grid: { color: C.grid },
+                    ticks: { callback: v => v >= 0 ? '+' + v + '%' : v + '%' }
+                }
+            },
+            animation: { duration: 1000, easing: 'easeOutQuart' }
+        }
+    });
+    </script>
+</body>
+</html>

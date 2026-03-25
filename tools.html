@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool Landscape — AI Coding Tool Adoption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="tools">
+    <div class="grain"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <nav id="nav"></nav>
+
+    <section class="section">
+        <div class="container">
+            <span class="section-num reveal">02 / TOOLS</span>
+            <h2 class="section-title reveal reveal-d1">The competitive landscape</h2>
+            <p class="section-lead reveal reveal-d2">ChatGPT and Copilot dominate broad usage. But tool choice diverges sharply by context — survey audience, company size, and whether you're asking about assistive or agentic use.</p>
+
+            <div class="chart-grid reveal">
+                <div class="chart-wrap" data-chart="toolsSO">
+                    <div class="chart-header">
+                        <h3>Tool Usage — Agent Users</h3>
+                        <p class="chart-subtitle">Stack Overflow 2025 (among those who use/develop agents, n≈8,323)</p>
+                    </div>
+                    <div class="chart-body" style="height:280px">
+                        <canvas id="toolsSOChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-wrap" data-chart="toolsPE">
+                    <div class="chart-header">
+                        <h3>Tool Usage — Regular Agent Users</h3>
+                        <p class="chart-subtitle">Pragmatic Engineer 2026 survey (n=906, high-bias audience)</p>
+                    </div>
+                    <div class="chart-body" style="height:280px">
+                        <canvas id="toolsPEChart"></canvas>
+                    </div>
+                    <p class="chart-note">Small, self-selected sample of experienced engineers (median 11–15 yrs). Treat as signal of practitioner preference, not population-level share.</p>
+                </div>
+            </div>
+
+            <div class="chart-wrap reveal" style="margin-top:8px">
+                <div class="chart-header">
+                    <h3>Hard Metrics — What We Can Verify</h3>
+                    <p class="chart-subtitle">Vendor disclosures, earnings calls, and independently reported figures</p>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Verified Metric</th>
+                            <th>Source</th>
+                            <th>Caveat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>GitHub Copilot</strong></td>
+                            <td class="mono">4.7M paid subscribers</td>
+                            <td>Microsoft FY26 Q2 (Jan 2026)</td>
+                            <td>Separate "20M users" figure may include free/trial</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GitHub Copilot</strong></td>
+                            <td class="mono">90% of Fortune 100</td>
+                            <td>Microsoft FY25 Q4</td>
+                            <td>Enterprise presence ≠ intensity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cursor</strong></td>
+                            <td class="mono">$1B ARR, $29.3B valuation</td>
+                            <td>CNBC / BusinessWire (Nov 2025)</td>
+                            <td>$500M ARR (May) → $1B (Oct) — fastest SaaS ARR growth ever</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Claude Code</strong></td>
+                            <td class="mono">~$1B ARR (est. Nov 2025)</td>
+                            <td>Industry estimates</td>
+                            <td>Estimated; not independently disclosed by Anthropic</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Windsurf</strong></td>
+                            <td class="mono">$82M ARR, 350+ enterprise clients</td>
+                            <td>Reuters (Jul 2025)</td>
+                            <td>At time of failed OpenAI acquisition ($3B); now licensed to Google ($2.4B)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Replit</strong></td>
+                            <td class="mono">$10M → $100M ARR in 6 months</td>
+                            <td>Replit blog (2025)</td>
+                            <td>Driven by Replit Agent (Sep 2024); 45% monthly subscriber growth</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tabnine</strong></td>
+                            <td class="mono">1M+ users (vendor claim)</td>
+                            <td>Tabnine "About" page</td>
+                            <td>Free tier sunset Apr 2025; enterprise-only pivot</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <div class="page-nav">
+        <a href="adoption.html" class="page-nav__link">← Adoption</a>
+        <a href="agentic-split.html" class="page-nav__link">Agentic Split →</a>
+    </div>
+
+    <footer id="footer"></footer>
+    <script src="js/shared.js"></script>
+    <script src="js/charts.js"></script>
+    <script>
+        const charts = {};
+
+        /* -- Tools: Stack Overflow -- */
+        charts.toolsSO = new Chart(document.getElementById('toolsSOChart'), {
+            type: 'bar',
+            data: {
+                labels: ['ChatGPT', 'GitHub Copilot', 'Gemini', 'Claude Code'],
+                datasets: [{
+                    label: 'Usage %',
+                    data: [81.7, 67.9, 47.4, 40.8],
+                    backgroundColor: [C.amberA, C.cyanA, C.greenA, C.violetA],
+                    borderColor: [C.amber, C.cyan, C.green, C.violet],
+                    borderWidth: 1, borderRadius: 6
+                }]
+            },
+            options: {
+                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
+                    y: { grid: { display: false } }
+                },
+                animation: { duration: 1000, easing: 'easeOutQuart' }
+            }
+        });
+
+        /* -- Tools: Pragmatic Engineer -- */
+        charts.toolsPE = new Chart(document.getElementById('toolsPEChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Claude Code', 'GitHub Copilot', 'Cursor'],
+                datasets: [{
+                    label: 'Usage %',
+                    data: [71, 46, 39],
+                    backgroundColor: [C.violetA, C.cyanA, C.amberA],
+                    borderColor: [C.violet, C.cyan, C.amber],
+                    borderWidth: 1, borderRadius: 6
+                }]
+            },
+            options: {
+                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
+                    y: { grid: { display: false } }
+                },
+                animation: { duration: 1000, easing: 'easeOutQuart' }
+            }
+        });
+    </script>
+</body>
+</html>

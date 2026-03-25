@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistive vs Agentic — AI Coding Tool Adoption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="agentic-split">
+    <div class="grain"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <nav id="nav"></nav>
+
+    <section class="section">
+        <div class="container">
+            <span class="section-num reveal">03 / AGENTIC SPLIT</span>
+            <h2 class="section-title reveal reveal-d1">Assistance is mainstream.<br>Autonomy is not.</h2>
+            <p class="section-lead reveal reveal-d2">Nearly 4 in 5 developers use AI assistance. But only about 1 in 3 have used an AI agent — and almost 38% say they don't plan to. The gap is about trust, risk, and verification debt.</p>
+
+            <div class="stat-row reveal">
+                <div class="stat-card stat-card--amber">
+                    <span class="stat-card__source">SO 2025 · All Respondents</span>
+                    <span class="stat-card__value">78.5%</span>
+                    <span class="stat-card__label">use AI tools (any mode)</span>
+                </div>
+                <div class="stat-card stat-card--violet">
+                    <span class="stat-card__source">SO 2025 · Agent Use</span>
+                    <span class="stat-card__value">30.9%</span>
+                    <span class="stat-card__label">use AI agents at any frequency</span>
+                </div>
+                <div class="stat-card stat-card--red">
+                    <span class="stat-card__source">SO 2025 · Resistance</span>
+                    <span class="stat-card__value">37.9%</span>
+                    <span class="stat-card__label">don't plan to use agents</span>
+                </div>
+            </div>
+
+            <div class="chart-wrap reveal" data-chart="agentic">
+                <div class="chart-header">
+                    <h3>Agent Adoption Breakdown</h3>
+                    <p class="chart-subtitle">Stack Overflow 2025 — frequency of agent use specifically</p>
+                </div>
+                <div class="chart-body" style="height:300px">
+                    <canvas id="agenticChart"></canvas>
+                </div>
+                <p class="chart-note">Autonomy amplifies risk: test failures, security mistakes, and policy violations. "Verification debt" shifts effort from writing code to reviewing and debugging it.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="page-nav">
+        <a href="tools.html" class="page-nav__link">← Tools</a>
+        <a href="segments.html" class="page-nav__link">Segments →</a>
+    </div>
+
+    <footer id="footer"></footer>
+    <script src="js/shared.js"></script>
+    <script src="js/charts.js"></script>
+    <script>
+        const charts = {};
+
+        /* -- Agentic Breakdown -- */
+        charts.agentic = new Chart(document.getElementById('agenticChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Daily Agent Use', 'Weekly', 'Monthly/Infrequent', 'Copilot-Only Mode', 'No Agent Plans'],
+                datasets: [{
+                    data: [14.1, 9.0, 7.8, 13.8, 37.9],
+                    backgroundColor: [C.violetA, C.violetA, C.violetA, C.amberA, 'rgba(90,93,106,0.45)'],
+                    borderColor: [C.violet, C.violet, C.violet, C.amber, C.dim],
+                    borderWidth: 1, borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
+                },
+                animation: { duration: 1000, easing: 'easeOutQuart' }
+            }
+        });
+    </script>
+</body>
+</html>
