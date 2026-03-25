@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Coding Tools: Adoption & Trust (2016–2026)</title>
+    <meta name="description" content="A data-driven analysis of AI coding tool adoption, from early autocomplete to agentic systems — and the trust paradox at the center of it all.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <style>
+        /* ======== Reset & Variables ======== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-deep: #080c18;
+            --bg-surface: #0f1424;
+            --bg-card: #151b30;
+            --bg-card-hover: #1a2139;
+            --text-primary: #eae8e3;
+            --text-secondary: #9b9da6;
+            --text-dim: #5a5d6a;
+            --amber: #e8a838;
+            --amber-glow: rgba(232, 168, 56, 0.12);
+            --cyan: #38bdf8;
+            --cyan-glow: rgba(56, 189, 248, 0.12);
+            --violet: #a78bfa;
+            --violet-glow: rgba(167, 139, 250, 0.12);
+            --red: #f87171;
+            --red-glow: rgba(248, 113, 113, 0.12);
+            --green: #4ade80;
+            --green-glow: rgba(74, 222, 128, 0.12);
+            --border: #1e2440;
+            --font-display: 'Bricolage Grotesque', sans-serif;
+            --font-body: 'Albert Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --container: 1140px;
+            --section-pad: clamp(80px, 10vw, 140px);
+        }
+        html { scroll-behavior: smooth; scrollbar-color: var(--border) var(--bg-deep); }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ======== Grain Overlay ======== */
+        .grain {
+            position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 256px;
+        }
+
+        /* ======== Scroll Progress ======== */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; height: 2px; z-index: 10001;
+            background: linear-gradient(90deg, var(--amber), var(--violet), var(--cyan));
+            width: 0%; transition: width 0.1s linear;
+        }
+
+        /* ======== Navigation ======== */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 0 24px; transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
+        }
+        nav.scrolled {
+            background: rgba(8, 12, 24, 0.85);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 1px 0 var(--border);
+        }
+        .nav-inner {
+            max-width: var(--container); margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 56px;
+        }
+        .nav-brand {
+            font-family: var(--font-mono); font-weight: 600; font-size: 0.8rem;
+            letter-spacing: 0.12em; color: var(--text-dim);
+        }
+        .nav-links { display: flex; gap: 8px; }
+        .nav-link {
+            font-family: var(--font-body); font-size: 0.8125rem; font-weight: 500;
+            color: var(--text-dim); text-decoration: none; padding: 6px 12px;
+            border-radius: 6px; transition: color 0.2s, background 0.2s;
+        }
+        .nav-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.04); }
+        .nav-link.active { color: var(--text-primary); background: rgba(255,255,255,0.06); }
+
+        /* ======== Container & Section ======== */
+        .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+        .section { padding: var(--section-pad) 0; }
+        .section-num {
+            font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+            color: var(--text-dim); letter-spacing: 0.15em; margin-bottom: 12px;
+            display: block;
+        }
+        .section-title {
+            font-family: var(--font-display); font-weight: 700;
+            font-size: clamp(1.75rem, 4vw, 2.75rem); line-height: 1.15;
+            margin-bottom: 16px; max-width: 700px;
+        }
+        .section-lead {
+            color: var(--text-secondary); font-size: 1.125rem;
+            max-width: 620px; margin-bottom: 48px; line-height: 1.7;
+        }
+
+        /* ======== Divider ======== */
+        .divider {
+            height: 1px; max-width: 600px; margin: 0 auto;
+            background: linear-gradient(90deg, transparent, var(--amber), var(--violet), var(--cyan), transparent);
+            opacity: 0.25;
+        }
+
+        /* ======== Hero ======== */
+        #hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: -40%; z-index: 0;
+            background:
+                radial-gradient(ellipse at 25% 45%, var(--amber-glow) 0%, transparent 55%),
+                radial-gradient(ellipse at 75% 55%, var(--cyan-glow) 0%, transparent 55%),
+                radial-gradient(ellipse at 50% 80%, var(--violet-glow) 0%, transparent 50%);
+            animation: heroPulse 10s ease-in-out infinite alternate;
+        }
+        @keyframes heroPulse {
+            0% { transform: scale(1) rotate(0deg); opacity: 1; }
+            100% { transform: scale(1.08) rotate(2deg); opacity: 0.8; }
+        }
+        .hero-content { position: relative; z-index: 1; padding: 24px; }
+        .hero-eyebrow {
+            font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--text-dim); margin-bottom: 20px;
+            opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+        }
+        .hero-title {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1.05;
+            margin-bottom: 48px;
+            opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+        }
+        .hero-stats {
+            display: flex; align-items: center; justify-content: center;
+            gap: clamp(24px, 5vw, 56px); margin-bottom: 40px;
+            opacity: 0; animation: fadeUp 0.8s 0.7s forwards;
+        }
+        .hero-stat { display: flex; flex-direction: column; align-items: center; }
+        .hero-stat__value {
+            font-family: var(--font-mono); font-weight: 600;
+            font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1;
+        }
+        .hero-stat--usage .hero-stat__value { color: var(--amber); }
+        .hero-stat--trust .hero-stat__value { color: var(--cyan); }
+        .hero-stat__label {
+            font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px;
+        }
+        .hero-divider {
+            display: flex; align-items: center; gap: 16px;
+            color: var(--text-dim); font-size: 0.85rem; font-style: italic;
+        }
+        .hero-divider__line {
+            width: 40px; height: 1px;
+            background: linear-gradient(90deg, var(--amber), var(--cyan));
+            opacity: 0.4;
+        }
+        .hero-subtitle {
+            color: var(--text-secondary); font-size: 1.1rem; max-width: 500px;
+            margin: 0 auto 48px;
+            opacity: 0; animation: fadeUp 0.8s 1s forwards;
+        }
+        .hero-scroll {
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            opacity: 0; animation: fadeUp 0.8s 1.3s forwards;
+        }
+        .hero-scroll span {
+            font-family: var(--font-mono); font-size: 0.7rem;
+            letter-spacing: 0.15em; color: var(--text-dim); text-transform: uppercase;
+        }
+        .hero-scroll__arrow {
+            font-size: 1.2rem; color: var(--text-dim);
+            animation: bounce 2s infinite;
+        }
+
+        /* ======== Stat Cards ======== */
+        .stat-row {
+            display: grid; gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            margin-bottom: 48px;
+        }
+        .stat-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 28px; position: relative; overflow: hidden;
+            transition: border-color 0.3s, transform 0.2s;
+        }
+        .stat-card:hover { border-color: rgba(255,255,255,0.1); transform: translateY(-2px); }
+        .stat-card__source {
+            font-family: var(--font-mono); font-size: 0.65rem; font-weight: 500;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--text-dim); margin-bottom: 12px; display: block;
+        }
+        .stat-card__value {
+            font-family: var(--font-mono); font-weight: 600;
+            font-size: 2.25rem; line-height: 1; margin-bottom: 6px; display: block;
+        }
+        .stat-card__label {
+            font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5;
+        }
+        .stat-card--amber .stat-card__value { color: var(--amber); }
+        .stat-card--amber::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: var(--amber);
+        }
+        .stat-card--cyan .stat-card__value { color: var(--cyan); }
+        .stat-card--cyan::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: var(--cyan);
+        }
+        .stat-card--violet .stat-card__value { color: var(--violet); }
+        .stat-card--violet::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: var(--violet);
+        }
+        .stat-card--green .stat-card__value { color: var(--green); }
+        .stat-card--green::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: var(--green);
+        }
+        .stat-card--red .stat-card__value { color: var(--red); }
+        .stat-card--red::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: var(--red);
+        }
+
+        /* ======== Chart Containers ======== */
+        .chart-wrap {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 32px; margin-bottom: 32px;
+        }
+        .chart-header { margin-bottom: 24px; }
+        .chart-header h3 {
+            font-family: var(--font-display); font-weight: 600;
+            font-size: 1.25rem; margin-bottom: 4px;
+        }
+        .chart-subtitle {
+            font-size: 0.8125rem; color: var(--text-dim);
+        }
+        .chart-body { position: relative; }
+        .chart-body canvas { width: 100% !important; }
+        .chart-note {
+            font-size: 0.75rem; color: var(--text-dim); margin-top: 16px;
+            font-style: italic; line-height: 1.5;
+        }
+        .chart-grid {
+            display: grid; gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+        }
+
+        /* ======== Dual Panel (Perception vs Reality) ======== */
+        .dual-panel {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+            margin-bottom: 48px;
+        }
+        .dual-panel__col {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 32px; position: relative;
+        }
+        .dual-panel__col::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+        }
+        .dual-panel__col--do::before { background: var(--amber); }
+        .dual-panel__col--think::before { background: var(--cyan); }
+        .dual-panel__heading {
+            font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600;
+            letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 24px;
+        }
+        .dual-panel__col--do .dual-panel__heading { color: var(--amber); }
+        .dual-panel__col--think .dual-panel__heading { color: var(--cyan); }
+        .dual-row {
+            display: flex; justify-content: space-between; align-items: baseline;
+            padding: 12px 0; border-bottom: 1px solid var(--border);
+        }
+        .dual-row:last-child { border-bottom: none; }
+        .dual-row__label { font-size: 0.9rem; color: var(--text-secondary); }
+        .dual-row__value {
+            font-family: var(--font-mono); font-weight: 600; font-size: 1.1rem;
+        }
+        .dual-panel__col--do .dual-row__value { color: var(--amber); }
+        .dual-panel__col--think .dual-row__value { color: var(--cyan); }
+
+        /* ======== Table ======== */
+        .data-table {
+            width: 100%; border-collapse: collapse;
+            background: var(--bg-card); border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .data-table th {
+            font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--text-dim); text-align: left; padding: 16px 20px;
+            background: var(--bg-surface); border-bottom: 1px solid var(--border);
+        }
+        .data-table td {
+            padding: 14px 20px; font-size: 0.875rem; color: var(--text-secondary);
+            border-bottom: 1px solid var(--border); vertical-align: top;
+        }
+        .data-table tr:last-child td { border-bottom: none; }
+        .data-table tr:hover td { background: rgba(255,255,255,0.015); }
+        .data-table .mono {
+            font-family: var(--font-mono); font-weight: 500; font-size: 0.8rem;
+        }
+
+        /* ======== Timeline ======== */
+        .timeline-track { position: relative; padding-left: 40px; }
+        .timeline-track::before {
+            content: ''; position: absolute; left: 14px; top: 0; bottom: 0; width: 2px;
+            background: linear-gradient(to bottom, var(--amber), var(--violet), var(--cyan));
+            opacity: 0.3;
+        }
+        .tl-item { position: relative; padding-bottom: 40px; }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-dot {
+            position: absolute; left: -33px; top: 4px;
+            width: 12px; height: 12px; border-radius: 50%;
+            border: 2px solid var(--violet); background: var(--bg-deep);
+        }
+        .tl-year {
+            font-family: var(--font-mono); font-weight: 600; font-size: 0.85rem;
+            color: var(--violet); margin-bottom: 8px; display: block;
+        }
+        .tl-events { list-style: none; }
+        .tl-events li {
+            font-size: 0.9rem; color: var(--text-secondary);
+            padding: 4px 0; line-height: 1.5;
+        }
+
+        /* ======== Reveal Animations ======== */
+        .reveal {
+            opacity: 0; transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-d1 { transition-delay: 0.1s; }
+        .reveal-d2 { transition-delay: 0.2s; }
+        .reveal-d3 { transition-delay: 0.3s; }
+
+        /* ======== Keyframes ======== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
+        }
+
+        /* ======== Footer ======== */
+        footer {
+            text-align: center; padding: 48px 24px;
+            font-size: 0.8rem; color: var(--text-dim);
+            border-top: 1px solid var(--border);
+        }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        footer a:hover { color: var(--text-primary); }
+
+        /* ======== Responsive ======== */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-stats { flex-direction: column; gap: 20px; }
+            .hero-divider__line { width: 24px; }
+            .dual-panel { grid-template-columns: 1fr; }
+            .chart-wrap { padding: 20px; }
+            .stat-card { padding: 20px; }
+            .data-table { font-size: 0.8rem; }
+            .data-table th, .data-table td { padding: 10px 12px; }
+        }
+        @media (max-width: 480px) {
+            .hero-title { font-size: 2rem; }
+            .hero-stat__value { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav id="nav">
+        <div class="nav-inner">
+            <span class="nav-brand">AI / CODE</span>
+            <div class="nav-links">
+                <a href="#adoption" class="nav-link">Adoption</a>
+                <a href="#tools" class="nav-link">Tools</a>
+                <a href="#modes" class="nav-link">Agentic Split</a>
+                <a href="#segments" class="nav-link">Segments</a>
+                <a href="#paradox" class="nav-link">Trust</a>
+                <a href="#timeline" class="nav-link">Timeline</a>
+                <a href="#sources" class="nav-link">Sources</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">2016 – 2026 &ensp;Industry Analysis</p>
+            <h1 class="hero-title">The AI Coding Paradox</h1>
+            <div class="hero-stats">
+                <div class="hero-stat hero-stat--usage">
+                    <div>
+                        <span class="hero-stat__value" id="heroUsage">0</span><span class="hero-stat__value" style="font-size:clamp(1.5rem,3.5vw,2.5rem)">%</span>
+                    </div>
+                    <span class="hero-stat__label">use AI tools</span>
+                </div>
+                <div class="hero-divider">
+                    <div class="hero-divider__line"></div>
+                    <span>yet only</span>
+                    <div class="hero-divider__line"></div>
+                </div>
+                <div class="hero-stat hero-stat--trust">
+                    <div>
+                        <span class="hero-stat__value" id="heroTrust">0</span><span class="hero-stat__value" style="font-size:clamp(1.5rem,3.5vw,2.5rem);color:var(--cyan)">%</span>
+                    </div>
+                    <span class="hero-stat__label">trust the output</span>
+                </div>
+            </div>
+            <p class="hero-subtitle">How the developer world adopted AI tools faster than it learned to trust them</p>
+            <div class="hero-scroll">
+                <span>Scroll to explore</span>
+                <div class="hero-scroll__arrow">&#8595;</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="divider"></div>
+
+    <!-- Section 1: Adoption Trends -->
+    <section id="adoption" class="section">
+        <div class="container">
+            <span class="section-num reveal">01 / ADOPTION</span>
+            <h2 class="section-title reveal reveal-d1">The surge nobody predicted</h2>
+            <p class="section-lead reveal reveal-d2">In just two years, AI tool usage among developers nearly doubled. But the numbers depend heavily on who you ask and how you ask.</p>
+
+            <div class="stat-row reveal">
+                <div class="stat-card stat-card--amber">
+                    <span class="stat-card__source">Stack Overflow 2023</span>
+                    <span class="stat-card__value">43.8%</span>
+                    <span class="stat-card__label">using AI in their dev process</span>
+                </div>
+                <div class="stat-card stat-card--amber">
+                    <span class="stat-card__source">Stack Overflow 2025</span>
+                    <span class="stat-card__value">78.5%</span>
+                    <span class="stat-card__label">currently using AI tools</span>
+                </div>
+                <div class="stat-card stat-card--cyan">
+                    <span class="stat-card__source">DORA 2025</span>
+                    <span class="stat-card__value">90%</span>
+                    <span class="stat-card__label">of tech professionals use AI</span>
+                </div>
+                <div class="stat-card stat-card--violet">
+                    <span class="stat-card__source">HackerRank 2025</span>
+                    <span class="stat-card__value">97%</span>
+                    <span class="stat-card__label">use at least one AI assistant</span>
+                </div>
+            </div>
+
+            <div class="chart-grid reveal">
+                <div class="chart-wrap" data-chart="adoption">
+                    <div class="chart-header">
+                        <h3>Adoption Over Time</h3>
+                        <p class="chart-subtitle">Stack Overflow Developer Survey, 2023–2025</p>
+                    </div>
+                    <div class="chart-body" style="height:320px">
+                        <canvas id="adoptionChart"></canvas>
+                    </div>
+                    <p class="chart-note">2025 "currently using" = daily 47.1% + weekly 17.7% + monthly/infrequent 13.7%</p>
+                </div>
+                <div class="chart-wrap" data-chart="frequency">
+                    <div class="chart-header">
+                        <h3>How Often? (2025)</h3>
+                        <p class="chart-subtitle">Stack Overflow 2025 usage frequency breakdown</p>
+                    </div>
+                    <div class="chart-body" style="height:320px">
+                        <canvas id="frequencyChart"></canvas>
+                    </div>
+                    <p class="chart-note">Nearly half of respondents use AI daily — not just trying it, but relying on it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Section 2: Tool Landscape -->
+    <section id="tools" class="section">
+        <div class="container">
+            <span class="section-num reveal">02 / TOOLS</span>
+            <h2 class="section-title reveal reveal-d1">The competitive landscape</h2>
+            <p class="section-lead reveal reveal-d2">ChatGPT and Copilot dominate broad usage. But tool choice diverges sharply by context — survey audience, company size, and whether you're asking about assistive or agentic use.</p>
+
+            <div class="chart-grid reveal">
+                <div class="chart-wrap" data-chart="toolsSO">
+                    <div class="chart-header">
+                        <h3>Tool Usage — Agent Users</h3>
+                        <p class="chart-subtitle">Stack Overflow 2025 (among those who use/develop agents, n≈8,323)</p>
+                    </div>
+                    <div class="chart-body" style="height:280px">
+                        <canvas id="toolsSOChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-wrap" data-chart="toolsPE">
+                    <div class="chart-header">
+                        <h3>Tool Usage — Regular Agent Users</h3>
+                        <p class="chart-subtitle">Pragmatic Engineer 2026 survey (n=906, high-bias audience)</p>
+                    </div>
+                    <div class="chart-body" style="height:280px">
+                        <canvas id="toolsPEChart"></canvas>
+                    </div>
+                    <p class="chart-note">Small, self-selected sample of experienced engineers (median 11–15 yrs). Treat as signal of practitioner preference, not population-level share.</p>
+                </div>
+            </div>
+
+            <div class="chart-wrap reveal" style="margin-top:8px">
+                <div class="chart-header">
+                    <h3>Hard Metrics — What We Can Verify</h3>
+                    <p class="chart-subtitle">Vendor disclosures, earnings calls, and independently reported figures</p>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Verified Metric</th>
+                            <th>Source</th>
+                            <th>Caveat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>GitHub Copilot</strong></td>
+                            <td class="mono">4.7M paid subscribers</td>
+                            <td>Microsoft FY26 Q2 (Jan 2026)</td>
+                            <td>Separate "20M users" figure may include free/trial</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GitHub Copilot</strong></td>
+                            <td class="mono">90% of Fortune 100</td>
+                            <td>Microsoft FY25 Q4</td>
+                            <td>Enterprise presence ≠ intensity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Windsurf</strong></td>
+                            <td class="mono">$82M ARR, 350+ enterprise clients</td>
+                            <td>Reuters (Jul 2025)</td>
+                            <td>At time of acquisition; client count ≠ seats</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tabnine</strong></td>
+                            <td class="mono">1M+ users (vendor claim)</td>
+                            <td>Tabnine "About" page</td>
+                            <td>Not independently audited; may include legacy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Section 3: Assistive vs Agentic -->
+    <section id="modes" class="section">
+        <div class="container">
+            <span class="section-num reveal">03 / AGENTIC SPLIT</span>
+            <h2 class="section-title reveal reveal-d1">Assistance is mainstream.<br>Autonomy is not.</h2>
+            <p class="section-lead reveal reveal-d2">Nearly 4 in 5 developers use AI assistance. But only about 1 in 3 have used an AI agent — and almost 38% say they don't plan to. The gap is about trust, risk, and verification debt.</p>
+
+            <div class="stat-row reveal">
+                <div class="stat-card stat-card--amber">
+                    <span class="stat-card__source">SO 2025 · All Respondents</span>
+                    <span class="stat-card__value">78.5%</span>
+                    <span class="stat-card__label">use AI tools (any mode)</span>
+                </div>
+                <div class="stat-card stat-card--violet">
+                    <span class="stat-card__source">SO 2025 · Agent Use</span>
+                    <span class="stat-card__value">30.9%</span>
+                    <span class="stat-card__label">use AI agents at any frequency</span>
+                </div>
+                <div class="stat-card stat-card--red">
+                    <span class="stat-card__source">SO 2025 · Resistance</span>
+                    <span class="stat-card__value">37.9%</span>
+                    <span class="stat-card__label">don't plan to use agents</span>
+                </div>
+            </div>
+
+            <div class="chart-wrap reveal" data-chart="agentic">
+                <div class="chart-header">
+                    <h3>Agent Adoption Breakdown</h3>
+                    <p class="chart-subtitle">Stack Overflow 2025 — frequency of agent use specifically</p>
+                </div>
+                <div class="chart-body" style="height:300px">
+                    <canvas id="agenticChart"></canvas>
+                </div>
+                <p class="chart-note">Autonomy amplifies risk: test failures, security mistakes, and policy violations. "Verification debt" shifts effort from writing code to reviewing and debugging it.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Section 4: Segmentation -->
+    <section id="segments" class="section">
+        <div class="container">
+            <span class="section-num reveal">04 / SEGMENTS</span>
+            <h2 class="section-title reveal reveal-d1">Who adopts — and who holds back</h2>
+            <p class="section-lead reveal reveal-d2">Adoption varies by experience, role, and company size. Senior developers are more cautious, small companies favor different tools than enterprises, and policy still blocks 1 in 10 teams entirely.</p>
+
+            <div class="chart-grid reveal">
+                <div class="chart-wrap" data-chart="career">
+                    <div class="chart-header">
+                        <h3>Daily AI Use by Career Stage</h3>
+                        <p class="chart-subtitle">Stack Overflow 2025</p>
+                    </div>
+                    <div class="chart-body" style="height:260px">
+                        <canvas id="careerChart"></canvas>
+                    </div>
+                    <p class="chart-note">Experienced developers report higher "highly distrust" rates — consistent with code-review responsibility and accountability.</p>
+                </div>
+                <div class="chart-wrap" data-chart="enterprise">
+                    <div class="chart-header">
+                        <h3>Enterprise Policy Posture</h3>
+                        <p class="chart-subtitle">JetBrains Developer Ecosystem 2024</p>
+                    </div>
+                    <div class="chart-body" style="height:260px">
+                        <canvas id="enterpriseChart"></canvas>
+                    </div>
+                    <p class="chart-note">~80% allow AI tools to some extent; 11% prohibit third-party cloud AI outright.</p>
+                </div>
+            </div>
+
+            <div class="stat-row reveal" style="margin-top:8px">
+                <div class="stat-card stat-card--amber">
+                    <span class="stat-card__source">Pragmatic Engineer · Small Co</span>
+                    <span class="stat-card__value">75%</span>
+                    <span class="stat-card__label">use Claude Code at smallest companies</span>
+                </div>
+                <div class="stat-card stat-card--cyan">
+                    <span class="stat-card__source">Pragmatic Engineer · Large Co</span>
+                    <span class="stat-card__value">#1</span>
+                    <span class="stat-card__label">Copilot is default at large enterprises</span>
+                </div>
+                <div class="stat-card stat-card--green">
+                    <span class="stat-card__source">HackerRank 2025</span>
+                    <span class="stat-card__value">29%</span>
+                    <span class="stat-card__label">of code is AI-generated on average</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Section 5: The Paradox -->
+    <section id="paradox" class="section">
+        <div class="container">
+            <span class="section-num reveal">05 / THE PARADOX</span>
+            <h2 class="section-title reveal reveal-d1">Everybody uses it.<br>Almost nobody trusts it.</h2>
+            <p class="section-lead reveal reveal-d2">The central tension of AI-assisted coding: developers report strong productivity gains while simultaneously distrusting the very tools they rely on daily. The data tells two different stories.</p>
+
+            <div class="dual-panel reveal">
+                <div class="dual-panel__col dual-panel__col--do">
+                    <div class="dual-panel__heading">What Developers Do</div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Use AI tools</span>
+                        <span class="dual-row__value">78.5%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Use daily</span>
+                        <span class="dual-row__value">47.1%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Say AI saves time</span>
+                        <span class="dual-row__value">~90%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Report enhanced productivity</span>
+                        <span class="dual-row__value">>80%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Completed task faster (controlled)</span>
+                        <span class="dual-row__value">55%</span>
+                    </div>
+                </div>
+                <div class="dual-panel__col dual-panel__col--think">
+                    <div class="dual-panel__heading">What Developers Think</div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Distrust AI accuracy</span>
+                        <span class="dual-row__value">46%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">"Highly trust" AI</span>
+                        <span class="dual-row__value">~3%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Frustrated by "almost right" output</span>
+                        <span class="dual-row__value">66%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Report longer debugging</span>
+                        <span class="dual-row__value">45%</span>
+                    </div>
+                    <div class="dual-row">
+                        <span class="dual-row__label">Trust "a lot" or "great deal" (DORA)</span>
+                        <span class="dual-row__value">24%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-grid reveal">
+                <div class="chart-wrap" data-chart="trust">
+                    <div class="chart-header">
+                        <h3>Trust Levels</h3>
+                        <p class="chart-subtitle">Stack Overflow 2025 — trust in AI output accuracy</p>
+                    </div>
+                    <div class="chart-body" style="height:200px">
+                        <canvas id="trustChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-wrap" data-chart="productivity">
+                    <div class="chart-header">
+                        <h3>Productivity Claims by Source</h3>
+                        <p class="chart-subtitle">Self-reported gains vs. one controlled experiment</p>
+                    </div>
+                    <div class="chart-body" style="height:200px">
+                        <canvas id="productivityChart"></canvas>
+                    </div>
+                    <p class="chart-note">Only the GitHub experiment (55% faster, n=95) is a controlled study. All others are self-reported survey data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Section 6: Timeline -->
+    <section id="timeline" class="section">
+        <div class="container">
+            <span class="section-num reveal">06 / TIMELINE</span>
+            <h2 class="section-title reveal reveal-d1">A decade of acceleration</h2>
+            <p class="section-lead reveal reveal-d2">From ML-enhanced autocomplete in 2018 to autonomous agents writing PRs in 2025 — the key milestones that shaped adoption.</p>
+
+            <div class="timeline-track reveal" style="max-width:700px">
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <span class="tl-year">2018</span>
+                    <ul class="tl-events">
+                        <li>Visual Studio IntelliCode announced — AI-assisted IntelliSense</li>
+                        <li>Tabnine launches first AI code completion assistant</li>
+                    </ul>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <span class="tl-year">2021</span>
+                    <ul class="tl-events">
+                        <li><strong>GitHub Copilot technical preview</strong> (June) — the catalyst</li>
+                        <li>OpenAI Codex research described in academic literature</li>
+                    </ul>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <span class="tl-year">2022</span>
+                    <ul class="tl-events">
+                        <li><strong>Copilot GA</strong> (June) — paid, free for students &amp; OSS maintainers</li>
+                        <li><strong>ChatGPT introduced</strong> (November) — broadens AI coding beyond IDEs</li>
+                    </ul>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <span class="tl-year">2023</span>
+                    <ul class="tl-events">
+                        <li>ChatGPT plugins + Code Interpreter announced (March)</li>
+                        <li>Code Interpreter beta rolls out to Plus users (July)</li>
+                        <li>Codex models deprecated in OpenAI API</li>
+                        <li>Stack Overflow reports 43.8% AI tool adoption — first major benchmark</li>
+                    </ul>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <span class="tl-year">2024</span>
+                    <ul class="tl-events">
+                        <li><strong>Windsurf</strong> launches agentic IDE (November)</li>
+                        <li>Stack Overflow: adoption jumps to 61.8%</li>
+                        <li>Gartner: 63% of orgs piloting or deploying AI code assistants</li>
+                    </ul>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <span class="tl-year">2025</span>
+                    <ul class="tl-events">
+                        <li><strong>Claude Code</strong> research preview (February)</li>
+                        <li><strong>Junie</strong> announced by JetBrains (January)</li>
+                        <li><strong>Codex agent</strong> research preview by OpenAI (May)</li>
+                        <li><strong>Cursor 2.0</strong> + multi-agent interface (October)</li>
+                        <li>Stack Overflow: 78.5% using, 47.1% daily — but 46% distrust</li>
+                    </ul>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <span class="tl-year">2026</span>
+                    <ul class="tl-events">
+                        <li>Microsoft discloses 4.7M paid Copilot subscribers (January)</li>
+                        <li>Codex Security research preview (March)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Section 7: Sources -->
+    <section id="sources" class="section">
+        <div class="container">
+            <span class="section-num reveal">07 / SOURCES</span>
+            <h2 class="section-title reveal reveal-d1">Where the data comes from</h2>
+            <p class="section-lead reveal reveal-d2">Adoption estimates differ by 10–40+ points depending on question wording and sampling. This table shows what each survey actually measures — so you can judge comparability yourself.</p>
+
+            <div class="reveal" style="overflow-x:auto">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Source</th>
+                            <th>Sample</th>
+                            <th>Key Metric</th>
+                            <th>What It Measures</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Stack Overflow 2023</strong></td>
+                            <td class="mono">89,184</td>
+                            <td>43.8% using AI tools</td>
+                            <td>"Use in development process" — narrower than "ever used"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stack Overflow 2024</strong></td>
+                            <td class="mono">65,437</td>
+                            <td>61.8% currently using</td>
+                            <td>Same framing as 2023; year-over-year comparable</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stack Overflow 2025</strong></td>
+                            <td class="mono">49,009</td>
+                            <td>47.1% daily, 78.5% total</td>
+                            <td>Shifted to frequency reporting; trust data added</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DORA 2025 (Google)</strong></td>
+                            <td class="mono">~5,000</td>
+                            <td>90% adoption, 2 hr/day median</td>
+                            <td>Technology professionals (not dev-only); org-level outcomes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HackerRank 2025</strong></td>
+                            <td class="mono">13,732</td>
+                            <td>97% use ≥1 AI assistant</td>
+                            <td>"At least one" = low bar; hiring community sample</td>
+                        </tr>
+                        <tr>
+                            <td><strong>JetBrains 2025</strong></td>
+                            <td class="mono">24,534</td>
+                            <td>85% regularly use AI tools</td>
+                            <td>IDE ecosystem survey; "regularly" undefined</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GitHub Survey 2024</strong></td>
+                            <td class="mono">2,000</td>
+                            <td>~97% ever used AI tools</td>
+                            <td>"Ever used at any point" — not a frequency measure</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gartner 2024</strong></td>
+                            <td class="mono">598</td>
+                            <td>63% orgs piloting/deploying</td>
+                            <td>Enterprise IT lens; forecasts, not direct adoption</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pragmatic Engineer 2026</strong></td>
+                            <td class="mono">906</td>
+                            <td>Claude Code 71% among agent users</td>
+                            <td>Small, self-selected; median 11–15 yrs experience</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Data sourced from public surveys, vendor disclosures, and earnings filings. Full analysis in <a href="docs/deep-research-report.md">deep-research-report.md</a>.</p>
+    </footer>
+
+    <script>
+    /* ======== Color Palette ======== */
+    const C = {
+        amber: '#e8a838', amberA: 'rgba(232,168,56,0.7)', amberBg: 'rgba(232,168,56,0.12)',
+        cyan: '#38bdf8', cyanA: 'rgba(56,189,248,0.7)', cyanBg: 'rgba(56,189,248,0.12)',
+        violet: '#a78bfa', violetA: 'rgba(167,139,250,0.7)', violetBg: 'rgba(167,139,250,0.12)',
+        red: '#f87171', redA: 'rgba(248,113,113,0.7)', redBg: 'rgba(248,113,113,0.12)',
+        green: '#4ade80', greenA: 'rgba(74,222,128,0.7)', greenBg: 'rgba(74,222,128,0.12)',
+        text: '#eae8e3', textSec: '#9b9da6', dim: '#5a5d6a',
+        grid: 'rgba(255,255,255,0.05)', surface: '#151b30'
+    };
+
+    /* ======== Chart.js Defaults ======== */
+    Chart.defaults.color = C.textSec;
+    Chart.defaults.font.family = "'Albert Sans', sans-serif";
+    Chart.defaults.font.size = 12;
+    Chart.defaults.plugins.legend.labels.usePointStyle = true;
+    Chart.defaults.plugins.legend.labels.pointStyle = 'circle';
+    Chart.defaults.plugins.legend.labels.padding = 16;
+    Chart.defaults.plugins.tooltip.backgroundColor = C.surface;
+    Chart.defaults.plugins.tooltip.titleColor = C.text;
+    Chart.defaults.plugins.tooltip.bodyColor = C.textSec;
+    Chart.defaults.plugins.tooltip.borderColor = 'rgba(255,255,255,0.08)';
+    Chart.defaults.plugins.tooltip.borderWidth = 1;
+    Chart.defaults.plugins.tooltip.cornerRadius = 8;
+    Chart.defaults.plugins.tooltip.padding = 12;
+    Chart.defaults.plugins.tooltip.displayColors = true;
+    Chart.defaults.plugins.tooltip.boxPadding = 4;
+
+    /* ======== Chart Builders ======== */
+    const charts = {};
+
+    function buildCharts() {
+        /* -- Adoption Over Time -- */
+        charts.adoption = new Chart(document.getElementById('adoptionChart'), {
+            type: 'bar',
+            data: {
+                labels: ['2023', '2024', '2025'],
+                datasets: [
+                    { label: 'Currently Using', data: [43.78, 61.8, 78.5], backgroundColor: C.amberA, borderColor: C.amber, borderWidth: 1, borderRadius: 6 },
+                    { label: 'Plan to Use', data: [25.46, 13.8, 5.3], backgroundColor: C.violetA, borderColor: C.violet, borderWidth: 1, borderRadius: 6 },
+                    { label: 'No Plans', data: [30.76, 24.4, 16.2], backgroundColor: 'rgba(90,93,106,0.5)', borderColor: C.dim, borderWidth: 1, borderRadius: 6 }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } },
+                scales: {
+                    x: { stacked: true, grid: { display: false } },
+                    y: { stacked: true, max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
+                },
+                animation: { duration: 1200, easing: 'easeOutQuart' }
+            }
+        });
+
+        /* -- Frequency Donut -- */
+        charts.frequency = new Chart(document.getElementById('frequencyChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Daily (47.1%)', 'Weekly (17.7%)', 'Monthly (13.7%)', 'Plan Soon (5.3%)', 'No Plans (16.2%)'],
+                datasets: [{
+                    data: [47.1, 17.7, 13.7, 5.3, 16.2],
+                    backgroundColor: [C.amber, C.violet, C.cyan, C.greenBg, 'rgba(90,93,106,0.35)'],
+                    borderColor: ['transparent','transparent','transparent','transparent','transparent'],
+                    borderWidth: 0, spacing: 2, borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false, cutout: '62%',
+                plugins: {
+                    legend: { position: 'right', labels: { font: { size: 11 }, padding: 12 } }
+                },
+                animation: { animateRotate: true, duration: 1400, easing: 'easeOutQuart' }
+            }
+        });
+
+        /* -- Tools: Stack Overflow -- */
+        charts.toolsSO = new Chart(document.getElementById('toolsSOChart'), {
+            type: 'bar',
+            data: {
+                labels: ['ChatGPT', 'GitHub Copilot', 'Gemini', 'Claude Code'],
+                datasets: [{
+                    label: 'Usage %',
+                    data: [81.7, 67.9, 47.4, 40.8],
+                    backgroundColor: [C.amberA, C.cyanA, C.greenA, C.violetA],
+                    borderColor: [C.amber, C.cyan, C.green, C.violet],
+                    borderWidth: 1, borderRadius: 6
+                }]
+            },
+            options: {
+                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
+                    y: { grid: { display: false } }
+                },
+                animation: { duration: 1000, easing: 'easeOutQuart' }
+            }
+        });
+
+        /* -- Tools: Pragmatic Engineer -- */
+        charts.toolsPE = new Chart(document.getElementById('toolsPEChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Claude Code', 'GitHub Copilot', 'Cursor'],
+                datasets: [{
+                    label: 'Usage %',
+                    data: [71, 46, 39],
+                    backgroundColor: [C.violetA, C.cyanA, C.amberA],
+                    borderColor: [C.violet, C.cyan, C.amber],
+                    borderWidth: 1, borderRadius: 6
+                }]
+            },
+            options: {
+                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
+                    y: { grid: { display: false } }
+                },
+                animation: { duration: 1000, easing: 'easeOutQuart' }
+            }
+        });
+
+        /* -- Agentic Breakdown -- */
+        charts.agentic = new Chart(document.getElementById('agenticChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Daily Agent Use', 'Weekly', 'Monthly/Infrequent', 'Copilot-Only Mode', 'No Agent Plans'],
+                datasets: [{
+                    data: [14.1, 9.0, 7.8, 13.8, 37.9],
+                    backgroundColor: [C.violetA, C.violetA, C.violetA, C.amberA, 'rgba(90,93,106,0.45)'],
+                    borderColor: [C.violet, C.violet, C.violet, C.amber, C.dim],
+                    borderWidth: 1, borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
+                },
+                animation: { duration: 1000, easing: 'easeOutQuart' }
+            }
+        });
+
+        /* -- Career Stage -- */
+        charts.career = new Chart(document.getElementById('careerChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Early Career', 'Mid Career', 'Experienced'],
+                datasets: [{
+                    label: 'Daily AI Use',
+                    data: [55.5, 52.8, 47.3],
+                    backgroundColor: [C.amberA, C.amberA, C.amberA],
+                    borderColor: [C.amber, C.amber, C.amber],
+                    borderWidth: 1, borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { min: 40, max: 60, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
+                },
+                animation: { duration: 1000, easing: 'easeOutQuart' }
+            }
+        });
+
+        /* -- Enterprise Policy -- */
+        charts.enterprise = new Chart(document.getElementById('enterpriseChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Allow (varying extent)', 'No established policy', 'Prohibit AI tools'],
+                datasets: [{
+                    data: [55, 34, 11],
+                    backgroundColor: [C.greenA, C.amberA, C.redA],
+                    borderWidth: 0, spacing: 2, borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false, cutout: '58%',
+                plugins: {
+                    legend: { position: 'right', labels: { font: { size: 11 }, padding: 10 } }
+                },
+                animation: { animateRotate: true, duration: 1200, easing: 'easeOutQuart' }
+            }
+        });
+
+        /* -- Trust Chart -- */
+        charts.trust = new Chart(document.getElementById('trustChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Distrust AI Accuracy', 'Neutral', 'Trust AI Accuracy'],
+                datasets: [{
+                    data: [46, 21, 33],
+                    backgroundColor: [C.redA, 'rgba(90,93,106,0.4)', C.greenA],
+                    borderColor: [C.red, C.dim, C.green],
+                    borderWidth: 1, borderRadius: 6
+                }]
+            },
+            options: {
+                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { max: 55, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
+                    y: { grid: { display: false } }
+                },
+                animation: { duration: 1000, easing: 'easeOutQuart' }
+            }
+        });
+
+        /* -- Productivity Claims -- */
+        charts.productivity = new Chart(document.getElementById('productivityChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Save Time (JetBrains)', 'Say AI Helps (HackerRank)', 'Enhanced Prod. (DORA)', 'Faster — Controlled (GitHub)'],
+                datasets: [{
+                    data: [90, 85, 80, 55],
+                    backgroundColor: [C.amberA, C.amberA, C.amberA, C.cyanA],
+                    borderColor: [C.amber, C.amber, C.amber, C.cyan],
+                    borderWidth: 1, borderRadius: 6
+                }]
+            },
+            options: {
+                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
+                    y: { grid: { display: false } }
+                },
+                animation: { duration: 1000, easing: 'easeOutQuart' }
+            }
+        });
+    }
+
+    /* ======== Animated Counter ======== */
+    function animateValue(el, target, duration = 1600) {
+        const start = performance.now();
+        const update = (now) => {
+            const t = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - t, 3);
+            const val = target * eased;
+            el.textContent = val < 10 ? val.toFixed(1) : Math.round(val);
+            if (t < 1) requestAnimationFrame(update);
+            else el.textContent = target % 1 === 0 ? target : target.toFixed(1);
+        };
+        requestAnimationFrame(update);
+    }
+
+    /* ======== Scroll Reveal ======== */
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                revealObserver.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ======== Nav Scroll Behavior ======== */
+    const nav = document.getElementById('nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+    const progressBar = document.getElementById('scrollProgress');
+
+    function onScroll() {
+        const scrollY = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+        /* Nav background */
+        nav.classList.toggle('scrolled', scrollY > 60);
+
+        /* Progress bar */
+        progressBar.style.width = (scrollY / docHeight * 100) + '%';
+
+        /* Active nav link */
+        let current = '';
+        sections.forEach(s => {
+            if (scrollY >= s.offsetTop - 200) current = s.id;
+        });
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+        });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ======== Hero Counter Animation ======== */
+    setTimeout(() => {
+        animateValue(document.getElementById('heroUsage'), 78.5, 2000);
+        animateValue(document.getElementById('heroTrust'), 33, 2000);
+    }, 900);
+
+    /* ======== Init Charts ======== */
+    buildCharts();
+    </script>
+</body>
+</html>
