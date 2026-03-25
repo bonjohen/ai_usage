@@ -504,6 +504,86 @@ nav.scrolled {
 .home-card--green .home-card__stat { color: var(--green); }
 .home-card--red .home-card__stat { color: var(--red); }
 
+/* ======== Predictions Timeline ======== */
+.predictions-timeline { margin: 20px 0; }
+.pred-era { margin: 32px 0 16px; }
+.pred-era__label {
+    font-family: var(--font-mono); font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--text-dim); margin-bottom: 6px;
+}
+.pred-era__line {
+    height: 2px; border-radius: 1px;
+    background: var(--border);
+}
+.pred-era__line--amber { background: linear-gradient(90deg, var(--amber), transparent); }
+.pred-era__line--dim { background: linear-gradient(90deg, var(--text-dim), transparent); }
+.pred-era__line--violet { background: linear-gradient(90deg, var(--violet), transparent); }
+.pred-era__line--cyan { background: linear-gradient(90deg, var(--cyan), transparent); }
+.pred-entry {
+    display: flex; gap: 20px; padding: 16px 0;
+    border-bottom: 1px solid rgba(30,36,64,0.5);
+}
+.pred-entry:last-child { border-bottom: none; }
+.pred-entry__year {
+    font-family: var(--font-mono); font-weight: 600;
+    font-size: 0.85rem; color: var(--text-dim);
+    min-width: 52px; padding-top: 2px;
+}
+.pred-entry__body { flex: 1; }
+.pred-entry__body strong {
+    color: var(--text-primary); font-weight: 600;
+    font-size: 0.95rem;
+}
+.pred-entry__body p {
+    color: var(--text-secondary); font-size: 0.85rem;
+    line-height: 1.6; margin-top: 4px;
+}
+.pred-entry__body em { font-style: italic; }
+.pred-entry__n {
+    font-family: var(--font-mono); font-size: 0.7rem;
+    color: var(--text-dim);
+}
+.pred-entry__target {
+    display: inline-block; margin-top: 6px;
+    font-family: var(--font-mono); font-size: 0.72rem;
+    padding: 3px 10px; border-radius: 4px;
+}
+.pred-entry--miss .pred-entry__target {
+    background: var(--red-glow); color: var(--red);
+}
+.pred-entry--miss .pred-entry__year { color: var(--red); }
+.pred-entry--pending .pred-entry__target {
+    background: var(--amber-glow); color: var(--amber);
+}
+.pred-entry--survey .pred-entry__target {
+    background: var(--cyan-glow); color: var(--cyan);
+}
+.pred-entry--survey .pred-entry__year { color: var(--cyan); }
+.pred-entry--leader .pred-entry__year { color: var(--violet); }
+.pred-entry--leader .pred-entry__target {
+    background: var(--violet-glow); color: var(--violet);
+}
+
+/* ======== Skeptics Grid ======== */
+.skeptics-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px; margin: 16px 0;
+}
+.skeptic-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px;
+}
+.skeptic-card strong {
+    display: block; color: var(--text-primary);
+    font-size: 0.9rem; margin-bottom: 4px;
+}
+.skeptic-card p {
+    font-size: 0.8rem; color: var(--text-secondary);
+    line-height: 1.55; margin-top: 4px;
+}
+
 /* ======== Insight Callout ======== */
 .insight-callout {
     background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(56,189,248,0.08));

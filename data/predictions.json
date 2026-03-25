@@ -1,0 +1,42 @@
+{
+  "lastUpdated": "2026-03-25",
+  "historicalPredictions": [
+    { "year": 1956, "predictor": "Herbert Simon", "role": "Nobel Laureate, AI pioneer", "prediction": "Machines capable of any work a man can do within 10 years", "targetYear": 1967, "outcome": "miss" },
+    { "year": 1965, "predictor": "Herbert Simon", "role": "Nobel Laureate, AI pioneer", "prediction": "Machines capable of any work a man can do within 20 years", "targetYear": 1985, "outcome": "miss" },
+    { "year": 1967, "predictor": "Marvin Minsky", "role": "MIT, AI pioneer", "prediction": "AI problem substantially solved within a generation", "targetYear": 1990, "outcome": "miss" },
+    { "year": 1970, "predictor": "Marvin Minsky", "role": "MIT, AI pioneer", "prediction": "General intelligence of average human in 3-8 years", "targetYear": 1978, "outcome": "miss" },
+    { "year": 1988, "predictor": "Hans Moravec", "role": "CMU, roboticist", "prediction": "Human-level AI by 2010 (Mind Children)", "targetYear": 2010, "outcome": "miss" },
+    { "year": 1993, "predictor": "Vernor Vinge", "role": "Author, mathematician", "prediction": "Superhuman intelligence within 30 years", "targetYear": 2023, "outcome": "miss" },
+    { "year": 2005, "predictor": "Ray Kurzweil", "role": "Google, futurist", "prediction": "Human-level AI by 2029, singularity by 2045", "targetYear": 2029, "outcome": "pending" }
+  ],
+  "researcherSurveys": [
+    { "year": 2016, "source": "Grace et al. (AI Impacts)", "sample": 352, "medianHLMI": 2061, "notes": "Asian researchers: 2046, North American: 2064" },
+    { "year": 2022, "source": "Grace et al. (AI Impacts)", "sample": 738, "medianHLMI": 2059, "notes": "HLMI=2059, FAOL=2164. Minimal shift from 2016." },
+    { "year": 2023, "source": "Grace et al. (AI Impacts)", "sample": 2778, "medianHLMI": 2047, "notes": "Sharpest single-year revision. 10% said by 2027." },
+    { "year": 2025, "source": "Grace et al. (AI Impacts)", "sample": 2778, "medianHLMI": 2040, "notes": "20% of researchers put HLMI before 2030." }
+  ],
+  "industryLeaders": [
+    { "predictor": "Elon Musk", "org": "xAI", "prediction": "Smarter than any single human by end of 2026; smarter than all humans combined by 2028-2029", "earliestYear": 2026, "latestYear": 2029, "asOf": "2025" },
+    { "predictor": "Dario Amodei", "org": "Anthropic", "prediction": "Powerful AI by 2026-2027. Could compress century of biology into 5-10 years.", "earliestYear": 2026, "latestYear": 2027, "asOf": "2024" },
+    { "predictor": "Sam Altman", "org": "OpenAI", "prediction": "We know how to build AGI. January 2025 blog post.", "earliestYear": 2025, "latestYear": 2028, "asOf": "2025" },
+    { "predictor": "Ray Kurzweil", "org": "Google", "prediction": "Human-level AI by 2029. Doubled down in The Singularity Is Nearer (2024).", "earliestYear": 2029, "latestYear": 2029, "asOf": "2025" },
+    { "predictor": "Jensen Huang", "org": "NVIDIA", "prediction": "AI will pass every test we can imagine within 5 years.", "earliestYear": 2029, "latestYear": 2029, "asOf": "2024" },
+    { "predictor": "Demis Hassabis", "org": "Google DeepMind", "prediction": "AGI could arrive within the next decade.", "earliestYear": 2030, "latestYear": 2034, "asOf": "2024" }
+  ],
+  "skeptics": [
+    { "predictor": "Yann LeCun", "org": "Meta", "position": "Not on the path to AGI. LLMs lack world models. Need fundamentally new architectures." },
+    { "predictor": "Gary Marcus", "org": "NYU", "position": "Deep learning is hitting a wall. LLMs are pattern matchers, not reasoning systems." },
+    { "predictor": "Rodney Brooks", "org": "MIT", "position": "AGI no earlier than 2300. Maintains public predictions scorecard." },
+    { "predictor": "Francois Chollet", "org": "Google (Keras)", "position": "Current AI is skill, not intelligence. Created ARC benchmark to test genuine reasoning." }
+  ],
+  "metaculusCommunity": [
+    { "year": 2020, "medianPrediction": 2057 },
+    { "year": 2021, "medianPrediction": 2042 },
+    { "year": 2022, "medianPrediction": 2040 },
+    { "year": 2023.2, "medianPrediction": 2032, "label": "Early 2023" },
+    { "year": 2023.8, "medianPrediction": 2031, "label": "Late 2023" },
+    { "year": 2024, "medianPrediction": 2029 },
+    { "year": 2025, "medianPrediction": 2028 },
+    { "year": 2026.2, "medianPrediction": 2027, "label": "Mar 2026" }
+  ]
+}

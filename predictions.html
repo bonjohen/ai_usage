@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Predictions — AI Coding Tool Adoption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="predictions">
+    <div class="grain"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <nav id="nav"></nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <span class="section-num reveal">07 / PREDICTIONS</span>
+            <h1 class="section-title reveal reveal-d1">Always 20 years away.<br>Until it wasn't.</h1>
+            <p class="section-lead reveal reveal-d2">For decades, AI researchers predicted AGI was perpetually on the horizon. Then the timelines collapsed. Here's how the goalposts moved — and what the current forecasts say.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+
+            <!-- Stat Cards -->
+            <div class="stat-grid reveal">
+                <div class="stat-card stat-card--amber">
+                    <span class="stat-card__source">Historical Pattern</span>
+                    <span class="stat-card__value">20 yrs</span>
+                    <span class="stat-card__label">"Always 20 years away" — the recurring AGI prediction pattern from 1956 to 2020</span>
+                </div>
+                <div class="stat-card stat-card--cyan">
+                    <span class="stat-card__source">AI Researcher Surveys</span>
+                    <span class="stat-card__value">2047→2027</span>
+                    <span class="stat-card__label">Median HLMI prediction shifted 20 years closer between 2022 and 2025</span>
+                </div>
+                <div class="stat-card stat-card--violet">
+                    <span class="stat-card__source">Metaculus Community</span>
+                    <span class="stat-card__value">2040→2027</span>
+                    <span class="stat-card__label">Community prediction median collapsed ~13 years between 2022 and 2025</span>
+                </div>
+                <div class="stat-card stat-card--red">
+                    <span class="stat-card__source">Industry Leaders (2025)</span>
+                    <span class="stat-card__value">2-5 yrs</span>
+                    <span class="stat-card__label">Most CEOs now predict AGI within single-digit years, not decades</span>
+                </div>
+            </div>
+
+            <!-- The Perpetual Horizon: Historical Timeline -->
+            <div class="chart-wrap reveal" data-chart="predictions-history">
+                <div class="chart-header">
+                    <h3>The Perpetual Horizon</h3>
+                    <p class="chart-subtitle">Major AGI predictions over the decades — when researchers said it would arrive, and when they said it</p>
+                </div>
+                <div class="predictions-timeline">
+                    <div class="pred-era">
+                        <div class="pred-era__label">The Optimistic Dawn</div>
+                        <div class="pred-era__line pred-era__line--amber"></div>
+                    </div>
+                    <div class="pred-entry pred-entry--miss">
+                        <span class="pred-entry__year">1956</span>
+                        <div class="pred-entry__body">
+                            <strong>Herbert Simon</strong>
+                            <p>"Within ten years a digital computer will be the world's chess champion" and machines would be capable of "any work a man can do."</p>
+                            <span class="pred-entry__target">Target: ~1967</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--miss">
+                        <span class="pred-entry__year">1965</span>
+                        <div class="pred-entry__body">
+                            <strong>Herbert Simon</strong>
+                            <p>"Machines will be capable, within twenty years, of doing any work a man can do."</p>
+                            <span class="pred-entry__target">Target: ~1985</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--miss">
+                        <span class="pred-entry__year">1967</span>
+                        <div class="pred-entry__body">
+                            <strong>Marvin Minsky</strong>
+                            <p>"Within a generation... the problem of creating 'artificial intelligence' will substantially be solved."</p>
+                            <span class="pred-entry__target">Target: ~1990</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--miss">
+                        <span class="pred-entry__year">1970</span>
+                        <div class="pred-entry__body">
+                            <strong>Marvin Minsky</strong>
+                            <p>"In from three to eight years we will have a machine with the general intelligence of an average human being."</p>
+                            <span class="pred-entry__target">Target: ~1978</span>
+                        </div>
+                    </div>
+
+                    <div class="pred-era">
+                        <div class="pred-era__label">AI Winter & Caution</div>
+                        <div class="pred-era__line pred-era__line--dim"></div>
+                    </div>
+                    <div class="pred-entry pred-entry--miss">
+                        <span class="pred-entry__year">1988</span>
+                        <div class="pred-entry__body">
+                            <strong>Hans Moravec</strong>
+                            <p>Predicted human-level AI by 2010 based on computational trends in <em>Mind Children</em>.</p>
+                            <span class="pred-entry__target">Target: ~2010</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--miss">
+                        <span class="pred-entry__year">1993</span>
+                        <div class="pred-entry__body">
+                            <strong>Vernor Vinge</strong>
+                            <p>"Within thirty years, we will have the technological means to create superhuman intelligence."</p>
+                            <span class="pred-entry__target">Target: ~2023</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--pending">
+                        <span class="pred-entry__year">2005</span>
+                        <div class="pred-entry__body">
+                            <strong>Ray Kurzweil</strong>
+                            <p><em>The Singularity Is Near</em>: Human-level AI by 2029, technological singularity by 2045.</p>
+                            <span class="pred-entry__target">Target: 2029</span>
+                        </div>
+                    </div>
+
+                    <div class="pred-era">
+                        <div class="pred-era__label">The Deep Learning Explosion</div>
+                        <div class="pred-era__line pred-era__line--violet"></div>
+                    </div>
+                    <div class="pred-entry pred-entry--survey">
+                        <span class="pred-entry__year">2016</span>
+                        <div class="pred-entry__body">
+                            <strong>Grace et al. AI Researcher Survey</strong> <span class="pred-entry__n">(n=352)</span>
+                            <p>Median estimate for HLMI (50% probability): <strong>2061</strong>. Asian researchers predicted ~2046; North American researchers ~2064.</p>
+                            <span class="pred-entry__target">Median: 2061</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--survey">
+                        <span class="pred-entry__year">2022</span>
+                        <div class="pred-entry__body">
+                            <strong>Grace et al. AI Researcher Survey</strong> <span class="pred-entry__n">(n=738)</span>
+                            <p>Median shifted to <strong>2059</strong>. But the question framing matters — "HLMI" yielded 2059, while "Full Automation of Labor (FAOL)" yielded 2164.</p>
+                            <span class="pred-entry__target">Median: 2059</span>
+                        </div>
+                    </div>
+
+                    <div class="pred-era">
+                        <div class="pred-era__label">The Great Compression</div>
+                        <div class="pred-era__line pred-era__line--cyan"></div>
+                    </div>
+                    <div class="pred-entry pred-entry--survey">
+                        <span class="pred-entry__year">2023</span>
+                        <div class="pred-entry__body">
+                            <strong>Grace et al. AI Researcher Survey</strong> <span class="pred-entry__n">(n=2,778)</span>
+                            <p>Massive shift: median HLMI prediction pulled forward to <strong>2047</strong>. 10% of researchers said by 2027. This was the sharpest single-year revision in the survey's history.</p>
+                            <span class="pred-entry__target">Median: 2047</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--leader">
+                        <span class="pred-entry__year">2023</span>
+                        <div class="pred-entry__body">
+                            <strong>Sam Altman</strong> <span class="pred-entry__n">(OpenAI CEO)</span>
+                            <p>"AGI is going to get developed basically regardless... I believe the best thing we can do is try to steer it well." Gave no firm date but implied near-term.</p>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--leader">
+                        <span class="pred-entry__year">2024</span>
+                        <div class="pred-entry__body">
+                            <strong>Demis Hassabis</strong> <span class="pred-entry__n">(Google DeepMind CEO)</span>
+                            <p>"AGI could arrive within the next decade." Nobel Prize acceptance speech cited rapid progress in protein folding and reasoning.</p>
+                            <span class="pred-entry__target">Target: by ~2034</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--leader">
+                        <span class="pred-entry__year">2024</span>
+                        <div class="pred-entry__body">
+                            <strong>Dario Amodei</strong> <span class="pred-entry__n">(Anthropic CEO)</span>
+                            <p>"Powerful AI" could arrive by 2026. Published <em>Machines of Loving Grace</em> essay on potential positive impacts. Described AI that could compress a century of biological research into 5-10 years.</p>
+                            <span class="pred-entry__target">Target: 2026–2027</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--leader">
+                        <span class="pred-entry__year">2024</span>
+                        <div class="pred-entry__body">
+                            <strong>Jensen Huang</strong> <span class="pred-entry__n">(NVIDIA CEO)</span>
+                            <p>"If I gave an AI... every single test you can imagine, you make a list of tests and put it in front of the computer science industry, and I believe in five years' time, we'll do well on every single one."</p>
+                            <span class="pred-entry__target">Target: ~2029</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--leader">
+                        <span class="pred-entry__year">2025</span>
+                        <div class="pred-entry__body">
+                            <strong>Ray Kurzweil</strong> <span class="pred-entry__n">(Google, author)</span>
+                            <p>Doubled down on 2029 prediction from 2005. "We're basically on track." Published <em>The Singularity Is Nearer</em> (2024) defending the timeline.</p>
+                            <span class="pred-entry__target">Target: 2029 (unchanged)</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--leader">
+                        <span class="pred-entry__year">2025</span>
+                        <div class="pred-entry__body">
+                            <strong>Sam Altman</strong> <span class="pred-entry__n">(OpenAI CEO)</span>
+                            <p>"We are now confident we know how to build AGI as we have traditionally understood it." January 2025 blog post.</p>
+                            <span class="pred-entry__target">Target: imminent</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--leader">
+                        <span class="pred-entry__year">2025</span>
+                        <div class="pred-entry__body">
+                            <strong>Elon Musk</strong> <span class="pred-entry__n">(xAI)</span>
+                            <p>"AI will probably be smarter than any single human around the end of next year" (2026). Later said "smarter than all humans combined" by 2028-2029.</p>
+                            <span class="pred-entry__target">Target: 2026–2029</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--survey">
+                        <span class="pred-entry__year">2025</span>
+                        <div class="pred-entry__body">
+                            <strong>AI Impacts / Grace et al. Survey</strong> <span class="pred-entry__n">(n=2,778)</span>
+                            <p>50% of researchers now believe there's a 50% chance of HLMI by <strong>2040</strong>. 20% of researchers put it before 2030.</p>
+                            <span class="pred-entry__target">Median: 2040</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Survey Median Chart -->
+            <div class="chart-wrap reveal" data-chart="survey-medians">
+                <div class="chart-header">
+                    <h3>The Collapsing Timeline</h3>
+                    <p class="chart-subtitle">Median predicted year for Human-Level Machine Intelligence (HLMI) — AI researcher surveys</p>
+                </div>
+                <div class="chart-body" style="height:320px">
+                    <canvas id="surveyMedianChart"></canvas>
+                </div>
+                <p class="chart-note">Each data point represents when AI researchers, surveyed that year, said there was a 50% chance of achieving HLMI. The gap between "when asked" and "predicted year" shrank from 45 years to under 15.</p>
+            </div>
+
+            <!-- Skeptics Section -->
+            <div class="insight-callout reveal">
+                <div class="insight-callout__label">The Other Side</div>
+                <h3 class="insight-callout__title">The Skeptics</h3>
+                <div class="insight-callout__body">
+                    <p>Not everyone agrees the timelines have collapsed. Several prominent researchers caution against extrapolating recent progress:</p>
+                    <div class="skeptics-grid">
+                        <div class="skeptic-card">
+                            <strong>Yann LeCun</strong> <span class="pred-entry__n">(Meta, Turing Award)</span>
+                            <p>"We are not on the path to AGI." Has consistently argued that LLMs lack world models and cannot achieve true understanding. Predicts AGI requires fundamental new architectures not yet invented.</p>
+                        </div>
+                        <div class="skeptic-card">
+                            <strong>Gary Marcus</strong> <span class="pred-entry__n">(NYU, cognitive scientist)</span>
+                            <p>"Deep learning is hitting a wall." Argues LLMs are sophisticated pattern matchers, not reasoning systems. Points to persistent failures in compositional reasoning and reliability.</p>
+                        </div>
+                        <div class="skeptic-card">
+                            <strong>Rodney Brooks</strong> <span class="pred-entry__n">(MIT, Roomba creator)</span>
+                            <p>Predicts AGI no earlier than 2300. Maintains a public "predictions scorecard" tracking AI hype vs reality. Has been consistently skeptical of AGI timelines since the 1990s.</p>
+                        </div>
+                        <div class="skeptic-card">
+                            <strong>Francois Chollet</strong> <span class="pred-entry__n">(Google, Keras creator)</span>
+                            <p>Created the ARC benchmark specifically to test genuine reasoning vs pattern matching. Argues current AI is "skill" not "intelligence" — good at specific tasks, unable to generalize.</p>
+                        </div>
+                    </div>
+                    <p style="margin-top:16px">The core skeptic argument: <strong>benchmarks are being saturated without the underlying problem being solved.</strong> Models get better at tests designed to measure intelligence without becoming intelligent. The "moving goalpost" works both ways — what counts as AGI keeps being redefined downward to match what current systems can do.</p>
+                </div>
+            </div>
+
+            <!-- Industry Leader Predictions Chart -->
+            <div class="chart-wrap reveal" data-chart="leader-predictions">
+                <div class="chart-header">
+                    <h3>When Industry Leaders Say AGI Will Arrive</h3>
+                    <p class="chart-subtitle">Predictions from CEOs and prominent researchers, as of their most recent public statements</p>
+                </div>
+                <div class="chart-body" style="height:300px">
+                    <canvas id="leaderChart"></canvas>
+                </div>
+                <p class="chart-note">Range bars show the span of each prediction. Note that definitions of "AGI" vary significantly between predictors — some mean superhuman performance on all cognitive tasks, others mean economically valuable autonomous work.</p>
+            </div>
+
+            <!-- The Definition Problem -->
+            <div class="insight-callout reveal" style="border-left-color: var(--amber);">
+                <div class="insight-callout__label" style="color: var(--amber);">Key Caveat</div>
+                <h3 class="insight-callout__title">The Definition Problem</h3>
+                <div class="insight-callout__body">
+                    <p>Every prediction above carries an asterisk: <strong>nobody agrees on what "AGI" means.</strong></p>
+                    <table class="horizon-table">
+                        <thead>
+                            <tr><th>Definition</th><th>Who Uses It</th><th>Implied Timeline</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>"AI that can do any intellectual task a human can"</td><td>Classical definition (Minsky, McCarthy)</td><td>Decades away or never</td></tr>
+                            <tr><td>"AI that can do economically valuable work autonomously"</td><td>OpenAI's internal definition</td><td>2025–2028</td></tr>
+                            <tr><td>"AI that passes every benchmark we can think of"</td><td>Jensen Huang's framing</td><td>~2029</td></tr>
+                            <tr><td>"AI that can fully automate all labor"</td><td>Grace et al. FAOL metric</td><td>2060+</td></tr>
+                            <tr><td>"AI that can do novel science at PhD level"</td><td>Amodei's practical test</td><td>2026–2027</td></tr>
+                        </tbody>
+                    </table>
+                    <p style="margin-top:12px">The timelines haven't just compressed — the <strong>definition has softened</strong>. When someone in 1967 said "AGI in 20 years," they meant something more ambitious than what many leaders today mean by "AGI in 3 years." The goalposts moved forward AND the goalposts got wider.</p>
+                </div>
+            </div>
+
+            <!-- Prediction Market / Community -->
+            <div class="chart-wrap reveal" data-chart="metaculus">
+                <div class="chart-header">
+                    <h3>Prediction Markets: The Wisdom of Crowds</h3>
+                    <p class="chart-subtitle">Metaculus community median for "When will AGI be achieved?" — sampled over time</p>
+                </div>
+                <div class="chart-body" style="height:280px">
+                    <canvas id="metaculusChart"></canvas>
+                </div>
+                <p class="chart-note">Metaculus aggregates forecasts from thousands of predictors. The dramatic 2023-2024 compression mirrors the shift in expert surveys — ChatGPT and GPT-4 moved the Overton window on what seemed possible.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Page Navigation -->
+    <div class="page-nav">
+        <a href="timeline.html" class="page-nav__link">&larr; Timeline</a>
+        <a href="sources.html" class="page-nav__link">Sources &rarr;</a>
+    </div>
+
+    <footer id="footer"></footer>
+    <script src="js/shared.js"></script>
+    <script src="js/charts.js"></script>
+    <script>
+    /* ======== Survey Median HLMI Chart ======== */
+    new Chart(document.getElementById('surveyMedianChart'), {
+        type: 'line',
+        data: {
+            labels: ['2016 Survey', '2022 Survey', '2023 Survey', '2025 Survey'],
+            datasets: [{
+                label: 'Predicted Year for HLMI (50% probability)',
+                data: [2061, 2059, 2047, 2040],
+                borderColor: C.cyan,
+                backgroundColor: C.cyanBg,
+                fill: true,
+                tension: 0.3,
+                pointRadius: 8,
+                pointBackgroundColor: C.cyan,
+                pointBorderColor: C.surface,
+                pointBorderWidth: 3,
+                pointHoverRadius: 11
+            }, {
+                label: 'Year Prediction Was Made',
+                data: [2016, 2022, 2023, 2025],
+                borderColor: C.dim,
+                borderDash: [6, 4],
+                backgroundColor: 'transparent',
+                tension: 0.3,
+                pointRadius: 5,
+                pointBackgroundColor: C.dim,
+                pointBorderColor: C.surface,
+                pointBorderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom' },
+                tooltip: {
+                    callbacks: {
+                        label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y
+                    }
+                }
+            },
+            scales: {
+                x: { grid: { display: false } },
+                y: {
+                    min: 2015, max: 2070,
+                    grid: { color: C.grid },
+                    ticks: { stepSize: 5 }
+                }
+            },
+            animation: { duration: 1200, easing: 'easeOutQuart' }
+        }
+    });
+
+    /* ======== Industry Leader Predictions ======== */
+    new Chart(document.getElementById('leaderChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Elon Musk', 'Dario Amodei', 'Sam Altman', 'Ray Kurzweil', 'Jensen Huang', 'Demis Hassabis', 'Rodney Brooks'],
+            datasets: [{
+                label: 'Earliest estimate',
+                data: [2026, 2026, 2025, 2029, 2029, 2030, 2300],
+                backgroundColor: [C.amberA, C.cyanA, C.violetA, C.greenA, C.amberA, C.cyanA, 'rgba(90,93,106,0.5)'],
+                borderColor: [C.amber, C.cyan, C.violet, C.green, C.amber, C.cyan, C.dim],
+                borderWidth: 1,
+                borderRadius: 6
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: {
+                    min: 2024, max: 2060,
+                    grid: { color: C.grid },
+                    ticks: {
+                        callback: v => v > 2100 ? '2300' : v,
+                        stepSize: 5
+                    }
+                },
+                y: { grid: { display: false } }
+            },
+            animation: { duration: 1000, easing: 'easeOutQuart' }
+        }
+    });
+
+    /* ======== Metaculus Community Forecast ======== */
+    new Chart(document.getElementById('metaculusChart'), {
+        type: 'line',
+        data: {
+            labels: ['2020', '2021', '2022', 'Early 2023', 'Late 2023', '2024', '2025', 'Mar 2026'],
+            datasets: [{
+                label: 'Metaculus Community Median AGI Year',
+                data: [2057, 2042, 2040, 2032, 2031, 2029, 2028, 2027],
+                borderColor: C.violet,
+                backgroundColor: C.violetBg,
+                fill: true,
+                tension: 0.35,
+                pointRadius: 7,
+                pointBackgroundColor: C.violet,
+                pointBorderColor: C.surface,
+                pointBorderWidth: 3,
+                pointHoverRadius: 10
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom' } },
+            scales: {
+                x: { grid: { display: false } },
+                y: {
+                    min: 2025, max: 2060,
+                    grid: { color: C.grid },
+                    ticks: { stepSize: 5 }
+                }
+            },
+            animation: { duration: 1000, easing: 'easeOutQuart' }
+        }
+    });
+    </script>
+</body>
+</html>

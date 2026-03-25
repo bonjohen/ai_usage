@@ -12,6 +12,7 @@ const NAV_HTML = `
             <a href="segments.html" class="nav-link" data-page="segments">Segments</a>
             <a href="trust.html" class="nav-link" data-page="trust">Trust</a>
             <a href="timeline.html" class="nav-link" data-page="timeline">Timeline</a>
+            <a href="predictions.html" class="nav-link" data-page="predictions">Predictions</a>
             <a href="sources.html" class="nav-link" data-page="sources">Sources</a>
         </div>
     </div>
