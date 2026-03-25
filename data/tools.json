@@ -1,0 +1,73 @@
+{
+  "lastUpdated": "2026-03-24",
+  "hardMetrics": [
+    {
+      "tool": "GitHub Copilot",
+      "metric": "4.7M paid subscribers",
+      "source": "Microsoft FY26 Q2 earnings call",
+      "date": "2026-01",
+      "caveat": "Separate '20M users' figure may include free/trial"
+    },
+    {
+      "tool": "GitHub Copilot",
+      "metric": "90% of Fortune 100",
+      "source": "Microsoft FY25 Q4",
+      "date": "2025-07",
+      "caveat": "Enterprise presence ≠ intensity"
+    },
+    {
+      "tool": "Cursor",
+      "metric": "$1B ARR, $29.3B valuation",
+      "source": "CNBC / BusinessWire",
+      "date": "2025-11",
+      "caveat": "$500M ARR (May) → $1B (Oct) — fastest SaaS ARR growth"
+    },
+    {
+      "tool": "Claude Code",
+      "metric": "~$1B ARR (estimated)",
+      "source": "Industry estimates",
+      "date": "2025-11",
+      "caveat": "Not independently disclosed by Anthropic"
+    },
+    {
+      "tool": "Windsurf",
+      "metric": "$82M ARR, 350+ enterprise clients",
+      "source": "Reuters",
+      "date": "2025-07",
+      "caveat": "At time of failed OpenAI acquisition; now licensed to Google ($2.4B)"
+    },
+    {
+      "tool": "Replit",
+      "metric": "$10M → $100M ARR in 6 months",
+      "source": "Replit blog",
+      "date": "2025-06",
+      "caveat": "Driven by Replit Agent (Sep 2024); 45% monthly subscriber growth"
+    },
+    {
+      "tool": "Tabnine",
+      "metric": "1M+ users (vendor claim)",
+      "source": "Tabnine About page",
+      "date": "2025",
+      "caveat": "Free tier sunset Apr 2025; enterprise-only pivot"
+    }
+  ],
+  "surveyRankings": {
+    "soAgentUsers2025": {
+      "source": "Stack Overflow 2025 (agent users, n≈8,323)",
+      "data": [
+        { "tool": "ChatGPT", "usage": 81.7 },
+        { "tool": "GitHub Copilot", "usage": 67.9 },
+        { "tool": "Gemini", "usage": 47.4 },
+        { "tool": "Claude Code", "usage": 40.8 }
+      ]
+    },
+    "pragmaticEngineerAgentUsers2026": {
+      "source": "Pragmatic Engineer 2026 (n=906, high-bias)",
+      "data": [
+        { "tool": "Claude Code", "usage": 71 },
+        { "tool": "GitHub Copilot", "usage": 46 },
+        { "tool": "Cursor", "usage": 39 }
+      ]
+    }
+  }
+}

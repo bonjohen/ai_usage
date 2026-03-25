@@ -4,15 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a research repository containing an industry analysis of AI coding tool adoption from 2016-2026. It has no source code, build system, or tests — it is purely documentation.
+A data-driven static website presenting research on AI coding tool adoption (2016–2026). Built with vanilla HTML/CSS/JS and Chart.js — no build tools, no frameworks.
 
-## Repository Structure
+## Architecture
 
-- `docs/deep-research-report.md` — The main deliverable: a comprehensive report covering adoption trends, tool-by-tool penetration, segmentation, productivity/trust impacts, and data gaps. Contains Mermaid charts and extensive citation annotations (`citeturnXsearchY` / `citeturnXviewY` format).
+- **Multi-page static site**: `index.html` (home), `adoption.html`, `tools.html`, `agentic-split.html`, `segments.html`, `trust.html`, `timeline.html`, `sources.html`, `embed.html`
+- **Shared assets**: `css/style.css`, `js/shared.js` (nav/footer injection, scroll reveal, counters), `js/charts.js` (Chart.js palette + defaults)
+- **Data layer**: `data/surveys.json`, `data/tools.json`, `data/timeline.json` — structured JSON for all survey data, tool metrics, and timeline events
+- **Embeddable charts**: `embed.html?chart=<id>` renders standalone charts (adoption, trust, tools, frequency, agentic)
+- **Source research**: `docs/deep-research-report.md` — the original analysis with `citeturnXsearchY` citation format
+
+## Key Patterns
+
+- Nav/footer HTML is injected by `js/shared.js`; active page detected via `<body data-page="...">` attribute
+- Color palette object `C` in `js/charts.js` provides consistent amber/cyan/violet/red/green theming
+- Chart.js 4.x used for all visualizations — no other chart library
+- Design duality: amber = usage/reality, cyan = perception/trust
+- Fonts: Bricolage Grotesque (display), Albert Sans (body), JetBrains Mono (data)
+
+## Deployment
+
+GitHub Pages from `main` branch root. No build step — push and it's live.
 
 ## Content Conventions
 
-- **Citations** use an inline format like `citeturn37search0` referencing source turns from the research process. These are not standard academic citations.
-- **Charts** use Mermaid syntax (`xychart-beta`, `timeline`) embedded in fenced code blocks.
-- The report distinguishes **hard metrics** (vendor earnings disclosures, audited subscriber counts) from **survey-driven estimates**, and flags comparability issues between sources.
-- The assistive vs. agentic distinction is a central organizing theme throughout the analysis.
+- The report distinguishes **hard metrics** (vendor earnings, audited counts) from **survey-driven estimates**
+- The assistive vs. agentic distinction is a central organizing theme
+- Citations in the research report use `citeturn37search0` format (not standard academic)

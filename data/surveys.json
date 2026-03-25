@@ -1,0 +1,145 @@
+{
+  "lastUpdated": "2026-03-24",
+  "surveys": [
+    {
+      "id": "so-2023",
+      "name": "Stack Overflow Developer Survey 2023",
+      "fielding": "May 8–19, 2023",
+      "sample": 89184,
+      "metrics": {
+        "currentlyUsing": 43.78,
+        "planToUse": 25.46,
+        "noPlans": 30.76
+      },
+      "framing": "Use in development process",
+      "url": "https://survey.stackoverflow.co/2023",
+      "notes": "First major benchmark for AI tool adoption; narrower than 'ever used'"
+    },
+    {
+      "id": "so-2024",
+      "name": "Stack Overflow Developer Survey 2024",
+      "fielding": "May 19–Jun 20, 2024",
+      "sample": 65437,
+      "metrics": {
+        "currentlyUsing": 61.8,
+        "planToUse": 13.8,
+        "noPlans": 24.4
+      },
+      "framing": "Same framing as 2023; year-over-year comparable",
+      "url": "https://survey.stackoverflow.co/2024/ai",
+      "notes": "Combined use-or-plan rate ~76%"
+    },
+    {
+      "id": "so-2025",
+      "name": "Stack Overflow Developer Survey 2025",
+      "fielding": "May 29–Jun 23, 2025",
+      "sample": 49009,
+      "metrics": {
+        "currentlyUsing": 78.5,
+        "daily": 47.1,
+        "weekly": 17.7,
+        "monthlyInfrequent": 13.7,
+        "planToUse": 5.3,
+        "noPlans": 16.2,
+        "distrust": 46,
+        "trust": 33,
+        "highlyTrust": 3
+      },
+      "framing": "Shifted to frequency reporting; trust data added",
+      "url": "https://survey.stackoverflow.co/2025/ai",
+      "notes": "2025 'currently using' = daily + weekly + monthly (47.1 + 17.7 + 13.7 = 78.5)"
+    },
+    {
+      "id": "dora-2025",
+      "name": "DORA 2025 Report (Google)",
+      "fielding": "2025",
+      "sample": 5000,
+      "metrics": {
+        "adoption": 90,
+        "medianHoursPerDay": 2,
+        "productivityEnhanced": 80,
+        "codeQualityPositive": 59,
+        "trustALot": 24,
+        "trustLittle": 30
+      },
+      "framing": "Technology professionals (not dev-only); org-level outcomes",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/dora-report-2025/",
+      "notes": "Adoption up 14 points YoY; negative relationship with delivery stability"
+    },
+    {
+      "id": "hackerrank-2025",
+      "name": "HackerRank 2025 Developer Skills Report",
+      "fielding": "Q4 2024 & early 2025",
+      "sample": 13732,
+      "metrics": {
+        "useAtLeastOne": 97,
+        "useTwoPlus": 61,
+        "avgCodeGenerated": 29,
+        "almostAlwaysCodeGenerated": 48,
+        "moreThanHalf": 15,
+        "chatGPTUsage": 89,
+        "saysFaster": 85
+      },
+      "framing": "Hiring/community sample; 'at least one assistant' is a low bar",
+      "url": "https://www.hackerrank.com/reports/developer-skills-report-2025",
+      "notes": "Security, cloud, and data engineers lead in AI-generated code"
+    },
+    {
+      "id": "jetbrains-2025",
+      "name": "JetBrains Developer Ecosystem 2025",
+      "fielding": "Apr–Jun 2025",
+      "sample": 24534,
+      "metrics": {
+        "regularlyUse": 85,
+        "saveTime": 90,
+        "save8PlusHoursWeek": 20
+      },
+      "framing": "IDE ecosystem survey; 'regularly' undefined",
+      "url": "https://blog.jetbrains.com/research/2025/10/state-of-developer-ecosystem-2025/",
+      "notes": "ChatGPT and Copilot are top tools among respondents"
+    },
+    {
+      "id": "github-2024",
+      "name": "GitHub Survey 2024",
+      "fielding": "2024",
+      "sample": 2000,
+      "metrics": {
+        "everUsed": 97,
+        "orgEncourage": 35,
+        "orgAllowLimited": 39
+      },
+      "framing": "'Ever used at any point' — not a frequency measure",
+      "url": "https://github.blog/news-insights/research/survey-ai-wave-grows/",
+      "notes": "Cross-country focus: US, Brazil, Germany, India"
+    },
+    {
+      "id": "gartner-2024",
+      "name": "Gartner Enterprise Forecast 2024",
+      "fielding": "Q3 2023",
+      "sample": 598,
+      "metrics": {
+        "orgsPiloting": 63,
+        "forecast2028": 75
+      },
+      "framing": "Enterprise IT lens; forecasts are directional",
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2024-04-11-gartner-says-75-percent-of-enterprise-software-engineers-will-use-ai-code-assistants-by-2028",
+      "notes": "<10% enterprise SW engineers using in early 2023"
+    },
+    {
+      "id": "pragmatic-2026",
+      "name": "Pragmatic Engineer 2026 Survey",
+      "fielding": "Early 2026",
+      "sample": 906,
+      "metrics": {
+        "claudeCodeAgentUsers": 71,
+        "copilotAgentUsers": 46,
+        "cursorAgentUsers": 39,
+        "claudeCodeSmallCo": 75,
+        "cursorSmallCo": 42
+      },
+      "framing": "Small, self-selected; median 11–15 yrs experience",
+      "url": null,
+      "notes": "Newsletter audience; treat as practitioner signal, not population data"
+    }
+  ]
+}
