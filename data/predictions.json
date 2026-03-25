@@ -12,16 +12,19 @@
   "researcherSurveys": [
     { "year": 2016, "source": "Grace et al. (AI Impacts)", "sample": 352, "medianHLMI": 2061, "notes": "Asian researchers: 2046, North American: 2064" },
     { "year": 2022, "source": "Grace et al. (AI Impacts)", "sample": 738, "medianHLMI": 2059, "notes": "HLMI=2059, FAOL=2164. Minimal shift from 2016." },
-    { "year": 2023, "source": "Grace et al. (AI Impacts)", "sample": 2778, "medianHLMI": 2047, "notes": "Sharpest single-year revision. 10% said by 2027." },
-    { "year": 2025, "source": "Grace et al. (AI Impacts)", "sample": 2778, "medianHLMI": 2040, "notes": "20% of researchers put HLMI before 2030." }
+    { "year": 2023, "source": "Grace et al. (AI Impacts)", "sample": 2778, "medianHLMI": 2049, "notes": "Sharpest revision. 10% said by 2027. 25% by 2030. FAOL pulled from 2116 to ~2086." },
+    { "year": 2025, "source": "Estimated from smaller polls + Metaculus", "sample": null, "medianHLMI": 2038, "notes": "No full Grace et al. update confirmed; extrapolated from prediction market compression." }
   ],
   "industryLeaders": [
     { "predictor": "Elon Musk", "org": "xAI", "prediction": "Smarter than any single human by end of 2026; smarter than all humans combined by 2028-2029", "earliestYear": 2026, "latestYear": 2029, "asOf": "2025" },
+    { "predictor": "Mustafa Suleyman", "org": "Microsoft AI", "prediction": "ACI (Artificial Capable Intelligence) within 2-3 years", "earliestYear": 2026, "latestYear": 2027, "asOf": "2024" },
     { "predictor": "Dario Amodei", "org": "Anthropic", "prediction": "Powerful AI by 2026-2027. Could compress century of biology into 5-10 years.", "earliestYear": 2026, "latestYear": 2027, "asOf": "2024" },
     { "predictor": "Sam Altman", "org": "OpenAI", "prediction": "We know how to build AGI. January 2025 blog post.", "earliestYear": 2025, "latestYear": 2028, "asOf": "2025" },
+    { "predictor": "Shane Legg", "org": "Google DeepMind (co-founder)", "prediction": "50% probability of human-level AI by 2028 — predicted back in 2011.", "earliestYear": 2028, "latestYear": 2028, "asOf": "2011" },
+    { "predictor": "Geoffrey Hinton", "org": "Turing/Nobel laureate", "prediction": "Revised from decades to 5-20 years after leaving Google (2023). By 2024: could happen within 5 years.", "earliestYear": 2028, "latestYear": 2034, "asOf": "2024" },
     { "predictor": "Ray Kurzweil", "org": "Google", "prediction": "Human-level AI by 2029. Doubled down in The Singularity Is Nearer (2024).", "earliestYear": 2029, "latestYear": 2029, "asOf": "2025" },
     { "predictor": "Jensen Huang", "org": "NVIDIA", "prediction": "AI will pass every test we can imagine within 5 years.", "earliestYear": 2029, "latestYear": 2029, "asOf": "2024" },
-    { "predictor": "Demis Hassabis", "org": "Google DeepMind", "prediction": "AGI could arrive within the next decade.", "earliestYear": 2030, "latestYear": 2034, "asOf": "2024" }
+    { "predictor": "Demis Hassabis", "org": "Google DeepMind", "prediction": "AGI could arrive within the next decade. Moved from decades (pre-2023) to 5-10 years.", "earliestYear": 2030, "latestYear": 2034, "asOf": "2024" }
   ],
   "skeptics": [
     { "predictor": "Yann LeCun", "org": "Meta", "position": "Not on the path to AGI. LLMs lack world models. Need fundamentally new architectures." },

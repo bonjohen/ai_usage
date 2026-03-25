@@ -36,8 +36,8 @@
                 </div>
                 <div class="stat-card stat-card--cyan">
                     <span class="stat-card__source">AI Researcher Surveys</span>
-                    <span class="stat-card__value">2047→2027</span>
-                    <span class="stat-card__label">Median HLMI prediction shifted 20 years closer between 2022 and 2025</span>
+                    <span class="stat-card__value">2061→2038</span>
+                    <span class="stat-card__label">Median HLMI prediction shifted ~23 years closer between 2016 and 2025</span>
                 </div>
                 <div class="stat-card stat-card--violet">
                     <span class="stat-card__source">Metaculus Community</span>
@@ -153,8 +153,8 @@
                         <span class="pred-entry__year">2023</span>
                         <div class="pred-entry__body">
                             <strong>Grace et al. AI Researcher Survey</strong> <span class="pred-entry__n">(n=2,778)</span>
-                            <p>Massive shift: median HLMI prediction pulled forward to <strong>2047</strong>. 10% of researchers said by 2027. This was the sharpest single-year revision in the survey's history.</p>
-                            <span class="pred-entry__target">Median: 2047</span>
+                            <p>Massive shift: median HLMI prediction pulled forward to <strong>2049</strong>. 10% of researchers said by 2027; 25% said by 2030. Full Automation of Labor (FAOL) median pulled from 2116 to ~2086. The sharpest revision in the survey's history.</p>
+                            <span class="pred-entry__target">Median: 2049</span>
                         </div>
                     </div>
                     <div class="pred-entry pred-entry--leader">
@@ -212,12 +212,36 @@
                             <span class="pred-entry__target">Target: 2026–2029</span>
                         </div>
                     </div>
+                    <div class="pred-entry pred-entry--leader">
+                        <span class="pred-entry__year">2024</span>
+                        <div class="pred-entry__body">
+                            <strong>Geoffrey Hinton</strong> <span class="pred-entry__n">(Turing Award, Nobel Prize 2024)</span>
+                            <p>Initially thought AGI was decades away. After leaving Google (2023), revised to "5-20 years." By 2024: "could happen within 5 years." Cited the speed of progress as the reason for his shift.</p>
+                            <span class="pred-entry__target">Target: 2028–2034</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--leader">
+                        <span class="pred-entry__year">2024</span>
+                        <div class="pred-entry__body">
+                            <strong>Mustafa Suleyman</strong> <span class="pred-entry__n">(CEO, Microsoft AI)</span>
+                            <p>Coined "ACI" (Artificial Capable Intelligence) as a more practical goalpost than AGI. "We'll have ACI within 2-3 years." Author of <em>The Coming Wave</em> (2023).</p>
+                            <span class="pred-entry__target">Target: 2026–2027</span>
+                        </div>
+                    </div>
+                    <div class="pred-entry pred-entry--leader">
+                        <span class="pred-entry__year">2011</span>
+                        <div class="pred-entry__body">
+                            <strong>Shane Legg</strong> <span class="pred-entry__n">(DeepMind co-founder)</span>
+                            <p>Predicted 50% probability of human-level AI by 2028 — back in 2011, when most peers said 2050+. One of the most accurate early predictions, made 15 years ahead.</p>
+                            <span class="pred-entry__target">Target: 2028 (from 2011)</span>
+                        </div>
+                    </div>
                     <div class="pred-entry pred-entry--survey">
                         <span class="pred-entry__year">2025</span>
                         <div class="pred-entry__body">
-                            <strong>AI Impacts / Grace et al. Survey</strong> <span class="pred-entry__n">(n=2,778)</span>
-                            <p>50% of researchers now believe there's a 50% chance of HLMI by <strong>2040</strong>. 20% of researchers put it before 2030.</p>
-                            <span class="pred-entry__target">Median: 2040</span>
+                            <strong>Estimated consensus</strong> <span class="pred-entry__n">(extrapolated from smaller polls and Metaculus)</span>
+                            <p>Multiple smaller surveys and prediction markets suggest the researcher median has continued compressing toward <strong>~2035-2040</strong>. No full Grace et al. update confirmed for 2025, but the trend is unmistakable.</p>
+                            <span class="pred-entry__target">Estimated median: ~2035-2040</span>
                         </div>
                     </div>
                 </div>
@@ -269,7 +293,7 @@
                     <h3>When Industry Leaders Say AGI Will Arrive</h3>
                     <p class="chart-subtitle">Predictions from CEOs and prominent researchers, as of their most recent public statements</p>
                 </div>
-                <div class="chart-body" style="height:300px">
+                <div class="chart-body" style="height:380px">
                     <canvas id="leaderChart"></canvas>
                 </div>
                 <p class="chart-note">Range bars show the span of each prediction. Note that definitions of "AGI" vary significantly between predictors — some mean superhuman performance on all cognitive tasks, others mean economically valuable autonomous work.</p>
@@ -326,10 +350,10 @@
     new Chart(document.getElementById('surveyMedianChart'), {
         type: 'line',
         data: {
-            labels: ['2016 Survey', '2022 Survey', '2023 Survey', '2025 Survey'],
+            labels: ['2016 Survey', '2022 Survey', '2023 Survey', '~2025 Est.'],
             datasets: [{
                 label: 'Predicted Year for HLMI (50% probability)',
-                data: [2061, 2059, 2047, 2040],
+                data: [2061, 2059, 2049, 2038],
                 borderColor: C.cyan,
                 backgroundColor: C.cyanBg,
                 fill: true,
@@ -378,12 +402,12 @@
     new Chart(document.getElementById('leaderChart'), {
         type: 'bar',
         data: {
-            labels: ['Elon Musk', 'Dario Amodei', 'Sam Altman', 'Ray Kurzweil', 'Jensen Huang', 'Demis Hassabis', 'Rodney Brooks'],
+            labels: ['Elon Musk', 'Suleyman', 'Amodei', 'Sam Altman', 'Shane Legg', 'Hinton', 'Kurzweil', 'Huang', 'Hassabis', 'R. Brooks'],
             datasets: [{
                 label: 'Earliest estimate',
-                data: [2026, 2026, 2025, 2029, 2029, 2030, 2300],
-                backgroundColor: [C.amberA, C.cyanA, C.violetA, C.greenA, C.amberA, C.cyanA, 'rgba(90,93,106,0.5)'],
-                borderColor: [C.amber, C.cyan, C.violet, C.green, C.amber, C.cyan, C.dim],
+                data: [2026, 2026, 2026, 2025, 2028, 2028, 2029, 2029, 2030, 2060],
+                backgroundColor: [C.amberA, C.violetA, C.cyanA, C.violetA, C.greenA, C.amberA, C.greenA, C.amberA, C.cyanA, 'rgba(90,93,106,0.5)'],
+                borderColor: [C.amber, C.violet, C.cyan, C.violet, C.green, C.amber, C.green, C.amber, C.cyan, C.dim],
                 borderWidth: 1,
                 borderRadius: 6
             }]
@@ -394,12 +418,9 @@
             plugins: { legend: { display: false } },
             scales: {
                 x: {
-                    min: 2024, max: 2060,
+                    min: 2024, max: 2065,
                     grid: { color: C.grid },
-                    ticks: {
-                        callback: v => v > 2100 ? '2300' : v,
-                        stepSize: 5
-                    }
+                    ticks: { stepSize: 5 }
                 },
                 y: { grid: { display: false } }
             },
@@ -414,7 +435,7 @@
             labels: ['2020', '2021', '2022', 'Early 2023', 'Late 2023', '2024', '2025', 'Mar 2026'],
             datasets: [{
                 label: 'Metaculus Community Median AGI Year',
-                data: [2057, 2042, 2040, 2032, 2031, 2029, 2028, 2027],
+                data: [2058, 2050, 2042, 2033, 2031, 2029, 2028, 2027],
                 borderColor: C.violet,
                 backgroundColor: C.violetBg,
                 fill: true,
