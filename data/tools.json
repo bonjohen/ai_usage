@@ -17,10 +17,10 @@
     },
     {
       "tool": "Cursor",
-      "metric": "$1B ARR, $29.3B valuation",
-      "source": "CNBC / BusinessWire",
-      "date": "2025-11",
-      "caveat": "$500M ARR (May) → $1B (Oct) — fastest SaaS ARR growth"
+      "metric": "$2B ARR, raising at $50B valuation",
+      "source": "Bloomberg / TechCrunch",
+      "date": "2026-03",
+      "caveat": "$500M (May 2025) → $1B (Oct) → $2B (Feb 2026). Enterprise ~60% of revenue"
     },
     {
       "tool": "Claude Code",

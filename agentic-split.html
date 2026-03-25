@@ -49,6 +49,29 @@
                 </div>
                 <p class="chart-note">Autonomy amplifies risk: test failures, security mistakes, and policy violations. "Verification debt" shifts effort from writing code to reviewing and debugging it.</p>
             </div>
+
+            <div class="insight-callout reveal">
+                <div class="insight-callout__label">Emerging Signal</div>
+                <h3 class="insight-callout__title">The Long-Horizon Step Change (Early 2026)</h3>
+                <div class="insight-callout__body">
+                    <p>METR (Model Evaluation & Threat Research) tracks the <strong>"50% time horizon"</strong> — the task duration at which frontier AI agents succeed half the time. This metric has been doubling every ~89 days since 2024, creating what some analysts call <strong>"a new Moore's Law for AI agents."</strong></p>
+                    <table class="horizon-table">
+                        <thead>
+                            <tr><th>Model</th><th>Date</th><th>50% Time Horizon</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>GPT-4 / Claude 3 Opus</td><td>Early 2024</td><td>~4 min</td></tr>
+                            <tr><td>Claude 3.5 Sonnet</td><td>Jun 2024</td><td>~11 min</td></tr>
+                            <tr><td>Claude 3.7 Sonnet</td><td>Feb 2025</td><td>~60 min</td></tr>
+                            <tr><td>Claude Opus 4.5</td><td>Nov 2025</td><td>~293 min (~5 hrs)</td></tr>
+                            <tr><td>Claude Opus 4.6</td><td>Feb 2026</td><td>~719 min (~12 hrs)</td></tr>
+                        </tbody>
+                    </table>
+                    <p style="margin-top:12px">This enables a qualitative shift: agents that can work for <strong>hours, not minutes</strong>. OpenAI demonstrated a single Codex session running <span class="metric-highlight">25 hours uninterrupted</span>, generating 30K lines of code. Cursor shipped cloud agents running on isolated VMs with up to 8 parallel instances. The architecture shifted from synchronous prompt-response to <strong>asynchronous execution loops with verification</strong>.</p>
+                    <p style="margin-top:12px">The caveat: Anthropic's own research found a <strong>"significant deployment overhang"</strong> — models are more capable of autonomy than users currently exercise. Median real-world Claude Code turns remain at ~45 seconds, even as the 99.9th percentile nearly doubled to 45+ minutes.</p>
+                </div>
+                <div class="insight-callout__source">Sources: METR Time Horizons (metr.org), Anthropic research blog, OpenAI Codex blog</div>
+            </div>
         </div>
     </section>
 

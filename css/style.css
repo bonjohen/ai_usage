@@ -504,6 +504,56 @@ nav.scrolled {
 .home-card--green .home-card__stat { color: var(--green); }
 .home-card--red .home-card__stat { color: var(--red); }
 
+/* ======== Insight Callout ======== */
+.insight-callout {
+    background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(56,189,248,0.08));
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--cyan);
+    border-radius: 12px; padding: 28px 32px;
+    margin: 40px 0;
+}
+.insight-callout__label {
+    font-family: var(--font-mono); font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--cyan); margin-bottom: 8px;
+}
+.insight-callout__title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 1.25rem; margin-bottom: 12px;
+}
+.insight-callout__body {
+    font-size: 0.9rem; color: var(--text-secondary);
+    line-height: 1.65;
+}
+.insight-callout__body strong { color: var(--text-primary); }
+.insight-callout__body .metric-highlight {
+    display: inline; font-family: var(--font-mono); font-weight: 600;
+    color: var(--cyan);
+}
+.horizon-table {
+    width: 100%; border-collapse: collapse;
+    margin: 16px 0 8px; font-size: 0.82rem;
+}
+.horizon-table th {
+    font-family: var(--font-mono); font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-dim); text-align: left;
+    padding: 8px 12px; border-bottom: 1px solid var(--border);
+}
+.horizon-table td {
+    padding: 8px 12px; border-bottom: 1px solid rgba(30,36,64,0.5);
+    color: var(--text-secondary);
+}
+.horizon-table td:last-child {
+    font-family: var(--font-mono); font-weight: 600;
+    color: var(--cyan);
+}
+.horizon-table tr:last-child td { border-bottom: none; }
+.insight-callout__source {
+    font-family: var(--font-mono); font-size: 0.65rem;
+    color: var(--text-dim); margin-top: 12px;
+}
+
 /* ======== Reveal Animations ======== */
 .reveal {
     opacity: 0; transform: translateY(28px);

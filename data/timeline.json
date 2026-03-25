@@ -40,9 +40,17 @@
     { "date": "2025-06", "category": "survey", "title": "Stack Overflow 2025: 78.5% using, 46% distrust", "summary": "49,009 respondents. The paradox crystallizes: heavy usage, low trust.", "era": "agent" },
     { "date": "2025-06", "category": "funding", "title": "Cursor raises $900M at $9.9B", "summary": "Series C. Hit $500M ARR (May) → $1B ARR (Oct). Fastest SaaS ever.", "era": "agent" },
     { "date": "2025-08", "category": "policy", "title": "EU AI Act: GPAI model obligations take effect", "summary": "Foundation model providers must supply technical docs, comply with copyright.", "era": "agent" },
+    { "date": "2025-09", "category": "product", "title": "Claude Code v2.0 — subagents, hooks, Agent SDK", "summary": "Architecture upgrade: checkpoints, subagents, background tasks. Powered by Sonnet 4.5.", "era": "agent" },
     { "date": "2025-10", "category": "product", "title": "Cursor 2.0 + multi-agent interface", "summary": "Multiple AI agents collaborating on different parts of a codebase.", "era": "agent" },
+    { "date": "2025-11", "category": "survey", "title": "Devin: 67% PR merge rate, 4× faster", "summary": "PR merges doubled YoY. Goldman Sachs pilots hybrid workforce with 20% gains.", "era": "agent" },
+    { "date": "2026-01", "category": "product", "title": "Claude Cowork announced", "summary": "Anthropic extends agentic paradigm from coding to general knowledge work.", "era": "agent" },
+    { "date": "2026-01", "category": "survey", "title": "METR: Agent time horizons doubling every ~89 days", "summary": "Time Horizon 1.1: 50% success threshold jumped from ~4 min (2024) to hours (late 2025).", "era": "agent" },
     { "date": "2026-01", "category": "survey", "title": "Microsoft: 4.7M paid Copilot subscribers", "summary": "FY26 Q2 earnings. '20M users' and '90% Fortune 100' also cited.", "era": "agent" },
+    { "date": "2026-02", "category": "product", "title": "Claude Opus 4.6 — 12-hour time horizon", "summary": "1M context (beta), 128K output. METR: ~719 min time horizon. 75.6% SWE-bench.", "era": "agent" },
+    { "date": "2026-02", "category": "product", "title": "GPT-5.3-Codex + desktop app", "summary": "Demo: 25-hour uninterrupted session, 30K lines of code. 2M+ weekly active users.", "era": "agent" },
+    { "date": "2026-02", "category": "funding", "title": "Cursor hits $2B ARR", "summary": "Revenue doubles in 3 months. Enterprise ~60% of revenue. Raising at $50B.", "era": "agent" },
     { "date": "2026-03", "category": "product", "title": "Codex Security research preview", "summary": "OpenAI extends Codex platform into automated security analysis.", "era": "agent" },
+    { "date": "2026-03", "category": "product", "title": "Claude Computer Use + Dispatch", "summary": "Phone-to-desktop dispatch: assign tasks remotely, agents run autonomously.", "era": "agent" },
     { "date": "2028", "category": "survey", "title": "Gartner: 75% enterprise engineers forecast", "summary": "Forward-looking projection from 2024 — up from <10% in early 2023.", "era": "agent" }
   ]
 }
