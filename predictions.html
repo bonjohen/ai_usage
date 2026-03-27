@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <meta name="description" content="AGI predictions collapsed from decades to years. Historical forecasts, researcher surveys, industry leader timelines, and prediction markets.">
+    <meta property="og:title" content="Future Predictions — AI Coding Tool Adoption">
+    <meta property="og:description" content="AGI predictions collapsed from decades to years. Historical forecasts, researcher surveys, industry leader timelines, and prediction markets.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yourusername.github.io/ai_usage/predictions.html">
+    <meta property="og:image" content="favicon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Future Predictions — AI Coding Tool Adoption">
+    <meta name="twitter:description" content="AGI predictions collapsed from decades to years. Historical forecasts, researcher surveys, industry leader timelines, and prediction markets.">
+    <link rel="canonical" href="https://yourusername.github.io/ai_usage/predictions.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>Future Predictions — AI Coding Tool Adoption</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" integrity="sha384-vsrfeLOOY6KuIYKDlmVH5UiBmgIdB1oEf7p01YgWHuqmOHfZr374+odEv96n9tNC" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1.0/dist/chartjs-plugin-annotation.min.js"></script>
 </head>
 <body data-page="predictions">
     <div class="grain"></div>
@@ -16,6 +29,7 @@
     <nav id="nav"></nav>
 
     <!-- Page Header -->
+    <main id="main">
     <header class="page-header">
         <div class="container">
             <span class="section-num reveal">07 / PREDICTIONS</span>
@@ -54,7 +68,7 @@
             <!-- The Perpetual Horizon: Historical Timeline -->
             <div class="chart-wrap reveal" data-chart="predictions-history">
                 <div class="chart-header">
-                    <h3>The Perpetual Horizon</h3>
+                    <h2>The Perpetual Horizon</h2>
                     <p class="chart-subtitle">Major AGI predictions over the decades — when researchers said it would arrive, and when they said it</p>
                 </div>
                 <div class="predictions-timeline">
@@ -96,7 +110,7 @@
                     </div>
 
                     <div class="pred-era">
-                        <div class="pred-era__label">AI Winter & Caution</div>
+                        <div class="pred-era__label">AI Winter &amp; Caution</div>
                         <div class="pred-era__line pred-era__line--dim"></div>
                     </div>
                     <div class="pred-entry pred-entry--miss">
@@ -250,7 +264,7 @@
             <!-- Survey Median Chart -->
             <div class="chart-wrap reveal" data-chart="survey-medians">
                 <div class="chart-header">
-                    <h3>The Collapsing Timeline</h3>
+                    <h2>The Collapsing Timeline</h2>
                     <p class="chart-subtitle">Median predicted year for Human-Level Machine Intelligence (HLMI) — AI researcher surveys</p>
                 </div>
                 <div class="chart-body" style="height:320px">
@@ -262,7 +276,7 @@
             <!-- Skeptics Section -->
             <div class="insight-callout reveal">
                 <div class="insight-callout__label">The Other Side</div>
-                <h3 class="insight-callout__title">The Skeptics</h3>
+                <h2 class="insight-callout__title">The Skeptics</h2>
                 <div class="insight-callout__body">
                     <p>Not everyone agrees the timelines have collapsed. Several prominent researchers caution against extrapolating recent progress:</p>
                     <div class="skeptics-grid">
@@ -290,7 +304,7 @@
             <!-- Industry Leader Predictions Chart -->
             <div class="chart-wrap reveal" data-chart="leader-predictions">
                 <div class="chart-header">
-                    <h3>When Industry Leaders Say AGI Will Arrive</h3>
+                    <h2>When Industry Leaders Say AGI Will Arrive</h2>
                     <p class="chart-subtitle">Predictions from CEOs and prominent researchers, as of their most recent public statements</p>
                 </div>
                 <div class="chart-body" style="height:380px">
@@ -302,7 +316,7 @@
             <!-- The Definition Problem -->
             <div class="insight-callout reveal" style="border-left-color: var(--amber);">
                 <div class="insight-callout__label" style="color: var(--amber);">Key Caveat</div>
-                <h3 class="insight-callout__title">The Definition Problem</h3>
+                <h2 class="insight-callout__title">The Definition Problem</h2>
                 <div class="insight-callout__body">
                     <p>Every prediction above carries an asterisk: <strong>nobody agrees on what "AGI" means.</strong></p>
                     <table class="horizon-table">
@@ -324,7 +338,7 @@
             <!-- Prediction Market / Community -->
             <div class="chart-wrap reveal" data-chart="metaculus">
                 <div class="chart-header">
-                    <h3>Prediction Markets: The Wisdom of Crowds</h3>
+                    <h2>Prediction Markets: The Wisdom of Crowds</h2>
                     <p class="chart-subtitle">Metaculus community median for "When will AGI be achieved?" — sampled over time</p>
                 </div>
                 <div class="chart-body" style="height:280px">
@@ -336,129 +350,140 @@
         </div>
     </section>
 
-    <!-- Page Navigation -->
     <div class="page-nav">
-        <a href="timeline.html" class="page-nav__link">&larr; Timeline</a>
-        <a href="sources.html" class="page-nav__link">Sources &rarr;</a>
+        <a href="timeline.html" class="page-nav__link page-nav__link--prev">&larr; Timeline</a>
+        <a href="sources.html" class="page-nav__link page-nav__link--next">Sources &rarr;</a>
     </div>
+
+    </main>
 
     <footer id="footer"></footer>
     <script src="js/shared.js"></script>
     <script src="js/charts.js"></script>
+    <script src="js/data-loader.js"></script>
     <script>
     /* ======== Survey Median HLMI Chart ======== */
-    new Chart(document.getElementById('surveyMedianChart'), {
-        type: 'line',
-        data: {
-            labels: ['2016 Survey', '2022 Survey', '2023 Survey', '~2025 Est.'],
-            datasets: [{
-                label: 'Predicted Year for HLMI (50% probability)',
-                data: [2061, 2059, 2049, 2038],
-                borderColor: C.cyan,
-                backgroundColor: C.cyanBg,
-                fill: true,
-                tension: 0.3,
-                pointRadius: 8,
-                pointBackgroundColor: C.cyan,
-                pointBorderColor: C.surface,
-                pointBorderWidth: 3,
-                pointHoverRadius: 11
-            }, {
-                label: 'Year Prediction Was Made',
-                data: [2016, 2022, 2023, 2025],
-                borderColor: C.dim,
-                borderDash: [6, 4],
-                backgroundColor: 'transparent',
-                tension: 0.3,
-                pointRadius: 5,
-                pointBackgroundColor: C.dim,
-                pointBorderColor: C.surface,
-                pointBorderWidth: 2
-            }]
+    createChart('surveyMedianChart', 'line', {
+        labels: ['2016 Survey', '2022 Survey', '2023 Survey', '~2025 Est.'],
+        datasets: [{
+            label: '25th–75th percentile range',
+            data: [2080, 2075, 2060, 2048],
+            borderColor: 'transparent',
+            backgroundColor: C.cyanBg,
+            fill: '+1',
+            tension: 0.3,
+            pointRadius: 0
+        }, {
+            label: 'Predicted Year for HLMI (50% probability)',
+            data: [2061, 2059, 2049, 2038],
+            borderColor: C.cyan,
+            backgroundColor: 'transparent',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 8,
+            pointBackgroundColor: C.cyan,
+            pointBorderColor: C.surface,
+            pointBorderWidth: 3,
+            pointHoverRadius: 11
+        }, {
+            label: '25th percentile',
+            data: [2040, 2038, 2032, 2028],
+            borderColor: 'transparent',
+            backgroundColor: C.cyanBg,
+            fill: false,
+            tension: 0.3,
+            pointRadius: 0
+        }, {
+            label: 'Year Prediction Was Made',
+            data: [2016, 2022, 2023, 2025],
+            borderColor: C.dim,
+            borderDash: [6, 4],
+            backgroundColor: 'transparent',
+            tension: 0.3,
+            pointRadius: 5,
+            pointBackgroundColor: C.dim,
+            pointBorderColor: C.surface,
+            pointBorderWidth: 2
+        }]
+    }, {
+        plugins: {
+            legend: { position: 'bottom' },
+            tooltip: {
+                callbacks: {
+                    label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y
+                }
+            }
         },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: {
-                legend: { position: 'bottom' },
-                tooltip: {
-                    callbacks: {
-                        label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y
-                    }
-                }
-            },
-            scales: {
-                x: { grid: { display: false } },
-                y: {
-                    min: 2015, max: 2070,
-                    grid: { color: C.grid },
-                    ticks: { stepSize: 5 }
-                }
-            },
-            animation: { duration: 1200, easing: 'easeOutQuart' }
-        }
+        scales: {
+            x: { grid: { display: false } },
+            y: {
+                min: 2015, max: 2070,
+                grid: { color: C.grid },
+                ticks: { stepSize: 5 }
+            }
+        },
+        animation: { duration: 1200, easing: 'easeOutQuart' }
     });
 
     /* ======== Industry Leader Predictions ======== */
-    new Chart(document.getElementById('leaderChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Elon Musk', 'Suleyman', 'Amodei', 'Sam Altman', 'Shane Legg', 'Hinton', 'Kurzweil', 'Huang', 'Hassabis', 'R. Brooks'],
-            datasets: [{
-                label: 'Earliest estimate',
-                data: [2026, 2026, 2026, 2025, 2028, 2028, 2029, 2029, 2030, 2060],
-                backgroundColor: [C.amberA, C.violetA, C.cyanA, C.violetA, C.greenA, C.amberA, C.greenA, C.amberA, C.cyanA, 'rgba(90,93,106,0.5)'],
-                borderColor: [C.amber, C.violet, C.cyan, C.violet, C.green, C.amber, C.green, C.amber, C.cyan, C.dim],
-                borderWidth: 1,
-                borderRadius: 6
-            }]
-        },
-        options: {
-            indexAxis: 'y',
-            responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: {
-                x: {
-                    min: 2024, max: 2065,
-                    grid: { color: C.grid },
-                    ticks: { stepSize: 5 }
-                },
-                y: { grid: { display: false } }
+    createChart('leaderChart', 'bar', {
+        labels: ['Elon Musk', 'Suleyman', 'Amodei', 'Sam Altman', 'Shane Legg', 'Hinton', 'Kurzweil', 'Huang', 'Hassabis', 'R. Brooks'],
+        datasets: [{
+            label: 'Earliest estimate',
+            data: [2026, 2026, 2026, 2025, 2028, 2028, 2029, 2029, 2030, 2060],
+            backgroundColor: [C.amberA, C.violetA, C.cyanA, C.violetA, C.greenA, C.amberA, C.greenA, C.amberA, C.cyanA, 'rgba(90,93,106,0.5)'],
+            borderColor: [C.amber, C.violet, C.cyan, C.violet, C.green, C.amber, C.green, C.amber, C.cyan, C.dim],
+            borderWidth: 1,
+            borderRadius: 6
+        }]
+    }, {
+        indexAxis: 'y',
+        plugins: { legend: { display: false } },
+        scales: {
+            x: {
+                min: 2024, max: 2065,
+                grid: { color: C.grid },
+                ticks: { stepSize: 5 }
             },
-            animation: { duration: 1000, easing: 'easeOutQuart' }
+            y: { grid: { display: false } }
         }
     });
 
     /* ======== Metaculus Community Forecast ======== */
-    new Chart(document.getElementById('metaculusChart'), {
-        type: 'line',
-        data: {
-            labels: ['2020', '2021', '2022', 'Early 2023', 'Late 2023', '2024', '2025', 'Mar 2026'],
-            datasets: [{
-                label: 'Metaculus Community Median AGI Year',
-                data: [2058, 2050, 2042, 2033, 2031, 2029, 2028, 2027],
-                borderColor: C.violet,
-                backgroundColor: C.violetBg,
-                fill: true,
-                tension: 0.35,
-                pointRadius: 7,
-                pointBackgroundColor: C.violet,
-                pointBorderColor: C.surface,
-                pointBorderWidth: 3,
-                pointHoverRadius: 10
-            }]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { position: 'bottom' } },
-            scales: {
-                x: { grid: { display: false } },
-                y: {
-                    min: 2025, max: 2060,
-                    grid: { color: C.grid },
-                    ticks: { stepSize: 5 }
+    createChart('metaculusChart', 'line', {
+        labels: ['2020', '2021', '2022', 'Early 2023', 'Late 2023', '2024', '2025', 'Mar 2026'],
+        datasets: [{
+            label: 'Metaculus Community Median AGI Year',
+            data: [2058, 2050, 2042, 2033, 2031, 2029, 2028, 2027],
+            borderColor: C.violet,
+            backgroundColor: C.violetBg,
+            fill: true,
+            tension: 0.35,
+            pointRadius: 7,
+            pointBackgroundColor: C.violet,
+            pointBorderColor: C.surface,
+            pointBorderWidth: 3,
+            pointHoverRadius: 10
+        }]
+    }, {
+        plugins: {
+            legend: { position: 'bottom' },
+            annotation: {
+                annotations: {
+                    chatgpt: { type: 'line', xMin: 4, xMax: 4, borderColor: C.amber, borderWidth: 1, borderDash: [4,4],
+                        label: { display: true, content: 'ChatGPT launch', position: 'start', backgroundColor: 'transparent', color: C.amber, font: { size: 10 } } },
+                    gpt4: { type: 'line', xMin: 5, xMax: 5, borderColor: C.cyan, borderWidth: 1, borderDash: [4,4],
+                        label: { display: true, content: 'GPT-4', position: 'start', backgroundColor: 'transparent', color: C.cyan, font: { size: 10 } } }
                 }
-            },
-            animation: { duration: 1000, easing: 'easeOutQuart' }
+            }
+        },
+        scales: {
+            x: { grid: { display: false } },
+            y: {
+                min: 2025, max: 2060,
+                grid: { color: C.grid },
+                ticks: { stepSize: 5 }
+            }
         }
     });
     </script>

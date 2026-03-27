@@ -3,24 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <meta name="description" content="78.5% of developers use AI assistance, but only 30.9% use AI agents. The gap between assistive and agentic AI coding adoption.">
+    <meta property="og:title" content="Assistive vs Agentic — AI Coding Tool Adoption">
+    <meta property="og:description" content="78.5% of developers use AI assistance, but only 30.9% use AI agents. The gap between assistive and agentic AI coding adoption.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yourusername.github.io/ai_usage/agentic-split.html">
+    <meta property="og:image" content="favicon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Assistive vs Agentic — AI Coding Tool Adoption">
+    <meta name="twitter:description" content="78.5% of developers use AI assistance, but only 30.9% use AI agents. The gap between assistive and agentic AI coding adoption.">
+    <link rel="canonical" href="https://yourusername.github.io/ai_usage/agentic-split.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>Assistive vs Agentic — AI Coding Tool Adoption</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" integrity="sha384-vsrfeLOOY6KuIYKDlmVH5UiBmgIdB1oEf7p01YgWHuqmOHfZr374+odEv96n9tNC" crossorigin="anonymous"></script>
 </head>
 <body data-page="agentic-split">
     <div class="grain"></div>
     <div class="scroll-progress" id="scrollProgress"></div>
     <nav id="nav"></nav>
 
-    <section class="section">
+    <main id="main">
+    <header class="page-header">
         <div class="container">
             <span class="section-num reveal">03 / AGENTIC SPLIT</span>
-            <h2 class="section-title reveal reveal-d1">Assistance is mainstream.<br>Autonomy is not.</h2>
+            <h1 class="section-title reveal reveal-d1">Assistance is mainstream.<br>Autonomy is not.</h1>
             <p class="section-lead reveal reveal-d2">Nearly 4 in 5 developers use AI assistance. But only about 1 in 3 have used an AI agent — and almost 38% say they don't plan to. The gap is about trust, risk, and verification debt.</p>
+        </div>
+    </header>
 
+    <section class="section" style="padding-top:0">
+        <div class="container">
             <div class="stat-row reveal">
                 <div class="stat-card stat-card--amber">
                     <span class="stat-card__source">SO 2025 · All Respondents</span>
@@ -39,9 +56,9 @@
                 </div>
             </div>
 
-            <div class="chart-wrap reveal" data-chart="agentic">
+            <div class="chart-wrap reveal" data-chart="agentic" id="agentic-breakdown">
                 <div class="chart-header">
-                    <h3>Agent Adoption Breakdown</h3>
+                    <h2>Agent Adoption Breakdown</h2>
                     <p class="chart-subtitle">Stack Overflow 2025 — frequency of agent use specifically</p>
                 </div>
                 <div class="chart-body" style="height:300px">
@@ -52,9 +69,9 @@
 
             <div class="insight-callout reveal">
                 <div class="insight-callout__label">Emerging Signal</div>
-                <h3 class="insight-callout__title">The Long-Horizon Step Change (Early 2026)</h3>
+                <h2 class="insight-callout__title">The Long-Horizon Step Change (Early 2026)</h2>
                 <div class="insight-callout__body">
-                    <p>METR (Model Evaluation & Threat Research) tracks the <strong>"50% time horizon"</strong> — the task duration at which frontier AI agents succeed half the time. This metric has been doubling every ~89 days since 2024, creating what some analysts call <strong>"a new Moore's Law for AI agents."</strong></p>
+                    <p>METR (Model Evaluation &amp; Threat Research) tracks the <strong>"50% time horizon"</strong> — the task duration at which frontier AI agents succeed half the time. This metric has been doubling every ~89 days since 2024, creating what some analysts call <strong>"a new Moore's Law for AI agents."</strong></p>
                     <table class="horizon-table">
                         <thead>
                             <tr><th>Model</th><th>Date</th><th>50% Time Horizon</th></tr>
@@ -76,37 +93,28 @@
     </section>
 
     <div class="page-nav">
-        <a href="tools.html" class="page-nav__link">← Tools</a>
-        <a href="segments.html" class="page-nav__link">Segments →</a>
+        <a href="tools.html" class="page-nav__link page-nav__link--prev">&larr; Tools</a>
+        <a href="segments.html" class="page-nav__link page-nav__link--next">Segments &rarr;</a>
     </div>
+
+    </main>
 
     <footer id="footer"></footer>
     <script src="js/shared.js"></script>
     <script src="js/charts.js"></script>
+    <script src="js/data-loader.js"></script>
     <script>
-        const charts = {};
-
-        /* -- Agentic Breakdown -- */
-        charts.agentic = new Chart(document.getElementById('agenticChart'), {
-            type: 'bar',
-            data: {
-                labels: ['Daily Agent Use', 'Weekly', 'Monthly/Infrequent', 'Copilot-Only Mode', 'No Agent Plans'],
-                datasets: [{
-                    data: [14.1, 9.0, 7.8, 13.8, 37.9],
-                    backgroundColor: [C.violetA, C.violetA, C.violetA, C.amberA, 'rgba(90,93,106,0.45)'],
-                    borderColor: [C.violet, C.violet, C.violet, C.amber, C.dim],
-                    borderWidth: 1, borderRadius: 6
-                }]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: {
-                    x: { grid: { display: false } },
-                    y: { grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
-                },
-                animation: { duration: 1000, easing: 'easeOutQuart' }
-            }
+        createChart('agenticChart', 'bar', {
+            labels: ['Daily Agent Use', 'Weekly', 'Monthly/Infrequent', 'Copilot-Only Mode', 'No Agent Plans'],
+            datasets: [{
+                data: [14.1, 9.0, 7.8, 13.8, 37.9],
+                backgroundColor: [C.violetA, C.violetA, C.violetA, C.amberA, 'rgba(90,93,106,0.45)'],
+                borderColor: [C.violet, C.violet, C.violet, C.amber, C.dim],
+                borderWidth: 1, borderRadius: 6
+            }]
+        }, {
+            plugins: { legend: { display: false } },
+            scales: { x: { grid: { display: false } }, y: { grid: { color: C.grid }, ticks: { callback: v => v + '%' } } }
         });
     </script>
 </body>

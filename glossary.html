@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <meta name="description" content="Glossary of key terms used throughout the AI coding tool adoption research — HLMI, FAOL, AGI, agentic AI, verification debt, and more.">
+    <meta property="og:title" content="Glossary — AI Coding Tool Adoption">
+    <meta property="og:description" content="Key terms and definitions used throughout the AI coding tool adoption research site.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yourusername.github.io/ai_usage/glossary.html">
+    <meta property="og:image" content="favicon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Glossary — AI Coding Tool Adoption">
+    <meta name="twitter:description" content="Key terms and definitions used throughout the AI coding tool adoption research site.">
+    <link rel="canonical" href="https://yourusername.github.io/ai_usage/glossary.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Glossary — AI Coding Tool Adoption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="glossary">
+    <div class="grain"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <nav id="nav"></nav>
+
+    <main id="main">
+    <header class="page-header">
+        <div class="container">
+            <span class="section-num reveal">GLOSSARY</span>
+            <h1 class="section-title reveal reveal-d1">Key terms and definitions</h1>
+            <p class="section-lead reveal reveal-d2">Reference definitions for the concepts, benchmarks, and acronyms used throughout this research.</p>
+        </div>
+    </header>
+
+    <section class="section" style="padding-top:0">
+        <div class="container">
+
+            <div class="insight-callout reveal" style="margin-top:0">
+                <div class="insight-callout__label">HLMI</div>
+                <h2 class="insight-callout__title">High-Level Machine Intelligence</h2>
+                <p class="insight-callout__body">The point at which unaided machines can accomplish every task better and more cheaply than humans. Used as the standard metric in AI researcher surveys by Grace et al. HLMI is the most widely cited benchmark in forecasting literature — median predictions have compressed from <strong>2060</strong> (2022 survey) to <strong>2040</strong> (2023 survey).</p>
+            </div>
+
+            <div class="insight-callout reveal" style="border-left-color: var(--violet)">
+                <div class="insight-callout__label" style="color: var(--violet)">FAOL</div>
+                <h2 class="insight-callout__title">Full Automation of Labor</h2>
+                <p class="insight-callout__body">Complete replacement of human labor across all occupations. A stricter benchmark than HLMI — the Grace et al. surveys show FAOL predictions running <strong>decades behind HLMI</strong>. Where HLMI asks "can machines do it?", FAOL asks "have machines actually replaced all human workers?" The gap between the two reflects implementation friction, regulation, and societal inertia.</p>
+            </div>
+
+            <div class="insight-callout reveal" style="border-left-color: var(--amber)">
+                <div class="insight-callout__label" style="color: var(--amber)">AGI</div>
+                <h2 class="insight-callout__title">Artificial General Intelligence</h2>
+                <p class="insight-callout__body">AI that can perform any intellectual task a human can. Definitions vary widely — from <strong>"economically valuable autonomous work"</strong> (OpenAI) to <strong>"any work a man can do"</strong> (classical definition). The lack of a consensus definition makes AGI timelines difficult to compare across sources. This site uses HLMI and FAOL as more precisely defined alternatives where possible.</p>
+            </div>
+
+            <div class="insight-callout reveal" style="border-left-color: var(--amber)">
+                <div class="insight-callout__label" style="color: var(--amber)">Agentic AI</div>
+                <h2 class="insight-callout__title">Agentic AI</h2>
+                <p class="insight-callout__body">AI systems that autonomously plan, execute multi-step tasks, and make decisions without continuous human guidance. Distinct from assistive AI (autocomplete, chat). Examples include <strong>Claude Code</strong>, <strong>Devin</strong>, and <strong>Cursor agent mode</strong>. Agentic adoption is growing rapidly but remains the minority mode — roughly <strong>21.5%</strong> of AI coding tool usage as of early 2025.</p>
+            </div>
+
+            <div class="insight-callout reveal">
+                <div class="insight-callout__label">Assistive AI</div>
+                <h2 class="insight-callout__title">Assistive AI</h2>
+                <p class="insight-callout__body">AI tools that augment human work in real-time — code completion, chat-based Q&amp;A, inline suggestions. The dominant mode of AI coding tool usage (<strong>~78.5% adoption</strong>). Assistive AI keeps the developer in the loop at all times, in contrast to agentic AI which operates autonomously on tasks.</p>
+            </div>
+
+            <div class="insight-callout reveal" style="border-left-color: var(--red)">
+                <div class="insight-callout__label" style="color: var(--red)">Verification Debt</div>
+                <h2 class="insight-callout__title">Verification Debt</h2>
+                <p class="insight-callout__body">The hidden cost of AI-generated code: developers spend less time writing and more time reviewing, debugging, and verifying AI output. <strong>DORA 2025</strong> found AI hurts delivery stability while boosting throughput — teams ship faster but break more. <strong>45%</strong> of developers report longer debugging time with AI-generated code (Stack Overflow 2025).</p>
+            </div>
+
+            <div class="insight-callout reveal" style="border-left-color: var(--violet)">
+                <div class="insight-callout__label" style="color: var(--violet)">ACI</div>
+                <h2 class="insight-callout__title">Artificial Capable Intelligence</h2>
+                <p class="insight-callout__body">Coined by <strong>Mustafa Suleyman</strong> as a more practical goalpost than AGI. An AI that can autonomously perform economically valuable tasks — not necessarily all tasks, but enough to function as an independent economic agent. ACI sidesteps the definitional debates around AGI by focusing on measurable economic output.</p>
+            </div>
+
+            <div class="insight-callout reveal" style="border-left-color: var(--green)">
+                <div class="insight-callout__label" style="color: var(--green)">Time Horizon (METR)</div>
+                <h2 class="insight-callout__title">Time Horizon (METR)</h2>
+                <p class="insight-callout__body">The "50% time horizon" — the task duration at which frontier AI agents succeed half the time. Has been <strong>doubling every ~89 days</strong> since 2024. METR (Model Evaluation and Threat Research) tracks this metric as a proxy for how complex a task AI can reliably handle. A longer time horizon means agents can tackle more ambitious, multi-step work.</p>
+            </div>
+
+            <div class="insight-callout reveal" style="border-left-color: var(--green)">
+                <div class="insight-callout__label" style="color: var(--green)">SWE-bench</div>
+                <h2 class="insight-callout__title">SWE-bench</h2>
+                <p class="insight-callout__body">A benchmark measuring AI ability to resolve real GitHub issues. Used to track frontier model capability for software engineering tasks. Scores have risen from <strong>~4%</strong> (early 2024) to <strong>72%</strong> on the verified subset (early 2025), reflecting rapid gains in AI coding ability. Created by Princeton researchers as a more realistic alternative to synthetic coding benchmarks.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="page-nav">
+        <a href="sources.html" class="page-nav__link page-nav__link--prev">&larr; Sources</a>
+        <a href="index.html" class="page-nav__link page-nav__link--next">Home &rarr;</a>
+    </div>
+
+    </main>
+
+    <footer id="footer"></footer>
+    <script src="js/shared.js"></script>
+</body>
+</html>

@@ -6,6 +6,7 @@ const NAV_HTML = `
             <span></span><span></span><span></span>
         </button>
         <div class="nav-links" id="navLinks">
+            <a href="summary.html" class="nav-link" data-page="summary">Summary</a>
             <a href="adoption.html" class="nav-link" data-page="adoption">Adoption</a>
             <a href="tools.html" class="nav-link" data-page="tools">Tools</a>
             <a href="agentic-split.html" class="nav-link" data-page="agentic-split">Agentic Split</a>
@@ -13,6 +14,7 @@ const NAV_HTML = `
             <a href="trust.html" class="nav-link" data-page="trust">Trust</a>
             <a href="timeline.html" class="nav-link" data-page="timeline">Timeline</a>
             <a href="predictions.html" class="nav-link" data-page="predictions">Predictions</a>
+            <a href="glossary.html" class="nav-link" data-page="glossary">Glossary</a>
             <a href="sources.html" class="nav-link" data-page="sources">Sources</a>
         </div>
     </div>
@@ -20,18 +22,43 @@ const NAV_HTML = `
 
 const FOOTER_HTML = `
     <p>Data sourced from public surveys, vendor disclosures, and earnings filings. Full analysis in <a href="docs/deep-research-report.md">deep-research-report.md</a>.</p>
+    <p id="dataFreshness" style="margin-top:8px;font-size:0.7rem"></p>
 `;
+
+/* ======== Skip Link ======== */
+const skipLink = document.createElement('a');
+skipLink.href = '#main';
+skipLink.className = 'skip-link';
+skipLink.textContent = 'Skip to content';
+document.body.insertBefore(skipLink, document.body.firstChild);
 
 /* ======== Inject Nav & Footer ======== */
 document.getElementById('nav').innerHTML = NAV_HTML;
 const footerEl = document.getElementById('footer');
 if (footerEl) footerEl.innerHTML = FOOTER_HTML;
 
-/* ======== Active Nav Link ======== */
+/* ======== Data Freshness ======== */
+fetch('data/surveys.json').then(r => r.json()).then(d => {
+    const el = document.getElementById('dataFreshness');
+    if (el && d.lastUpdated) el.textContent = 'Data as of ' + d.lastUpdated;
+}).catch(() => {});
+
+/* ======== Active Nav Link + Page Indicator ======== */
 const currentPage = document.body.dataset.page || '';
-document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.dataset.page === currentPage) link.classList.add('active');
+const navLinksAll = document.querySelectorAll('.nav-link');
+let pageIdx = -1;
+navLinksAll.forEach((link, i) => {
+    if (link.dataset.page === currentPage) {
+        link.classList.add('active');
+        pageIdx = i;
+    }
 });
+if (pageIdx >= 0) {
+    const indicator = document.createElement('span');
+    indicator.className = 'nav-page-indicator';
+    indicator.textContent = (pageIdx + 1) + ' / ' + navLinksAll.length;
+    document.querySelector('.nav-inner').appendChild(indicator);
+}
 
 /* ======== Mobile Nav Toggle ======== */
 const navToggle = document.getElementById('navToggle');
@@ -80,6 +107,30 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ======== Mini-TOC for Long Pages ======== */
+if (['trust', 'predictions'].includes(currentPage)) {
+    const headings = document.querySelectorAll('.chart-header h2, .insight-callout__title, .section h2[style]');
+    if (headings.length > 2) {
+        const toc = document.createElement('div');
+        toc.className = 'mini-toc';
+        headings.forEach((h, i) => {
+            if (!h.id) h.id = 'section-' + i;
+            const dot = document.createElement('a');
+            dot.href = '#' + h.id;
+            dot.className = 'mini-toc__dot';
+            dot.title = h.textContent;
+            toc.appendChild(dot);
+        });
+        document.body.appendChild(toc);
+    }
+}
+
+/* ======== Load Search ======== */
+const searchScript = document.createElement('script');
+searchScript.src = 'js/search.js';
+searchScript.defer = true;
+document.head.appendChild(searchScript);
 
 /* ======== Animated Counter ======== */
 function animateValue(el, target, duration = 1600) {

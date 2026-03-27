@@ -3,37 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <meta name="description" content="GitHub Copilot, ChatGPT, Cursor, and Claude Code compete for developer mindshare. Verified metrics, survey rankings, and market data.">
+    <meta property="og:title" content="Tool Landscape — AI Coding Tool Adoption">
+    <meta property="og:description" content="GitHub Copilot, ChatGPT, Cursor, and Claude Code compete for developer mindshare. Verified metrics, survey rankings, and market data.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yourusername.github.io/ai_usage/tools.html">
+    <meta property="og:image" content="favicon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tool Landscape — AI Coding Tool Adoption">
+    <meta name="twitter:description" content="GitHub Copilot, ChatGPT, Cursor, and Claude Code compete for developer mindshare. Verified metrics, survey rankings, and market data.">
+    <link rel="canonical" href="https://yourusername.github.io/ai_usage/tools.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>Tool Landscape — AI Coding Tool Adoption</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" integrity="sha384-vsrfeLOOY6KuIYKDlmVH5UiBmgIdB1oEf7p01YgWHuqmOHfZr374+odEv96n9tNC" crossorigin="anonymous"></script>
 </head>
 <body data-page="tools">
     <div class="grain"></div>
     <div class="scroll-progress" id="scrollProgress"></div>
     <nav id="nav"></nav>
 
-    <section class="section">
+    <main id="main">
+    <header class="page-header">
         <div class="container">
             <span class="section-num reveal">02 / TOOLS</span>
-            <h2 class="section-title reveal reveal-d1">The competitive landscape</h2>
+            <h1 class="section-title reveal reveal-d1">The competitive landscape</h1>
             <p class="section-lead reveal reveal-d2">ChatGPT and Copilot dominate broad usage. But tool choice diverges sharply by context — survey audience, company size, and whether you're asking about assistive or agentic use.</p>
+        </div>
+    </header>
 
+    <section class="section" style="padding-top:0">
+        <div class="container">
             <div class="chart-grid reveal">
-                <div class="chart-wrap" data-chart="toolsSO">
+                <div class="chart-wrap" data-chart="toolsSO" id="tools-so">
                     <div class="chart-header">
-                        <h3>Tool Usage — Agent Users</h3>
+                        <h2>Tool Usage — Agent Users</h2>
                         <p class="chart-subtitle">Stack Overflow 2025 (among those who use/develop agents, n≈8,323)</p>
                     </div>
                     <div class="chart-body" style="height:280px">
                         <canvas id="toolsSOChart"></canvas>
                     </div>
                 </div>
-                <div class="chart-wrap" data-chart="toolsPE">
+                <div class="chart-wrap" data-chart="toolsPE" id="tools-pe">
                     <div class="chart-header">
-                        <h3>Tool Usage — Regular Agent Users</h3>
+                        <h2>Tool Usage — Regular Agent Users</h2>
                         <p class="chart-subtitle">Pragmatic Engineer 2026 survey (n=906, high-bias audience)</p>
                     </div>
                     <div class="chart-body" style="height:280px">
@@ -45,7 +62,7 @@
 
             <div class="chart-wrap reveal" style="margin-top:8px">
                 <div class="chart-header">
-                    <h3>Hard Metrics — What We Can Verify</h3>
+                    <h2>Hard Metrics — What We Can Verify</h2>
                     <p class="chart-subtitle">Vendor disclosures, earnings calls, and independently reported figures</p>
                 </div>
                 <table class="data-table">
@@ -107,62 +124,45 @@
     </section>
 
     <div class="page-nav">
-        <a href="adoption.html" class="page-nav__link">← Adoption</a>
-        <a href="agentic-split.html" class="page-nav__link">Agentic Split →</a>
+        <a href="adoption.html" class="page-nav__link page-nav__link--prev">&larr; Adoption</a>
+        <a href="agentic-split.html" class="page-nav__link page-nav__link--next">Agentic Split &rarr;</a>
     </div>
+
+    </main>
 
     <footer id="footer"></footer>
     <script src="js/shared.js"></script>
     <script src="js/charts.js"></script>
+    <script src="js/data-loader.js"></script>
     <script>
-        const charts = {};
+        const toolColors = { 'ChatGPT': [C.amberA, C.amber], 'GitHub Copilot': [C.cyanA, C.cyan], 'Gemini': [C.greenA, C.green], 'Claude Code': [C.violetA, C.violet], 'Cursor': [C.amberA, C.amber] };
 
-        /* -- Tools: Stack Overflow -- */
-        charts.toolsSO = new Chart(document.getElementById('toolsSOChart'), {
-            type: 'bar',
-            data: {
-                labels: ['ChatGPT', 'GitHub Copilot', 'Gemini', 'Claude Code'],
-                datasets: [{
-                    label: 'Usage %',
-                    data: [81.7, 67.9, 47.4, 40.8],
-                    backgroundColor: [C.amberA, C.cyanA, C.greenA, C.violetA],
-                    borderColor: [C.amber, C.cyan, C.green, C.violet],
-                    borderWidth: 1, borderRadius: 6
-                }]
-            },
-            options: {
-                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        DataLoader.tools().then(json => {
+            const so = json.surveyRankings.soAgentUsers2025.data;
+            createChart('toolsSOChart', 'bar', {
+                labels: so.map(d => d.tool),
+                datasets: [{ label: 'Usage %', data: so.map(d => d.usage),
+                    backgroundColor: so.map(d => toolColors[d.tool][0]),
+                    borderColor: so.map(d => toolColors[d.tool][1]),
+                    borderWidth: 1, borderRadius: 6 }]
+            }, {
+                indexAxis: 'y',
                 plugins: { legend: { display: false } },
-                scales: {
-                    x: { max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
-                    y: { grid: { display: false } }
-                },
-                animation: { duration: 1000, easing: 'easeOutQuart' }
-            }
-        });
+                scales: { x: { max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }, y: { grid: { display: false } } }
+            });
 
-        /* -- Tools: Pragmatic Engineer -- */
-        charts.toolsPE = new Chart(document.getElementById('toolsPEChart'), {
-            type: 'bar',
-            data: {
-                labels: ['Claude Code', 'GitHub Copilot', 'Cursor'],
-                datasets: [{
-                    label: 'Usage %',
-                    data: [71, 46, 39],
-                    backgroundColor: [C.violetA, C.cyanA, C.amberA],
-                    borderColor: [C.violet, C.cyan, C.amber],
-                    borderWidth: 1, borderRadius: 6
-                }]
-            },
-            options: {
-                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+            const pe = json.surveyRankings.pragmaticEngineerAgentUsers2026.data;
+            createChart('toolsPEChart', 'bar', {
+                labels: pe.map(d => d.tool),
+                datasets: [{ label: 'Usage %', data: pe.map(d => d.usage),
+                    backgroundColor: pe.map(d => toolColors[d.tool][0]),
+                    borderColor: pe.map(d => toolColors[d.tool][1]),
+                    borderWidth: 1, borderRadius: 6 }]
+            }, {
+                indexAxis: 'y',
                 plugins: { legend: { display: false } },
-                scales: {
-                    x: { max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
-                    y: { grid: { display: false } }
-                },
-                animation: { duration: 1000, easing: 'easeOutQuart' }
-            }
+                scales: { x: { max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }, y: { grid: { display: false } } }
+            });
         });
     </script>
 </body>

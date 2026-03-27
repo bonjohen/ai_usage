@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <meta name="description" content="The AI coding paradox: 78.5% use AI tools daily, but 46% distrust the output. Survey data on developer trust, productivity, and verification debt.">
+    <meta property="og:title" content="The Trust Paradox — AI Coding Tool Adoption">
+    <meta property="og:description" content="The AI coding paradox: 78.5% use AI tools daily, but 46% distrust the output. Survey data on developer trust, productivity, and verification debt.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yourusername.github.io/ai_usage/trust.html">
+    <meta property="og:image" content="favicon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Trust Paradox — AI Coding Tool Adoption">
+    <meta name="twitter:description" content="The AI coding paradox: 78.5% use AI tools daily, but 46% distrust the output. Survey data on developer trust, productivity, and verification debt.">
+    <link rel="canonical" href="https://yourusername.github.io/ai_usage/trust.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>The Trust Paradox — AI Coding Tool Adoption</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" integrity="sha384-vsrfeLOOY6KuIYKDlmVH5UiBmgIdB1oEf7p01YgWHuqmOHfZr374+odEv96n9tNC" crossorigin="anonymous"></script>
 </head>
 <body data-page="trust">
     <div class="grain"></div>
@@ -16,6 +28,7 @@
     <nav id="nav"></nav>
 
     <!-- Page Header -->
+    <main id="main">
     <header class="page-header">
         <div class="container">
             <span class="section-num reveal">05 / THE PARADOX</span>
@@ -44,7 +57,7 @@
                     </div>
                     <div class="dual-row">
                         <span class="dual-row__label">Report enhanced productivity</span>
-                        <span class="dual-row__value">>80%</span>
+                        <span class="dual-row__value">&gt;80%</span>
                     </div>
                     <div class="dual-row">
                         <span class="dual-row__label">Completed task faster (controlled)</span>
@@ -79,7 +92,7 @@
             <!-- Survey Framing Funnel -->
             <div class="chart-wrap reveal" style="margin-top:8px">
                 <div class="chart-header">
-                    <h3>The Question Shapes the Answer</h3>
+                    <h2>The Question Shapes the Answer</h2>
                     <p class="chart-subtitle">The same population yields wildly different numbers depending on how you ask</p>
                 </div>
                 <div class="chart-body" style="height:260px">
@@ -92,7 +105,7 @@
             <div class="chart-grid reveal" style="margin-top:8px">
                 <div class="chart-wrap" data-chart="trust">
                     <div class="chart-header">
-                        <h3>Trust Levels</h3>
+                        <h2>Trust Levels</h2>
                         <p class="chart-subtitle">Stack Overflow 2025 — trust in AI output accuracy</p>
                     </div>
                     <div class="chart-body" style="height:200px">
@@ -101,7 +114,7 @@
                 </div>
                 <div class="chart-wrap" data-chart="productivity">
                     <div class="chart-header">
-                        <h3>Productivity Claims by Source</h3>
+                        <h2>Productivity Claims by Source</h2>
                         <p class="chart-subtitle">Self-reported gains vs. one controlled experiment</p>
                     </div>
                     <div class="chart-body" style="height:200px">
@@ -114,7 +127,7 @@
             <!-- Controlled Experiment Detail -->
             <div class="chart-wrap reveal" style="margin-top:8px">
                 <div class="chart-header">
-                    <h3>The One Controlled Experiment</h3>
+                    <h2>The One Controlled Experiment</h2>
                     <p class="chart-subtitle">GitHub 2022 — 95 professional developers, randomized controlled trial</p>
                 </div>
                 <div class="dual-panel" style="margin-bottom:0;border:none">
@@ -156,7 +169,7 @@
             <div class="chart-grid reveal" style="margin-top:8px">
                 <div class="chart-wrap" data-chart="painPoints">
                     <div class="chart-header">
-                        <h3>Top Frustrations</h3>
+                        <h2>Top Frustrations</h2>
                         <p class="chart-subtitle">Stack Overflow 2025 — what goes wrong with AI output</p>
                     </div>
                     <div class="chart-body" style="height:220px">
@@ -165,7 +178,7 @@
                 </div>
                 <div class="chart-wrap" data-chart="stability">
                     <div class="chart-header">
-                        <h3>The Stability Problem</h3>
+                        <h2>The Stability Problem</h2>
                         <p class="chart-subtitle">DORA 2025 — AI's contradictory impact on software delivery</p>
                     </div>
                     <div class="chart-body" style="height:220px">
@@ -176,9 +189,9 @@
             </div>
 
             <!-- Verification Debt Callout -->
-            <div class="reveal" style="margin-top:8px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:32px;position:relative;overflow:hidden">
+            <div id="verification-debt" class="reveal" style="margin-top:8px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:32px;position:relative;overflow:hidden">
                 <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--amber),var(--red))"></div>
-                <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.15rem;margin-bottom:12px">Verification Debt</h3>
+                <h2 style="font-family:var(--font-display);font-weight:600;font-size:1.15rem;margin-bottom:12px">Verification Debt</h2>
                 <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;max-width:700px">AI doesn't eliminate work — it shifts it. Developers spend less time <em>writing</em> code and more time <em>reviewing, debugging, and verifying</em> AI output. When "almost right" is the norm (66% of developers report this), the bottleneck moves from generation to verification. DORA's finding that AI <em>hurts</em> delivery stability while boosting throughput is the organizational version of this: more code ships faster, but without proportional safety nets, failure rates climb.</p>
                 <div class="stat-row" style="margin-top:20px;margin-bottom:0">
                     <div class="stat-card stat-card--red" style="padding:20px">
@@ -199,156 +212,126 @@
                 </div>
             </div>
 
-            <!-- Page Nav -->
-            <div class="page-nav reveal">
-                <a href="segments.html" class="page-nav__link page-nav__link--prev">
-                    <span class="page-nav__arrow">&larr;</span>
-                    <span class="page-nav__label">Segments</span>
-                </a>
-                <a href="timeline.html" class="page-nav__link page-nav__link--next">
-                    <span class="page-nav__label">Timeline</span>
-                    <span class="page-nav__arrow">&rarr;</span>
-                </a>
-            </div>
         </div>
     </section>
+
+    <div class="page-nav">
+        <a href="segments.html" class="page-nav__link page-nav__link--prev">&larr; Segments</a>
+        <a href="timeline.html" class="page-nav__link page-nav__link--next">Timeline &rarr;</a>
+    </div>
+
+    </main>
 
     <footer id="footer"></footer>
 
     <script src="js/shared.js"></script>
     <script src="js/charts.js"></script>
+    <script src="js/data-loader.js"></script>
     <script>
     /* ======== Trust Page Charts ======== */
-    const charts = {};
 
     /* -- Survey Framing Funnel -- */
-    charts.framing = new Chart(document.getElementById('framingChart'), {
-        type: 'bar',
-        data: {
-            labels: [
-                '"Ever used"\n(GitHub 2024)',
-                '"Use \u22651 assistant"\n(HackerRank 2025)',
-                '"Regularly use"\n(JetBrains 2025)',
-                '"Currently using"\n(SO 2025)',
-                '"Use daily"\n(SO 2025)'
+    createChart('framingChart', 'bar', {
+        labels: [
+            '"Ever used"\n(GitHub 2024)',
+            '"Use \u22651 assistant"\n(HackerRank 2025)',
+            '"Regularly use"\n(JetBrains 2025)',
+            '"Currently using"\n(SO 2025)',
+            '"Use daily"\n(SO 2025)'
+        ],
+        datasets: [{
+            data: [97, 97, 85, 78.5, 47.1],
+            backgroundColor: [
+                'rgba(232,168,56,0.3)', 'rgba(232,168,56,0.4)',
+                'rgba(167,139,250,0.5)', 'rgba(56,189,248,0.6)',
+                'rgba(56,189,248,0.8)'
             ],
-            datasets: [{
-                data: [97, 97, 85, 78.5, 47.1],
-                backgroundColor: [
-                    'rgba(232,168,56,0.3)', 'rgba(232,168,56,0.4)',
-                    'rgba(167,139,250,0.5)', 'rgba(56,189,248,0.6)',
-                    'rgba(56,189,248,0.8)'
-                ],
-                borderColor: [C.amber, C.amber, C.violet, C.cyan, C.cyan],
-                borderWidth: 1, borderRadius: 6
-            }]
+            borderColor: [C.amber, C.amber, C.violet, C.cyan, C.cyan],
+            borderWidth: 1, borderRadius: 6
+        }]
+    }, {
+        plugins: { legend: { display: false } },
+        scales: {
+            x: { grid: { display: false }, ticks: { font: { size: 10 }, maxRotation: 0 } },
+            y: { min: 30, max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
         },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: {
-                x: { grid: { display: false }, ticks: { font: { size: 10 }, maxRotation: 0 } },
-                y: { min: 30, max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
-            },
-            animation: { duration: 1200, easing: 'easeOutQuart' }
-        }
+        animation: { duration: 1200, easing: 'easeOutQuart' }
     });
 
     /* -- Trust Chart -- */
-    charts.trust = new Chart(document.getElementById('trustChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Distrust AI Accuracy', 'Neutral', 'Trust AI Accuracy'],
-            datasets: [{
-                data: [46, 21, 33],
-                backgroundColor: [C.redA, 'rgba(90,93,106,0.4)', C.greenA],
-                borderColor: [C.red, C.dim, C.green],
-                borderWidth: 1, borderRadius: 6
-            }]
-        },
-        options: {
-            indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: {
-                x: { max: 55, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
-                y: { grid: { display: false } }
-            },
-            animation: { duration: 1000, easing: 'easeOutQuart' }
+    createChart('trustChart', 'bar', {
+        labels: ['Distrust AI Accuracy', 'Neutral', 'Trust AI Accuracy'],
+        datasets: [{
+            data: [46, 21, 33],
+            backgroundColor: [C.redA, 'rgba(90,93,106,0.4)', C.greenA],
+            borderColor: [C.red, C.dim, C.green],
+            borderWidth: 1, borderRadius: 6
+        }]
+    }, {
+        indexAxis: 'y',
+        plugins: { legend: { display: false } },
+        scales: {
+            x: { max: 55, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
+            y: { grid: { display: false } }
         }
     });
 
     /* -- Productivity Claims -- */
-    charts.productivity = new Chart(document.getElementById('productivityChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Save Time (JetBrains)', 'Say AI Helps (HackerRank)', 'Enhanced Prod. (DORA)', 'Faster \u2014 Controlled (GitHub)'],
-            datasets: [{
-                data: [90, 85, 80, 55],
-                backgroundColor: [C.amberA, C.amberA, C.amberA, C.cyanA],
-                borderColor: [C.amber, C.amber, C.amber, C.cyan],
-                borderWidth: 1, borderRadius: 6
-            }]
-        },
-        options: {
-            indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: {
-                x: { max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
-                y: { grid: { display: false } }
-            },
-            animation: { duration: 1000, easing: 'easeOutQuart' }
+    createChart('productivityChart', 'bar', {
+        labels: ['Save Time (JetBrains)', 'Say AI Helps (HackerRank)', 'Enhanced Prod. (DORA)', 'Faster \u2014 Controlled (GitHub)'],
+        datasets: [{
+            data: [90, 85, 80, 55],
+            backgroundColor: [C.amberA, C.amberA, C.amberA, C.cyanA],
+            borderColor: [C.amber, C.amber, C.amber, C.cyan],
+            borderWidth: 1, borderRadius: 6
+        }]
+    }, {
+        indexAxis: 'y',
+        plugins: { legend: { display: false } },
+        scales: {
+            x: { max: 100, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
+            y: { grid: { display: false } }
         }
     });
 
     /* -- Pain Points -- */
-    charts.painPoints = new Chart(document.getElementById('painPointsChart'), {
-        type: 'bar',
-        data: {
-            labels: ['"Almost right but\nnot quite"', 'Longer debugging\ntime', 'Privacy/security\nconcerns', 'Lack of trust in\noutput accuracy'],
-            datasets: [{
-                data: [66, 45, 38, 46],
-                backgroundColor: [C.redA, C.redA, C.amberA, C.redA],
-                borderColor: [C.red, C.red, C.amber, C.red],
-                borderWidth: 1, borderRadius: 6
-            }]
-        },
-        options: {
-            indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: {
-                x: { max: 75, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
-                y: { grid: { display: false }, ticks: { font: { size: 11 } } }
-            },
-            animation: { duration: 1000, easing: 'easeOutQuart' }
+    createChart('painPointsChart', 'bar', {
+        labels: ['"Almost right but\nnot quite"', 'Longer debugging\ntime', 'Privacy/security\nconcerns', 'Lack of trust in\noutput accuracy'],
+        datasets: [{
+            data: [66, 45, 38, 46],
+            backgroundColor: [C.redA, C.redA, C.amberA, C.redA],
+            borderColor: [C.red, C.red, C.amber, C.red],
+            borderWidth: 1, borderRadius: 6
+        }]
+    }, {
+        indexAxis: 'y',
+        plugins: { legend: { display: false } },
+        scales: {
+            x: { max: 75, grid: { color: C.grid }, ticks: { callback: v => v + '%' } },
+            y: { grid: { display: false }, ticks: { font: { size: 11 } } }
         }
     });
 
     /* -- DORA Stability Impact -- */
-    charts.stability = new Chart(document.getElementById('stabilityChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Throughput', 'Product\nPerformance', 'Delivery\nStability'],
-            datasets: [{
-                label: 'AI Impact Direction',
-                data: [80, 59, -35],
-                backgroundColor: (ctx) => ctx.raw >= 0 ? C.greenA : C.redA,
-                borderColor: (ctx) => ctx.raw >= 0 ? C.green : C.red,
-                borderWidth: 1, borderRadius: 6
-            }]
+    createChart('stabilityChart', 'bar', {
+        labels: ['Throughput', 'Product\nPerformance', 'Delivery\nStability'],
+        datasets: [{
+            label: 'AI Impact Direction',
+            data: [80, 59, -35],
+            backgroundColor: (ctx) => ctx.raw >= 0 ? C.greenA : C.redA,
+            borderColor: (ctx) => ctx.raw >= 0 ? C.green : C.red,
+            borderWidth: 1, borderRadius: 6
+        }]
+    }, {
+        plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: (ctx) => ctx.raw >= 0 ? ctx.raw + '% positive' : Math.abs(ctx.raw) + '% negative' } }
         },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: {
-                legend: { display: false },
-                tooltip: { callbacks: { label: (ctx) => ctx.raw >= 0 ? ctx.raw + '% positive' : Math.abs(ctx.raw) + '% negative' } }
-            },
-            scales: {
-                x: { grid: { display: false } },
-                y: { min: -50, max: 100, grid: { color: C.grid },
-                    ticks: { callback: v => v >= 0 ? '+' + v + '%' : v + '%' }
-                }
-            },
-            animation: { duration: 1000, easing: 'easeOutQuart' }
+        scales: {
+            x: { grid: { display: false } },
+            y: { min: -50, max: 100, grid: { color: C.grid },
+                ticks: { callback: v => v >= 0 ? '+' + v + '%' : v + '%' }
+            }
         }
     });
     </script>

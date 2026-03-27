@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <meta name="description" content="A decade of AI coding milestones from IntelliCode (2018) to autonomous agents (2026). 50+ events across products, surveys, funding, and policy.">
+    <meta property="og:title" content="Timeline — AI Coding Tool Adoption">
+    <meta property="og:description" content="A decade of AI coding milestones from IntelliCode (2018) to autonomous agents (2026). 50+ events across products, surveys, funding, and policy.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yourusername.github.io/ai_usage/timeline.html">
+    <meta property="og:image" content="favicon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Timeline — AI Coding Tool Adoption">
+    <meta name="twitter:description" content="A decade of AI coding milestones from IntelliCode (2018) to autonomous agents (2026). 50+ events across products, surveys, funding, and policy.">
+    <link rel="canonical" href="https://yourusername.github.io/ai_usage/timeline.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>Timeline — AI Coding Tool Adoption</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,12 +26,17 @@
     <div class="scroll-progress" id="scrollProgress"></div>
     <nav id="nav"></nav>
 
-    <section class="section">
+    <main id="main">
+    <header class="page-header">
         <div class="container">
             <span class="section-num reveal">06 / TIMELINE</span>
             <h1 class="section-title reveal reveal-d1">A decade of acceleration</h1>
             <p class="section-lead reveal reveal-d2">From ML-enhanced autocomplete in 2018 to autonomous agents writing PRs in 2025 — three overlapping waves reshaped how software gets built. Click any event to expand.</p>
+        </div>
+    </header>
 
+    <section class="section" style="padding-top:0">
+        <div class="container">
             <!-- Era Bands -->
             <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:32px;max-width:900px">
                 <div class="tl-era-band tl-era-band--ml">
@@ -38,11 +55,11 @@
 
             <!-- Filters -->
             <div class="tl-controls reveal">
-                <button class="tl-filter active" data-cat="all">All Events</button>
-                <button class="tl-filter" data-cat="product">Product Launches</button>
-                <button class="tl-filter" data-cat="survey">Surveys &amp; Data</button>
-                <button class="tl-filter" data-cat="funding">Funding &amp; M&amp;A</button>
-                <button class="tl-filter" data-cat="policy">Policy &amp; Regulation</button>
+                <button type="button" class="tl-filter active" data-cat="all">All Events</button>
+                <button type="button" class="tl-filter" data-cat="product">Product Launches</button>
+                <button type="button" class="tl-filter" data-cat="survey">Surveys &amp; Data</button>
+                <button type="button" class="tl-filter" data-cat="funding">Funding &amp; M&amp;A</button>
+                <button type="button" class="tl-filter" data-cat="policy">Policy &amp; Regulation</button>
             </div>
 
             <!-- Timeline -->
@@ -573,11 +590,12 @@
         </div>
     </section>
 
-    <!-- Page Navigation -->
     <div class="page-nav">
-        <a href="trust.html" class="page-nav__link">&larr; Trust</a>
-        <a href="predictions.html" class="page-nav__link">Predictions &rarr;</a>
+        <a href="trust.html" class="page-nav__link page-nav__link--prev">&larr; Trust</a>
+        <a href="predictions.html" class="page-nav__link page-nav__link--next">Predictions &rarr;</a>
     </div>
+
+    </main>
 
     <footer id="footer"></footer>
     <script src="js/shared.js"></script>

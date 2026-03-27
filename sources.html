@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sources & Methodology — AI Coding Tool Adoption</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <meta name="description" content="Methodology and sources behind AI coding adoption data. 9 major surveys covering 250K+ developers with different sampling and question framing.">
+    <meta property="og:title" content="Sources & Methodology — AI Coding Tool Adoption">
+    <meta property="og:description" content="Methodology and sources behind AI coding adoption data. 9 major surveys covering 250K+ developers with different sampling and question framing.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yourusername.github.io/ai_usage/sources.html">
+    <meta property="og:image" content="favicon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sources & Methodology — AI Coding Tool Adoption">
+    <meta name="twitter:description" content="Methodology and sources behind AI coding adoption data. 9 major surveys covering 250K+ developers with different sampling and question framing.">
+    <link rel="canonical" href="https://yourusername.github.io/ai_usage/sources.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Sources &amp; Methodology — AI Coding Tool Adoption</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,13 +26,18 @@
     <div class="scroll-progress" id="scrollProgress"></div>
     <nav id="nav"></nav>
 
-    <section class="section">
+    <main id="main">
+    <header class="page-header">
         <div class="container">
             <span class="section-num reveal">08 / SOURCES</span>
             <h1 class="section-title reveal reveal-d1">Where the data comes from</h1>
             <p class="section-lead reveal reveal-d2">Adoption estimates differ by 10–40+ points depending on question wording and sampling. This table shows what each survey actually measures — so you can judge comparability yourself.</p>
+        </div>
+    </header>
 
-            <div class="reveal" style="overflow-x:auto">
+    <section class="section" style="padding-top:0">
+        <div class="container">
+            <div class="reveal table-scroll">
                 <table class="data-table">
                     <thead>
                         <tr>
@@ -88,14 +105,77 @@
                     </tbody>
                 </table>
             </div>
+            <!-- Comparison Matrix -->
+            <div id="comparison" class="reveal" style="margin-top:48px">
+                <h2 class="section-title" style="font-size:1.5rem;margin-bottom:8px">Survey Comparison Matrix</h2>
+                <p class="section-lead" style="margin-bottom:24px">Side-by-side view highlighting methodological differences that explain why adoption numbers range from 47% to 97%.</p>
+                <div class="table-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Dimension</th>
+                                <th>Stack Overflow 2025</th>
+                                <th>DORA 2025</th>
+                                <th>HackerRank 2025</th>
+                                <th>GitHub 2024</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Headline adoption</strong></td>
+                                <td class="mono">78.5%</td>
+                                <td class="mono">90%</td>
+                                <td class="mono">97%</td>
+                                <td class="mono">~97%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Question framing</strong></td>
+                                <td>"Currently using" (frequency)</td>
+                                <td>"Use AI tools" (any)</td>
+                                <td>"Use at least one AI assistant"</td>
+                                <td>"Ever used AI coding tools"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sample size</strong></td>
+                                <td class="mono">49,009</td>
+                                <td class="mono">~5,000</td>
+                                <td class="mono">13,732</td>
+                                <td class="mono">2,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Audience</strong></td>
+                                <td>Self-selected developers</td>
+                                <td>Tech professionals (broader)</td>
+                                <td>Hiring community</td>
+                                <td>Commissioned panel</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Selection bias</strong></td>
+                                <td>SO users skew experienced</td>
+                                <td>Google-adjacent orgs</td>
+                                <td>Job-seekers, early career</td>
+                                <td>Paid participants</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Trust data</strong></td>
+                                <td>Yes (46% distrust)</td>
+                                <td>Yes (24% "a lot")</td>
+                                <td>No</td>
+                                <td>No</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Page Navigation -->
     <div class="page-nav">
-        <a href="predictions.html" class="page-nav__link">&larr; Predictions</a>
-        <a href="index.html" class="page-nav__link">Home &rarr;</a>
+        <a href="predictions.html" class="page-nav__link page-nav__link--prev">&larr; Predictions</a>
+        <a href="index.html" class="page-nav__link page-nav__link--next">Home &rarr;</a>
     </div>
+
+    </main>
 
     <footer id="footer"></footer>
     <script src="js/shared.js"></script>

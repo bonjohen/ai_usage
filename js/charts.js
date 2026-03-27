@@ -1,12 +1,14 @@
-/* ======== Chart Color Palette ======== */
+/* ======== Chart Color Palette (derived from CSS custom properties) ======== */
+const _s = getComputedStyle(document.documentElement);
+const _v = (n) => _s.getPropertyValue(n).trim();
 const C = {
-    amber: '#e8a838', amberA: 'rgba(232,168,56,0.7)', amberBg: 'rgba(232,168,56,0.12)',
-    cyan: '#38bdf8', cyanA: 'rgba(56,189,248,0.7)', cyanBg: 'rgba(56,189,248,0.12)',
-    violet: '#a78bfa', violetA: 'rgba(167,139,250,0.7)', violetBg: 'rgba(167,139,250,0.12)',
-    red: '#f87171', redA: 'rgba(248,113,113,0.7)', redBg: 'rgba(248,113,113,0.12)',
-    green: '#4ade80', greenA: 'rgba(74,222,128,0.7)', greenBg: 'rgba(74,222,128,0.12)',
-    text: '#eae8e3', textSec: '#9b9da6', dim: '#5a5d6a',
-    grid: 'rgba(255,255,255,0.05)', surface: '#151b30'
+    amber: _v('--amber'), amberA: _v('--amber-a'), amberBg: _v('--amber-glow'),
+    cyan: _v('--cyan'), cyanA: _v('--cyan-a'), cyanBg: _v('--cyan-glow'),
+    violet: _v('--violet'), violetA: _v('--violet-a'), violetBg: _v('--violet-glow'),
+    red: _v('--red'), redA: _v('--red-a'), redBg: _v('--red-glow'),
+    green: _v('--green'), greenA: _v('--green-a'), greenBg: _v('--green-glow'),
+    text: _v('--text-primary'), textSec: _v('--text-secondary'), dim: _v('--text-dim'),
+    grid: _v('--grid'), surface: _v('--surface')
 };
 
 /* ======== Chart.js Defaults ======== */
@@ -25,3 +27,57 @@ Chart.defaults.plugins.tooltip.cornerRadius = 8;
 Chart.defaults.plugins.tooltip.padding = 12;
 Chart.defaults.plugins.tooltip.displayColors = true;
 Chart.defaults.plugins.tooltip.boxPadding = 4;
+
+/* ======== Chart Helper ======== */
+function createChart(id, type, data, overrides) {
+    const canvas = document.getElementById(id);
+    // Auto-set aria-label from nearest chart-header heading
+    const wrap = canvas && canvas.closest('.chart-wrap, .embed-canvas');
+    if (canvas && !canvas.getAttribute('aria-label')) {
+        const heading = wrap && wrap.querySelector('.chart-header h2, .chart-header h3');
+        if (heading) canvas.setAttribute('aria-label', 'Chart: ' + heading.textContent);
+        canvas.setAttribute('role', 'img');
+    }
+    // Add download button
+    const body = canvas && canvas.closest('.chart-body');
+    if (body && !body.querySelector('.chart-download')) {
+        const btn = document.createElement('button');
+        btn.className = 'chart-download';
+        btn.textContent = 'PNG';
+        btn.title = 'Download chart as PNG';
+        btn.type = 'button';
+        btn.addEventListener('click', () => {
+            const tmp = document.createElement('a');
+            tmp.href = canvas.toDataURL('image/png');
+            tmp.download = (id || 'chart') + '.png';
+            tmp.click();
+        });
+        body.style.position = 'relative';
+        body.appendChild(btn);
+    }
+    const defaults = {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 1000, easing: 'easeOutQuart' }
+    };
+    const options = Object.assign({}, defaults, overrides);
+    if (overrides && overrides.scales) options.scales = overrides.scales;
+    if (overrides && overrides.plugins) options.plugins = overrides.plugins;
+    if (overrides && overrides.animation) options.animation = overrides.animation;
+    return new Chart(canvas, { type, data, options });
+}
+
+/* ======== Lazy Chart Rendering ======== */
+function lazyChart(id, type, data, overrides) {
+    const canvas = document.getElementById(id);
+    if (!canvas) return;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                createChart(id, type, data, overrides);
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    observer.observe(canvas);
+}

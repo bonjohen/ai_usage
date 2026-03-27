@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <meta name="description" content="Executive summary of AI coding tool adoption and trust research (2016-2026). Key findings in 5 minutes.">
+    <meta property="og:title" content="Executive Summary — AI Coding Tool Adoption">
+    <meta property="og:description" content="Executive summary of AI coding tool adoption and trust research (2016-2026). Key findings in 5 minutes.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="favicon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Executive Summary — AI Coding Tool Adoption">
+    <meta name="twitter:description" content="Executive summary of AI coding tool adoption and trust research (2016-2026). Key findings in 5 minutes.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Executive Summary — AI Coding Tool Adoption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" integrity="sha384-vsrfeLOOY6KuIYKDlmVH5UiBmgIdB1oEf7p01YgWHuqmOHfZr374+odEv96n9tNC" crossorigin="anonymous"></script>
+</head>
+<body data-page="summary">
+    <div class="grain"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <nav id="nav"></nav>
+
+    <!-- Page Header -->
+    <main id="main">
+    <header class="page-header">
+        <div class="container">
+            <span class="section-num reveal">SUMMARY</span>
+            <h1 class="section-title reveal reveal-d1">Executive Summary</h1>
+            <p class="section-lead reveal reveal-d2">The five-minute version for time-constrained readers</p>
+        </div>
+    </header>
+
+    <!-- Key Findings -->
+    <section class="section" style="padding-top:0">
+        <div class="container">
+            <div class="stat-row reveal">
+                <div class="stat-card stat-card--amber">
+                    <span class="stat-card__source">Stack Overflow 2025</span>
+                    <span class="stat-card__value">78.5%</span>
+                    <span class="stat-card__label">of developers use AI tools</span>
+                </div>
+                <div class="stat-card stat-card--red">
+                    <span class="stat-card__source">Stack Overflow 2025</span>
+                    <span class="stat-card__value">46%</span>
+                    <span class="stat-card__label">distrust AI output</span>
+                </div>
+                <div class="stat-card stat-card--violet">
+                    <span class="stat-card__source">Stack Overflow 2025</span>
+                    <span class="stat-card__value">47.1%</span>
+                    <span class="stat-card__label">use AI tools daily</span>
+                </div>
+                <div class="stat-card stat-card--cyan">
+                    <span class="stat-card__source">Stack Overflow 2025</span>
+                    <span class="stat-card__value">30.9%</span>
+                    <span class="stat-card__label">use agentic AI tools</span>
+                </div>
+                <div class="stat-card stat-card--green">
+                    <span class="stat-card__source">GitHub / Microsoft FY25</span>
+                    <span class="stat-card__value">4.7M</span>
+                    <span class="stat-card__label">Copilot paid subscribers</span>
+                </div>
+            </div>
+
+            <!-- Insight: The Adoption Surge -->
+            <div class="insight-callout reveal">
+                <div class="insight-callout__label">Key Finding</div>
+                <h2 class="insight-callout__title">The Adoption Surge</h2>
+                <div class="insight-callout__body">
+                    <p>Between 2023 and 2025, AI coding tool adoption among developers accelerated from <strong>43.8% to 78.5%</strong> according to Stack Overflow's annual developer survey. That's a <span class="metric-highlight">34.7 percentage-point jump</span> in just two years — a pace that outstrips almost every prior developer tooling shift. The inflection point was 2024, when ChatGPT and Copilot crossed from novelty to daily infrastructure.</p>
+                </div>
+                <div class="insight-callout__source">Source: Stack Overflow Developer Survey 2023, 2024, 2025</div>
+            </div>
+
+            <!-- Insight: The Trust Paradox -->
+            <div class="insight-callout reveal">
+                <div class="insight-callout__label">Key Finding</div>
+                <h2 class="insight-callout__title">The Trust Paradox</h2>
+                <div class="insight-callout__body">
+                    <p>Despite near-universal adoption, trust remains strikingly low. <strong>46% of developers distrust AI-generated output</strong>, and only <strong>3% express high trust</strong>. Developers are using these tools constantly while simultaneously doubting what they produce. The gap between usage and trust is the defining tension of the current era — teams ship AI-assisted code faster but spend growing effort on review and verification.</p>
+                </div>
+                <div class="insight-callout__source">Source: Stack Overflow Developer Survey 2025</div>
+            </div>
+
+            <!-- Insight: The Agentic Frontier -->
+            <div class="insight-callout reveal">
+                <div class="insight-callout__label">Key Finding</div>
+                <h2 class="insight-callout__title">The Agentic Frontier</h2>
+                <div class="insight-callout__body">
+                    <p>Agentic AI — tools that autonomously plan, execute, and iterate on multi-step coding tasks — has already reached <strong>30.9% adoption</strong> among developers. Meanwhile, METR's research shows that the task duration frontier AI agents can handle has been <span class="metric-highlight">doubling every ~89 days</span> since 2024. The shift from assistive completions to autonomous agents represents the next wave, but it also amplifies verification debt: the effort shifts from writing code to reviewing and debugging what the agent produced.</p>
+                </div>
+                <div class="insight-callout__source">Sources: Stack Overflow 2025, METR Time Horizons (metr.org)</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="page-nav">
+        <a href="index.html" class="page-nav__link page-nav__link--prev">&larr; Home</a>
+        <a href="adoption.html" class="page-nav__link page-nav__link--next">Adoption &rarr;</a>
+    </div>
+
+    </main>
+
+    <footer id="footer"></footer>
+    <script src="js/shared.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/data-loader.js"></script>
+</body>
+</html>

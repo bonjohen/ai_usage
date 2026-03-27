@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <meta name="description" content="AI coding tool adoption varies by experience, role, and company size. Career stage, enterprise policy, and task-based tool preferences.">
+    <meta property="og:title" content="Who Adopts — AI Coding Tool Adoption">
+    <meta property="og:description" content="AI coding tool adoption varies by experience, role, and company size. Career stage, enterprise policy, and task-based tool preferences.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yourusername.github.io/ai_usage/segments.html">
+    <meta property="og:image" content="favicon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Who Adopts — AI Coding Tool Adoption">
+    <meta name="twitter:description" content="AI coding tool adoption varies by experience, role, and company size. Career stage, enterprise policy, and task-based tool preferences.">
+    <link rel="canonical" href="https://yourusername.github.io/ai_usage/segments.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>Who Adopts — AI Coding Tool Adoption</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" integrity="sha384-vsrfeLOOY6KuIYKDlmVH5UiBmgIdB1oEf7p01YgWHuqmOHfZr374+odEv96n9tNC" crossorigin="anonymous"></script>
 </head>
 <body data-page="segments">
     <div class="grain"></div>
@@ -16,6 +28,7 @@
     <nav id="nav"></nav>
 
     <!-- Page Header -->
+    <main id="main">
     <header class="page-header">
         <div class="container">
             <span class="section-num reveal">04 / SEGMENTS</span>
@@ -30,7 +43,7 @@
             <div class="chart-grid reveal">
                 <div class="chart-wrap" data-chart="career">
                     <div class="chart-header">
-                        <h3>Daily AI Use by Career Stage</h3>
+                        <h2>Daily AI Use by Career Stage</h2>
                         <p class="chart-subtitle">Stack Overflow 2025</p>
                     </div>
                     <div class="chart-body" style="height:260px">
@@ -40,7 +53,7 @@
                 </div>
                 <div class="chart-wrap" data-chart="roleGen">
                     <div class="chart-header">
-                        <h3>AI-Generated Code % by Role</h3>
+                        <h2>AI-Generated Code % by Role</h2>
                         <p class="chart-subtitle">HackerRank 2025 — which roles lean hardest on AI output</p>
                     </div>
                     <div class="chart-body" style="height:260px">
@@ -53,7 +66,7 @@
             <!-- Row 2: Task-Based Tool Selection -->
             <div class="chart-wrap reveal" style="margin-top:8px">
                 <div class="chart-header">
-                    <h3>Tool Preference by Task</h3>
+                    <h2>Tool Preference by Task</h2>
                     <p class="chart-subtitle">HackerRank 2025 — developers choose different tools for different jobs</p>
                 </div>
                 <div class="chart-body" style="height:300px">
@@ -66,7 +79,7 @@
             <div class="chart-grid reveal" style="margin-top:8px">
                 <div class="chart-wrap" data-chart="enterprise">
                     <div class="chart-header">
-                        <h3>Enterprise Policy Posture</h3>
+                        <h2>Enterprise Policy Posture</h2>
                         <p class="chart-subtitle">JetBrains Developer Ecosystem 2024</p>
                     </div>
                     <div class="chart-body" style="height:260px">
@@ -76,7 +89,7 @@
                 </div>
                 <div class="chart-wrap" data-chart="codeDepth">
                     <div class="chart-header">
-                        <h3>How Much Code Does AI Write?</h3>
+                        <h2>How Much Code Does AI Write?</h2>
                         <p class="chart-subtitle">HackerRank 2025 — depth of reliance on AI-generated code</p>
                     </div>
                     <div class="chart-body" style="height:260px">
@@ -89,7 +102,7 @@
             <!-- Row 4: Company Size Tool Choice -->
             <div class="chart-wrap reveal" style="margin-top:8px">
                 <div class="chart-header">
-                    <h3>Tool Choice by Company Size</h3>
+                    <h2>Tool Choice by Company Size</h2>
                     <p class="chart-subtitle">Pragmatic Engineer 2026 (n=906) — procurement dynamics drive divergence</p>
                 </div>
                 <div class="chart-body" style="height:280px">
@@ -122,158 +135,120 @@
                 </div>
             </div>
 
-            <!-- Page Nav -->
-            <div class="page-nav reveal">
-                <a href="agentic-split.html" class="page-nav__link page-nav__link--prev">
-                    <span class="page-nav__arrow">&larr;</span>
-                    <span class="page-nav__label">Agentic Split</span>
-                </a>
-                <a href="trust.html" class="page-nav__link page-nav__link--next">
-                    <span class="page-nav__label">Trust</span>
-                    <span class="page-nav__arrow">&rarr;</span>
-                </a>
-            </div>
         </div>
     </section>
+
+    <div class="page-nav">
+        <a href="agentic-split.html" class="page-nav__link page-nav__link--prev">&larr; Agentic Split</a>
+        <a href="trust.html" class="page-nav__link page-nav__link--next">Trust &rarr;</a>
+    </div>
+
+    </main>
 
     <footer id="footer"></footer>
 
     <script src="js/shared.js"></script>
     <script src="js/charts.js"></script>
+    <script src="js/data-loader.js"></script>
     <script>
     /* ======== Segments Page Charts ======== */
-    const charts = {};
 
     /* -- Career Stage -- */
-    charts.career = new Chart(document.getElementById('careerChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Early Career', 'Mid Career', 'Experienced'],
-            datasets: [{
-                label: 'Daily AI Use',
-                data: [55.5, 52.8, 47.3],
-                backgroundColor: [C.amberA, C.amberA, C.amberA],
-                borderColor: [C.amber, C.amber, C.amber],
-                borderWidth: 1, borderRadius: 6
-            }]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: {
-                x: { grid: { display: false } },
-                y: { min: 40, max: 60, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
-            },
-            animation: { duration: 1000, easing: 'easeOutQuart' }
+    createChart('careerChart', 'bar', {
+        labels: ['Early Career', 'Mid Career', 'Experienced'],
+        datasets: [{
+            label: 'Daily AI Use',
+            data: [55.5, 52.8, 47.3],
+            backgroundColor: [C.amberA, C.amberA, C.amberA],
+            borderColor: [C.amber, C.amber, C.amber],
+            borderWidth: 1, borderRadius: 6
+        }]
+    }, {
+        plugins: { legend: { display: false } },
+        scales: {
+            x: { grid: { display: false } },
+            y: { min: 40, max: 60, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
         }
     });
 
     /* -- Role-Based AI Code Generation -- */
-    charts.roleGen = new Chart(document.getElementById('roleGenChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Security Eng.', 'Cloud Eng.', 'Data Eng.', 'Backend', 'Frontend', 'DevOps', 'Mobile'],
-            datasets: [{
-                label: '% Code AI-Generated',
-                data: [38, 36, 34, 30, 28, 27, 24],
-                backgroundColor: [C.redA, C.cyanA, C.violetA, C.amberA, C.amberA, C.amberA, C.amberA],
-                borderColor: [C.red, C.cyan, C.violet, C.amber, C.amber, C.amber, C.amber],
-                borderWidth: 1, borderRadius: 6
-            }]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: {
-                x: { grid: { display: false }, ticks: { font: { size: 10 } } },
-                y: { min: 15, max: 45, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
-            },
-            animation: { duration: 1000, easing: 'easeOutQuart' }
+    createChart('roleGenChart', 'bar', {
+        labels: ['Security Eng.', 'Cloud Eng.', 'Data Eng.', 'Backend', 'Frontend', 'DevOps', 'Mobile'],
+        datasets: [{
+            label: '% Code AI-Generated',
+            data: [38, 36, 34, 30, 28, 27, 24],
+            backgroundColor: [C.redA, C.cyanA, C.violetA, C.amberA, C.amberA, C.amberA, C.amberA],
+            borderColor: [C.red, C.cyan, C.violet, C.amber, C.amber, C.amber, C.amber],
+            borderWidth: 1, borderRadius: 6
+        }]
+    }, {
+        plugins: { legend: { display: false } },
+        scales: {
+            x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+            y: { min: 15, max: 45, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
         }
     });
 
     /* -- Task-Based Tool Selection -- */
-    charts.taskTool = new Chart(document.getElementById('taskToolChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Code Writing', 'Refactoring', 'Testing', 'Debugging', 'Integration', 'Deployment'],
-            datasets: [
-                { label: 'ChatGPT', data: [75, 62, 48, 70, 42, 35], backgroundColor: C.amberA, borderColor: C.amber, borderWidth: 1, borderRadius: 4 },
-                { label: 'Copilot', data: [68, 58, 45, 52, 38, 30], backgroundColor: C.cyanA, borderColor: C.cyan, borderWidth: 1, borderRadius: 4 },
-                { label: 'Claude', data: [52, 55, 38, 48, 35, 28], backgroundColor: C.violetA, borderColor: C.violet, borderWidth: 1, borderRadius: 4 },
-                { label: 'Cursor', data: [45, 40, 52, 42, 48, 44], backgroundColor: C.greenA, borderColor: C.green, borderWidth: 1, borderRadius: 4 }
-            ]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { position: 'bottom', labels: { padding: 16 } } },
-            scales: {
-                x: { grid: { display: false } },
-                y: { grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
-            },
-            animation: { duration: 1000, easing: 'easeOutQuart' }
+    createChart('taskToolChart', 'bar', {
+        labels: ['Code Writing', 'Refactoring', 'Testing', 'Debugging', 'Integration', 'Deployment'],
+        datasets: [
+            { label: 'ChatGPT', data: [75, 62, 48, 70, 42, 35], backgroundColor: C.amberA, borderColor: C.amber, borderWidth: 1, borderRadius: 4 },
+            { label: 'Copilot', data: [68, 58, 45, 52, 38, 30], backgroundColor: C.cyanA, borderColor: C.cyan, borderWidth: 1, borderRadius: 4 },
+            { label: 'Claude', data: [52, 55, 38, 48, 35, 28], backgroundColor: C.violetA, borderColor: C.violet, borderWidth: 1, borderRadius: 4 },
+            { label: 'Cursor', data: [45, 40, 52, 42, 48, 44], backgroundColor: C.greenA, borderColor: C.green, borderWidth: 1, borderRadius: 4 }
+        ]
+    }, {
+        plugins: { legend: { position: 'bottom', labels: { padding: 16 } } },
+        scales: {
+            x: { grid: { display: false } },
+            y: { grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
         }
     });
 
     /* -- Enterprise Policy -- */
-    charts.enterprise = new Chart(document.getElementById('enterpriseChart'), {
-        type: 'doughnut',
-        data: {
-            labels: ['Allow (varying extent)', 'No established policy', 'Prohibit AI tools'],
-            datasets: [{
-                data: [55, 34, 11],
-                backgroundColor: [C.greenA, C.amberA, C.redA],
-                borderWidth: 0, spacing: 2, borderRadius: 4
-            }]
+    createChart('enterpriseChart', 'doughnut', {
+        labels: ['Allow (varying extent)', 'No established policy', 'Prohibit AI tools'],
+        datasets: [{
+            data: [55, 34, 11],
+            backgroundColor: [C.greenA, C.amberA, C.redA],
+            borderWidth: 0, spacing: 2, borderRadius: 4
+        }]
+    }, {
+        cutout: '58%',
+        plugins: {
+            legend: { position: 'right', labels: { font: { size: 11 }, padding: 10 } }
         },
-        options: {
-            responsive: true, maintainAspectRatio: false, cutout: '58%',
-            plugins: {
-                legend: { position: 'right', labels: { font: { size: 11 }, padding: 10 } }
-            },
-            animation: { animateRotate: true, duration: 1200, easing: 'easeOutQuart' }
-        }
+        animation: { animateRotate: true, duration: 1200, easing: 'easeOutQuart' }
     });
 
     /* -- Code Generation Depth -- */
-    charts.codeDepth = new Chart(document.getElementById('codeDepthChart'), {
-        type: 'bar',
-        data: {
-            labels: ['All Developers\n(Average)', 'Regular Users', '"Almost Always"\nAI Users'],
-            datasets: [
-                { label: '% Code AI-Generated', data: [29, 35, 48], backgroundColor: [C.amberA, C.violetA, C.cyanA], borderColor: [C.amber, C.violet, C.cyan], borderWidth: 1, borderRadius: 6 }
-            ]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: {
-                x: { grid: { display: false } },
-                y: { max: 60, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
-            },
-            animation: { duration: 1000, easing: 'easeOutQuart' }
+    createChart('codeDepthChart', 'bar', {
+        labels: ['All Developers\n(Average)', 'Regular Users', '"Almost Always"\nAI Users'],
+        datasets: [
+            { label: '% Code AI-Generated', data: [29, 35, 48], backgroundColor: [C.amberA, C.violetA, C.cyanA], borderColor: [C.amber, C.violet, C.cyan], borderWidth: 1, borderRadius: 6 }
+        ]
+    }, {
+        plugins: { legend: { display: false } },
+        scales: {
+            x: { grid: { display: false } },
+            y: { max: 60, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
         }
     });
 
     /* -- Company Size Tool Choice -- */
-    charts.companySize = new Chart(document.getElementById('companySizeChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Smallest (<50)', 'Small (50–200)', 'Medium (200–1K)', 'Large (1K–10K)', 'Enterprise (10K+)'],
-            datasets: [
-                { label: 'Claude Code', data: [75, 62, 48, 35, 22], backgroundColor: C.violetA, borderColor: C.violet, borderWidth: 1, borderRadius: 4 },
-                { label: 'Copilot', data: [30, 38, 52, 62, 72], backgroundColor: C.cyanA, borderColor: C.cyan, borderWidth: 1, borderRadius: 4 },
-                { label: 'Cursor', data: [42, 38, 35, 28, 18], backgroundColor: C.amberA, borderColor: C.amber, borderWidth: 1, borderRadius: 4 }
-            ]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { position: 'bottom', labels: { padding: 16 } } },
-            scales: {
-                x: { grid: { display: false }, ticks: { font: { size: 10 } } },
-                y: { max: 85, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
-            },
-            animation: { duration: 1000, easing: 'easeOutQuart' }
+    createChart('companySizeChart', 'bar', {
+        labels: ['Smallest (<50)', 'Small (50–200)', 'Medium (200–1K)', 'Large (1K–10K)', 'Enterprise (10K+)'],
+        datasets: [
+            { label: 'Claude Code', data: [75, 62, 48, 35, 22], backgroundColor: C.violetA, borderColor: C.violet, borderWidth: 1, borderRadius: 4 },
+            { label: 'Copilot', data: [30, 38, 52, 62, 72], backgroundColor: C.cyanA, borderColor: C.cyan, borderWidth: 1, borderRadius: 4 },
+            { label: 'Cursor', data: [42, 38, 35, 28, 18], backgroundColor: C.amberA, borderColor: C.amber, borderWidth: 1, borderRadius: 4 }
+        ]
+    }, {
+        plugins: { legend: { position: 'bottom', labels: { padding: 16 } } },
+        scales: {
+            x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+            y: { max: 85, grid: { color: C.grid }, ticks: { callback: v => v + '%' } }
         }
     });
     </script>

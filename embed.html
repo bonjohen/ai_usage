@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <meta name="description" content="Embeddable charts from the AI Coding Tool Adoption research — adoption rates, trust metrics, tool comparisons, and usage frequency.">
     <title>Embed Chart — AI Coding Tool Adoption</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" integrity="sha384-vsrfeLOOY6KuIYKDlmVH5UiBmgIdB1oEf7p01YgWHuqmOHfZr374+odEv96n9tNC" crossorigin="anonymous"></script>
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --bg: #080c18; --card: #151b30; --border: #1e2440;
-            --text: #eae8e3; --text-sec: #9b9da6; --text-dim: #5a5d6a;
+            --text: #eae8e3; --text-sec: #9b9da6; --text-dim: #888c98;
         }
         body { font-family: 'Albert Sans', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
         .embed-wrap {
@@ -32,6 +35,7 @@
     </style>
 </head>
 <body>
+    <main>
     <div class="embed-wrap">
         <div class="embed-title" id="title">Loading...</div>
         <div class="embed-subtitle" id="subtitle"></div>
@@ -41,6 +45,7 @@
             <a href="index.html" target="_blank">AI / CODE</a>
         </div>
     </div>
+    </main>
 
     <script src="js/charts.js"></script>
     <script>
@@ -166,11 +171,7 @@
         document.getElementById('title').textContent = config.title;
         document.getElementById('subtitle').textContent = config.subtitle;
         document.getElementById('source').textContent = config.source;
-        new Chart(document.getElementById('chart'), {
-            type: config.type,
-            data: config.data,
-            options: { ...config.options, animation: { duration: 800, easing: 'easeOutQuart' } }
-        });
+        createChart('chart', config.type, config.data, { ...config.options, animation: { duration: 800, easing: 'easeOutQuart' } });
     } else {
         document.getElementById('title').textContent = 'Chart not found';
         document.getElementById('subtitle').textContent = 'Available: ' + Object.keys(CHARTS).join(', ');

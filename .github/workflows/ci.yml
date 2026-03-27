@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: HTML validation
+        run: npx html-validate "*.html"
+
+      - name: Link checking
+        run: |
+          npx http-server . -p 8080 -s &
+          sleep 2
+          npx linkinator http://localhost:8080/index.html \
+            --recurse \
+            --skip "fonts.googleapis.com|fonts.gstatic.com|cdn.jsdelivr.net|schema.org|yourusername|unpkg.com|pagefind" \
+            --verbosity error
+          kill %1
+
+      - name: Lighthouse CI
+        run: |
+          npm install -g @lhci/cli
+          npx http-server . -p 8080 -s &
+          sleep 2
+          lhci autorun --collect.url=http://localhost:8080/index.html \
+            --collect.url=http://localhost:8080/adoption.html \
+            --collect.url=http://localhost:8080/tools.html \
+            --collect.url=http://localhost:8080/trust.html \
+            --assert.preset=lighthouse:recommended \
+            --assert.assertions.color-contrast=off \
+            --assert.assertions.csp-xss=off \
+            --assert.assertions.uses-http2=off \
+            --assert.assertions.redirects-http=off \
+            --assert.assertions.is-on-https=off \
+            --assert.assertions.canonical=off \
+            --assert.assertions.uses-long-cache-ttl=off \
+            --upload.target=temporary-public-storage || true
+          kill %1
